@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 function ModernReversedSignOutPage() {
   return (
     <div className="flex flex-col flex-auto items-center sm:justify-center min-w-0 md:p-32">
-      <Paper className="flex md:w-full md:max-w-6xl sm:rounded-2xl sm:shadow overflow-hidden">
+      <Paper className="flex w-full sm:w-auto min-h-full sm:min-h-auto md:w-full md:max-w-6xl rounded-0 sm:rounded-2xl sm:shadow overflow-hidden">
         <Box
           className="relative hidden md:flex flex-auto items-center justify-center h-full p-64 lg:px-112 overflow-hidden"
           sx={{ backgroundColor: 'primary.main' }}
@@ -87,7 +87,7 @@ function ModernReversedSignOutPage() {
           </div>
         </Box>
 
-        <div className="w-full sm:w-auto py-32 px-16 sm:p-48 md:p-64 rtl:border-r-1 ltr:border-l-1">
+        <div className="flex items-center w-full sm:w-auto py-32 px-16 sm:p-48 md:p-64 rtl:border-r-1 ltr:border-l-1">
           <div className="w-full max-w-320 sm:w-320 mx-auto sm:mx-0">
             <img className="w-48 mx-auto" src="assets/images/logo/logo.svg" alt="logo" />
 

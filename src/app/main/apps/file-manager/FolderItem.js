@@ -18,7 +18,7 @@ function FolderItem(props) {
   return (
     <Box
       sx={{ backgroundColor: 'background.paper' }}
-      className="relative w-160 h-160 m-8 p-16 shadow rounded-16"
+      className="relative w-full sm:w-160 h-160 m-8 p-16 shadow rounded-16"
     >
       <IconButton
         className="absolute z-20 top-0 right-0 m-6 w-32 h-32 min-h-32"

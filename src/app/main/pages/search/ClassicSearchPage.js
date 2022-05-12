@@ -34,7 +34,7 @@ function ClassicSearchPage() {
   return (
     <FusePageSimple
       header={
-        <div className="flex flex-1 items-center p-24 sm:p-32 max-w-md">
+        <div className="flex flex-1 items-center p-24 sm:p-32 w-full max-w-md">
           <Paper className="flex items-center h-44 w-full px-16 rounded-16 shadow">
             <Input
               placeholder="Search..."
@@ -49,7 +49,7 @@ function ClassicSearchPage() {
         </div>
       }
       content={
-        <div className="flex flex-col flex-auto h-full p-24 pt-0 sm:p-32 sm:pt-0 max-w-md">
+        <div className="flex flex-col flex-auto h-full p-24 pt-0 sm:p-32 sm:pt-0 w-full max-w-md">
           <div className="flex flex-1 flex-col">
             {data.length > 0 && (
               <motion.div variants={container} initial="hidden" animate="show">

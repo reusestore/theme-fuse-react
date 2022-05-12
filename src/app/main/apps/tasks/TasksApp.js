@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import { styled } from '@mui/material/styles';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import TasksSidebarContent from './TasksSidebarContent';
 import TasksHeader from './TasksHeader';
 import TasksList from './TasksList';
@@ -23,6 +24,7 @@ function TasksApp(props) {
   const pageLayout = useRef(null);
   const routeParams = useParams();
   const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
   useDeepCompareEffect(() => {
     dispatch(getTasks());
@@ -42,7 +44,7 @@ function TasksApp(props) {
       rightSidebarOpen={rightSidebarOpen}
       rightSidebarOnClose={() => setRightSidebarOpen(false)}
       rightSidebarWidth={640}
-      scroll="content"
+      scroll={isMobile ? 'page' : 'content'}
     />
   );
 }

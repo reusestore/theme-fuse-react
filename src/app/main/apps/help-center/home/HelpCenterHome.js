@@ -189,14 +189,14 @@ function HelpCenterHome() {
         </div>
       </div>
 
-      <Typography className="mt-96 text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight text-center">
+      <Typography className="mt-96 px-16 text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight text-center">
         Most frequently asked questions
       </Typography>
-      <Typography className="mt-8 text-xl text-center" color="text.secondary">
+      <Typography className="mt-8 px-16 text-xl text-center" color="text.secondary">
         Here are the most frequently asked questions you may check before getting started
       </Typography>
 
-      <div className="flex flex-col w-full items-center my-48">
+      <div className="flex flex-col w-full px-16 items-center my-48">
         <FaqList className="w-full max-w-4xl" list={faqsMost} />
       </div>
     </div>

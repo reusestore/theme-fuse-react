@@ -42,8 +42,12 @@ function MailboxApp(props) {
   }, [dispatch]);
 
   useEffect(() => {
-    setRightSidebarOpen(Boolean(mailId));
-  }, [mailId]);
+    if (isMobile) {
+      setRightSidebarOpen(Boolean(mailId));
+    } else {
+      setRightSidebarOpen(true);
+    }
+  }, [mailId, isMobile]);
 
   useEffect(() => {
     setLeftSidebarOpen(!isMobile);
@@ -62,7 +66,7 @@ function MailboxApp(props) {
       leftSidebarOpen={leftSidebarOpen}
       leftSidebarOnClose={() => setLeftSidebarOpen(false)}
       leftSidebarWidth={288}
-      scroll="content"
+      scroll={isMobile ? 'page' : 'content'}
       rightSidebarContent={<Outlet />}
       rightSidebarOpen={rightSidebarOpen}
       rightSidebarOnClose={() => setRightSidebarOpen(false)}

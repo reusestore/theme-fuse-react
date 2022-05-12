@@ -52,7 +52,7 @@ function HelpCenterSupport() {
         </div>
 
         <Paper className="mt-32 sm:mt-48 p-24 pb-28 sm:p-40 sm:pb-28 rounded-2xl">
-          <form onSubmit={handleSubmit(onSubmit)} className="px-24">
+          <form onSubmit={handleSubmit(onSubmit)} className="px-0 sm:px-24">
             <div className="mb-24">
               <Typography className="text-2xl font-bold tracking-tight">
                 Submit your request

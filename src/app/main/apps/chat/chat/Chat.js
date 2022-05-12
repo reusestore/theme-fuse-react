@@ -170,7 +170,6 @@ function Chat(props) {
         <Toolbar className="flex items-center justify-between px-16 w-full">
           <div className="flex items-center">
             <IconButton
-              color="inherit"
               aria-label="Open drawer"
               onClick={() => setMainSidebarOpen(true)}
               className="flex lg:hidden"

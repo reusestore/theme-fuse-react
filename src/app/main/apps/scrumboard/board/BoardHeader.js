@@ -5,8 +5,8 @@ import BoardTitle from './BoardTitle';
 
 function BoardHeader(props) {
   return (
-    <div className="p-24 sm:p-32 w-full border-b-1 flex items-center justify-between container">
-      <div className="flex items-center">
+    <div className="p-24 sm:p-32 w-full border-b-1 flex flex-col sm:flex-row items-center justify-between container">
+      <div className="flex items-center mb-12 sm:mb-0">
         <BoardTitle />
       </div>
 

@@ -133,8 +133,8 @@ function EventDialog(props) {
       onClose={closeComposeDialog}
       component="form"
     >
-      <div className="flex flex-col w-full p-24 pt-32 sm:pt-40 sm:p-32 w-480">
-        <div className="flex space-x-24 mb-16">
+      <div className="flex flex-col max-w-full p-24 pt-32 sm:pt-40 sm:p-32 w-480">
+        <div className="flex sm:space-x-24 mb-16">
           <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
             heroicons-outline:pencil-alt
           </FuseSvgIcon>
@@ -161,7 +161,7 @@ function EventDialog(props) {
           />
         </div>
 
-        <div className="flex space-x-24 mb-16">
+        <div className="flex sm:space-x-24 mb-16">
           <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
             heroicons-outline:calendar
           </FuseSvgIcon>
@@ -223,7 +223,7 @@ function EventDialog(props) {
           </div>
         </div>
 
-        <div className="flex space-x-24 mb-16">
+        <div className="flex sm:space-x-24 mb-16">
           <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
             heroicons-outline:tag
           </FuseSvgIcon>
@@ -235,7 +235,7 @@ function EventDialog(props) {
           />
         </div>
 
-        <div className="flex space-x-24 mb-16">
+        <div className="flex sm:space-x-24 mb-16">
           <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
             heroicons-outline:menu-alt-2
           </FuseSvgIcon>

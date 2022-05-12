@@ -19,8 +19,8 @@ const ChatFirstScreen = () => {
         Select a conversation or start a new chat
       </Typography>
       <Button
-        variant="outlined"
-        color="primary"
+        variant="contained"
+        color="secondary"
         className="flex md:hidden"
         onClick={() => setMainSidebarOpen(true)}
       >

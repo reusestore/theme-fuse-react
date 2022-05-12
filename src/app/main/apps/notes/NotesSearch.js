@@ -15,7 +15,7 @@ function NotesSearch(props) {
       component={motion.div}
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
-      className="flex flex-1 items-center px-16 rounded-full h-40 w-full max-w-320 sm:max-w-240"
+      className="flex flex-1 items-center px-16 rounded-full h-40 w-fullsm:max-w-240"
       placeholder="Search note"
       variant="outlined"
       fullWidth

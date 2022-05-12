@@ -1018,10 +1018,10 @@ const navigationConfig = [
     icon: 'verified_user',
     children: [
       {
-        id: 'login',
-        title: 'Login',
+        id: 'sign-in',
+        title: 'Sign in',
         type: 'item',
-        url: 'login',
+        url: 'sign-in',
         auth: authRoles.onlyGuest,
         icon: 'lock',
       },
@@ -1034,11 +1034,11 @@ const navigationConfig = [
         icon: 'person_add',
       },
       {
-        id: 'logout',
-        title: 'Logout',
+        id: 'sign-out',
+        title: 'Sign out',
         type: 'item',
         auth: authRoles.user,
-        url: 'logout',
+        url: 'sign-out',
         icon: 'exit_to_app',
       },
       {

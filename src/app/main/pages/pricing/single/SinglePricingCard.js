@@ -56,7 +56,12 @@ function SinglePricingCard() {
         className="flex flex-col items-center p-8 lg:px-40 lg:py-48 lg:min-w-320"
       >
         <div className="flex items-center whitespace-nowrap">
-          <Typography className="text-8xl font-extrabold tracking-tight">$599</Typography>
+          <Typography
+            className="text-8xl font-extrabold tracking-tight"
+            color="primary.contrastText"
+          >
+            $599
+          </Typography>
           <Typography className="ml-2 text-2xl font-semibold" color="text.secondary">
             USD
           </Typography>

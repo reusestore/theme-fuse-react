@@ -43,7 +43,7 @@ function ModernUnlockSessionPage() {
 
   return (
     <div className="flex flex-col flex-auto items-center sm:justify-center min-w-0 md:p-32">
-      <Paper className="flex md:w-full md:max-w-6xl sm:rounded-2xl sm:shadow overflow-hidden">
+      <Paper className="flex w-full sm:w-auto min-h-full sm:min-h-auto md:w-full md:max-w-6xl rounded-0 sm:rounded-2xl sm:shadow overflow-hidden">
         <div className="w-full sm:w-auto py-32 px-16 sm:p-48 md:p-64 ltr:border-r-1 rtl:border-l-1">
           <div className="w-full max-w-320 sm:w-320 mx-auto sm:mx-0">
             <img className="w-48" src="assets/images/logo/logo.svg" alt="logo" />

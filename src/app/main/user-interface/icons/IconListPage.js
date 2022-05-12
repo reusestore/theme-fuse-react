@@ -81,6 +81,7 @@ function IconListPage(props) {
           <div>
             {referenceUrl && (
               <Button
+                className="mt-12 sm:mt-0"
                 variant="contained"
                 color="secondary"
                 component="a"
@@ -89,7 +90,7 @@ function IconListPage(props) {
                 role="button"
                 startIcon={<FuseSvgIcon>heroicons-solid:external-link</FuseSvgIcon>}
               >
-                <span className="mx-4 hidden sm:flex">Official docs</span>
+                Official docs
               </Button>
             )}
           </div>
@@ -107,7 +108,7 @@ function IconListPage(props) {
 
           <Typography className="text-20 font-700 mt-32 mb-16">Icons</Typography>
 
-          <div className="flex flex-col md:flex-row justify-center md:items-end my-24 xs:flex-col space-x-24">
+          <div className="flex flex-col md:flex-row justify-center md:items-end my-24 xs:flex-col md:space-x-24">
             <div className="flex flex-1">
               <Controller
                 name="searchText"
@@ -149,7 +150,7 @@ function IconListPage(props) {
             />
           </div>
 
-          <div className="flex grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-32 py-24">
+          <div className="flex grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-12 sm:gap-32 py-24">
             {useMemo(
               () =>
                 filteredData &&

@@ -22,6 +22,7 @@ import InventoryTab from './tabs/InventoryTab';
 import PricingTab from './tabs/PricingTab';
 import ProductImagesTab from './tabs/ProductImagesTab';
 import ShippingTab from './tabs/ShippingTab';
+import useThemeMediaQuery from '../../../../../@fuse/hooks/useThemeMediaQuery';
 
 /**
  * Form Validation Schema
@@ -36,6 +37,7 @@ const schema = yup.object().shape({
 function Product(props) {
   const dispatch = useDispatch();
   const product = useSelector(selectProduct);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
   const routeParams = useParams();
   const [tabValue, setTabValue] = useState(0);
@@ -182,7 +184,7 @@ function Product(props) {
             </div>
           </>
         }
-        scroll="content"
+        scroll={isMobile ? 'page' : 'content'}
       />
     </FormProvider>
   );

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import reducer from '../store';
 import { getOrder, resetOrder, selectOrder } from '../store/orderSlice';
 import InvoiceTab from './tabs/InvoiceTab';
@@ -21,6 +22,7 @@ function Order(props) {
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
   const theme = useTheme();
+  const isMobile = useThemeMediaQuery((_theme) => _theme.breakpoints.down('lg'));
 
   const routeParams = useParams();
   const { orderId } = routeParams;
@@ -94,19 +96,18 @@ function Order(props) {
               </Typography>
             </motion.div>
 
-            <div className="flex flex-col min-w-0 items-center sm:items-start">
-              <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
-              >
-                <Typography className="text-16 sm:text-20 truncate font-semibold">
-                  {`Order ${order.reference}`}
-                </Typography>
-                <Typography variant="caption" className="font-medium">
-                  {`From ${order.customer.firstName} ${order.customer.lastName}`}
-                </Typography>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
+              className="flex flex-col items-center sm:items-start min-w-0 items-center sm:items-start"
+            >
+              <Typography className="text-20 truncate font-semibold">
+                {`Order ${order.reference}`}
+              </Typography>
+              <Typography variant="caption" className="font-medium">
+                {`From ${order.customer.firstName} ${order.customer.lastName}`}
+              </Typography>
+            </motion.div>
           </div>
         )
       }
@@ -134,7 +135,7 @@ function Order(props) {
           )}
         </>
       }
-      scroll="content"
+      scroll={isMobile ? 'page' : 'content'}
     />
   );
 }

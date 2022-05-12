@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import FusePageSimple from '@fuse/core/FusePageSimple';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import reducer from '../store';
 import { getBoard, reorderCard, reorderList, resetBoard, selectBoard } from '../store/boardSlice';
 import BoardAddList from './board-list/BoardAddList';
@@ -20,6 +21,7 @@ import BoardHeader from './BoardHeader';
 function Board(props) {
   const dispatch = useDispatch();
   const board = useSelector(selectBoard);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
   const routeParams = useParams();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -98,7 +100,7 @@ function Board(props) {
         rightSidebarOpen={sidebarOpen}
         rightSidebarContent={<BoardSettingsSidebar onSetSidebarOpen={setSidebarOpen} />}
         rightSidebarOnClose={() => setSidebarOpen(false)}
-        scroll="content"
+        scroll={isMobile ? 'page' : 'content'}
         rightSidebarWidth={320}
       />
       <BoardCardDialog />

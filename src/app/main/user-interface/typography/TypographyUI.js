@@ -35,6 +35,7 @@ function TypographyUI() {
           </div>
           <div>
             <Button
+              className="mt-12 sm:mt-0"
               variant="contained"
               color="secondary"
               component="a"
@@ -43,13 +44,13 @@ function TypographyUI() {
               role="button"
               startIcon={<FuseSvgIcon>heroicons-solid:external-link</FuseSvgIcon>}
             >
-              <span className="mx-4 hidden sm:flex">Official docs</span>
+              Official docs
             </Button>
           </div>
         </div>
       }
       content={
-        <div className="flex-auto p-24 sm:p-40">
+        <div className="flex-auto p-24 sm:p-40 w-full">
           <div className="flex flex-wrap mb-16">
             <div className="flex w-full sm:w-1/2">
               <Typography variant="h1">Display 4</Typography>

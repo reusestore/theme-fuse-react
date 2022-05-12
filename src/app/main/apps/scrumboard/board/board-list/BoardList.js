@@ -42,7 +42,7 @@ function BoardList(props) {
             }}
             className={clsx(
               snapshot.isDragging ? 'shadow-lg' : 'shadow-0',
-              'w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col rounded-xl border'
+              'w-256 sm:w-320 mx-8 max-h-full flex flex-col rounded-xl border'
             )}
             square
           >

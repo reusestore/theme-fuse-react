@@ -42,7 +42,7 @@ function ModernReversedResetPasswordPage() {
 
   return (
     <div className="flex flex-col flex-auto items-center sm:justify-center min-w-0 md:p-32">
-      <Paper className="flex md:w-full md:max-w-6xl sm:rounded-2xl sm:shadow overflow-hidden">
+      <Paper className="flex w-full sm:w-auto min-h-full sm:min-h-auto md:w-full md:max-w-6xl rounded-0 sm:rounded-2xl sm:shadow overflow-hidden">
         <Box
           className="relative hidden md:flex flex-auto items-center justify-center h-full p-64 lg:px-112 overflow-hidden"
           sx={{ backgroundColor: 'primary.main' }}

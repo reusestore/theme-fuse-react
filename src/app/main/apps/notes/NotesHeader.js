@@ -13,7 +13,7 @@ function NotesHeader(props) {
   const variateDescSize = useSelector(selectVariateDescSize);
 
   return (
-    <div className="flex flex-1 items-center justify-between p-8 sm:p-24 sm:px-32 relative">
+    <div className="flex flex-col sm:flex-row flex-1 items-center justify-between p-8 sm:p-24 sm:px-32 relative">
       <div className="flex shrink items-center sm:w-224">
         <Hidden lgUp>
           <IconButton
@@ -31,14 +31,14 @@ function NotesHeader(props) {
             initial={{ x: -20 }}
             animate={{ x: 0, transition: { delay: 0.2 } }}
             delay={300}
-            className="hidden sm:block text-24 md:text-32 font-extrabold tracking-tight leading-none"
+            className="text-24 md:text-32 font-extrabold tracking-tight leading-none"
           >
             Notes
           </Typography>
         </div>
       </div>
 
-      <div className="flex flex-1 items-center justify-end space-x-12">
+      <div className="flex flex-1 w-full sm:w-auto items-center justify-end space-x-12">
         <Tooltip title="Toggle Variate Description Size">
           <IconButton onClick={(ev) => dispatch(toggleVariateDescSize())} size="large">
             <FuseSvgIcon color={variateDescSize ? 'action' : 'disabled'}>

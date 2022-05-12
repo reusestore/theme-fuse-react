@@ -38,7 +38,7 @@ function ProfileApp() {
           />
 
           <div className="flex flex-col flex-0 lg:flex-row items-center max-w-5xl w-full mx-auto px-32 lg:h-72">
-            <div className="-mt-108 lg:-mt-88 rounded-full">
+            <div className="-mt-96 lg:-mt-88 rounded-full">
               <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.1 } }}>
                 <Avatar
                   sx={{ borderColor: 'background.paper' }}
@@ -71,7 +71,7 @@ function ProfileApp() {
               </div>
             </div>
 
-            <div className="flex flex-1 justify-end">
+            <div className="flex flex-1 justify-end my-16 lg:my-0">
               <Tabs
                 value={selectedTab}
                 onChange={handleTabChange}

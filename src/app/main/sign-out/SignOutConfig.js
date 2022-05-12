@@ -1,15 +1,32 @@
-import JwtService from '../../auth/services/jwtService';
-import authRoles from '../../auth/authRoles';
+import SignOutPage from './SignOutPage';
 
 const SignOutConfig = {
-  auth: authRoles.user,
+  settings: {
+    layout: {
+      config: {
+        navbar: {
+          display: false,
+        },
+        toolbar: {
+          display: false,
+        },
+        footer: {
+          display: false,
+        },
+        leftSidePanel: {
+          display: false,
+        },
+        rightSidePanel: {
+          display: false,
+        },
+      },
+    },
+  },
+  auth: null,
   routes: [
     {
       path: 'sign-out',
-      element: () => {
-        JwtService.logout();
-        return 'Logging out..';
-      },
+      element: <SignOutPage />,
     },
   ],
 };

@@ -89,7 +89,10 @@ function Course(props) {
             <CourseProgress className="sticky top-0 z-10" course={course} />
           </Hidden>
           <Hidden lgUp>
-            <Paper className="flex sticky top-0 z-10 items-center w-full p-16 border-b-1">
+            <Paper
+              className="flex sticky top-0 z-10 items-center w-full px-16 py-8 border-b-1 shadow-0"
+              square
+            >
               <IconButton to="/apps/academy/courses" component={Link} className="">
                 <FuseSvgIcon>
                   {theme.direction === 'ltr'
@@ -98,7 +101,7 @@ function Course(props) {
                 </FuseSvgIcon>
               </IconButton>
 
-              <Typography className="text-18 font-medium tracking-tight mx-10">
+              <Typography className="text-13 font-medium tracking-tight mx-10">
                 {course.title}
               </Typography>
             </Paper>

@@ -12,6 +12,7 @@ import reducer from './store';
 import { getTags } from './store/tagsSlice';
 import { getCountries } from './store/countriesSlice';
 import { getContacts } from './store/contactsSlice';
+import useThemeMediaQuery from '../../../../@fuse/hooks/useThemeMediaQuery';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-header': {
@@ -24,6 +25,7 @@ function ContactsApp(props) {
   const pageLayout = useRef(null);
   const routeParams = useParams();
   const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
   useDeepCompareEffect(() => {
     dispatch(getContacts());
@@ -44,7 +46,7 @@ function ContactsApp(props) {
       rightSidebarOpen={rightSidebarOpen}
       rightSidebarOnClose={() => setRightSidebarOpen(false)}
       rightSidebarWidth={640}
-      scroll="content"
+      scroll={isMobile ? 'page' : 'content'}
     />
   );
 }

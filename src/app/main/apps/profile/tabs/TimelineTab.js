@@ -47,12 +47,8 @@ function TimelineTab() {
   return (
     <motion.div variants={container} initial="hidden" animate="show">
       <div className="md:flex">
-        <div className="flex flex-col md:w-320 md:ltr:mr-32 md:rtl:ml-32">
-          <Card
-            component={motion.div}
-            variants={item}
-            className="flex flex-col w-full max-w-320 w-full px-32 pt-24"
-          >
+        <div className="flex flex-col w-full md:w-320 md:ltr:mr-32 md:rtl:ml-32">
+          <Card component={motion.div} variants={item} className="flex flex-col w-full px-32 pt-24">
             <div className="flex justify-between items-center pb-16">
               <Typography className="text-2xl font-semibold leading-tight">
                 Latest Activity

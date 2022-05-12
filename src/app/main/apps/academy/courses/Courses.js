@@ -115,9 +115,9 @@ function Courses(props) {
           </g>
         </svg>
       </Box>
-      <div className="flex flex-col flex-1 w-full mx-auto px-24 sm:p-40">
-        <div className="flex flex-col shrink-0 sm:flex-row items-center justify-between">
-          <div className="flex items-center space-x-16">
+      <div className="flex flex-col flex-1 w-full mx-auto px-24 pt-24 sm:p-40">
+        <div className="flex flex-col shrink-0 sm:flex-row items-center justify-between space-y-16 sm:space-y-0">
+          <div className="flex flex-col sm:flex-row w-full sm:w-auto items-center space-y-16 sm:space-y-0 sm:space-x-16">
             <FormControl className="flex w-full sm:w-136" variant="outlined">
               <InputLabel id="category-select-label">Category</InputLabel>
               <Select
@@ -140,7 +140,7 @@ function Courses(props) {
             <TextField
               label="Search for a course"
               placeholder="Enter a keyword..."
-              className="flex w-full sm:w-256 mb-16 sm:mb-0 mx-8"
+              className="flex w-full sm:w-256 mx-8"
               value={searchText}
               inputProps={{
                 'aria-label': 'Search',

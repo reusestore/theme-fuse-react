@@ -1,13 +1,15 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import FusePageSimple from '@fuse/core/FusePageSimple';
 import Typography from '@mui/material/Typography';
+import FusePageCarded from '@fuse/core/FusePageCarded';
 
 function GuestRoleExample() {
   return (
-    <FusePageSimple
+    <FusePageCarded
       header={
         <div className="p-24 flex items-center">
-          <Typography className="h2">Guest: Auth role example page</Typography>
+          <Typography className="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+            Guest: Auth role example page
+          </Typography>
         </div>
       }
       content={

@@ -1,13 +1,14 @@
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
+import Box from '@mui/material/Box';
 
 function TablePricingTableHead(props) {
   const { period, data } = props;
   const { title, yearlyPrice, monthlyPrice, buttonTitle, isPopular } = data;
 
   return (
-    <div className="flex flex-col">
+    <Box className="flex flex-col" sx={{ backgroundColor: 'background.paper' }}>
       <div className="flex flex-col justify-center p-16 pt-12 lg:py-32">
         <div className="flex items-center">
           <div className="text-xl lg:text-2xl font-medium">{title}</div>
@@ -60,7 +61,7 @@ function TablePricingTableHead(props) {
           {buttonTitle}
         </Button>
       </div>
-    </div>
+    </Box>
   );
 }
 

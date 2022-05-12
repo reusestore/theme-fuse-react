@@ -71,7 +71,7 @@ function BoardCardForm(props) {
   return (
     <>
       <DialogContent className="flex flex-col sm:flex-row p-8">
-        <div className="flex flex-auto flex-col p-16">
+        <div className="flex flex-auto flex-col py-16 px-0 sm:px-16">
           <div className="flex flex-col sm:flex-row sm:justify-between justify-center items-center mb-24">
             <div className="mb-16 sm:mb-0 flex items-center">
               <Typography>{board.title}</Typography>

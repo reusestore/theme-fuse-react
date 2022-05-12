@@ -1,5 +1,5 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import { memo } from 'react';
 import Logo from '../../../../shared-components/Logo';
@@ -33,8 +33,6 @@ const StyledContent = styled(FuseScrollbars)(({ theme }) => ({
 }));
 
 function NavbarStyle1Content(props) {
-  const theme = useTheme();
-
   return (
     <Root className={clsx('flex flex-auto flex-col overflow-hidden h-full', props.className)}>
       <div className="flex flex-row items-center shrink-0 h-48 md:h-72 px-20">

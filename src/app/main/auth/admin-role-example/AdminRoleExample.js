@@ -1,25 +1,26 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useDispatch } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { logoutUser } from 'app/store/userSlice';
+import FusePageCarded from '@fuse/core/FusePageCarded';
+import { NavLink } from 'react-router-dom';
 
 function AdminRoleExample(props) {
-  const dispatch = useDispatch();
-
   return (
-    <FusePageSimple
+    <FusePageCarded
       header={
         <div className="flex flex-1 items-center justify-between p-24">
-          <Typography className="h2">Admin: Auth role example page</Typography>
+          <Typography className="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+            Admin: Auth role example page
+          </Typography>
           <Button
+            component={NavLink}
             variant="contained"
-            onClick={(ev) => dispatch(logoutUser())}
+            color="secondary"
+            to="/sign-out"
             startIcon={<FuseSvgIcon>heroicons-outline:logout</FuseSvgIcon>}
           >
-            Logout
+            Sign out
           </Button>
         </div>
       }

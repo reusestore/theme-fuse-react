@@ -7,10 +7,9 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectUser } from 'app/store/userSlice';
-import JwtService from '../../auth/services/jwtService';
 
 function UserMenu(props) {
   const user = useSelector(selectUser);
@@ -95,15 +94,16 @@ function UserMenu(props) {
               <ListItemText primary="Inbox" />
             </MenuItem>
             <MenuItem
+              component={NavLink}
+              to="/sign-out"
               onClick={() => {
-                JwtService.logout();
                 userMenuClose();
               }}
             >
               <ListItemIcon className="min-w-40">
                 <FuseSvgIcon>heroicons-outline:logout</FuseSvgIcon>
               </ListItemIcon>
-              <ListItemText primary="Logout" />
+              <ListItemText primary="Sign out" />
             </MenuItem>
           </>
         )}

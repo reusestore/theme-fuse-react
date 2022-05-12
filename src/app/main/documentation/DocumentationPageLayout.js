@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import FuseNavigation from '@fuse/core/FuseNavigation';
 import FuseSuspense from '@fuse/core/FuseSuspense';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
@@ -23,12 +23,19 @@ const Root = styled(FusePageCarded)(({ theme }) => ({
 
 function DocumentationPageLayout(props) {
   const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
-
+  const location = useLocation();
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
 
   useEffect(() => {
     setLeftSidebarOpen(!isMobile);
   }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile) {
+      setLeftSidebarOpen(false);
+    }
+  }, [location, isMobile]);
+
   return (
     <Root
       header={
@@ -76,7 +83,7 @@ function DocumentationPageLayout(props) {
       leftSidebarOnClose={() => {
         setLeftSidebarOpen(false);
       }}
-      scroll="content"
+      scroll={isMobile ? 'page' : 'content'}
     />
   );
 }

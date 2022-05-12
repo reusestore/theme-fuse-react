@@ -73,7 +73,7 @@ function AnalyticsDashboardApp() {
                     <VisitorsVsPageViewsWidget />
                   </motion.div>
 
-                  <div className="w-full mt-16 col-span-3">
+                  <div className="w-full mt-16 sm:col-span-3">
                     <Typography className="text-2xl font-semibold tracking-tight leading-6">
                       Your Audience
                     </Typography>
@@ -82,7 +82,7 @@ function AnalyticsDashboardApp() {
                     </Typography>
                   </div>
 
-                  <div className="col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32 w-full">
+                  <div className="sm:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32 w-full">
                     <motion.div variants={item} className="">
                       <NewVsReturningWidget />
                     </motion.div>
