@@ -38,8 +38,8 @@ function StackDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <code>Stack</code> is concerned with one-dimensional layouts, while{' '}
-        <a href="/components/grid/">Grid</a> handles two-dimensional layouts. The default direction
-        is <code>column</code> which stacks children vertically.
+        <a href="/material-ui/react-grid/">Grid</a> handles two-dimensional layouts. The default
+        direction is <code>column</code> which stacks children vertically.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -54,7 +54,7 @@ function StackDoc(props) {
         To control space between children, use the <code>spacing</code> prop. The spacing value can
         be any number, including decimals and any string. The prop is converted into a CSS property
         using the{' '}
-        <a href="/customization/spacing/">
+        <a href="/material-ui/customization/spacing/">
           <code>theme.spacing()</code>
         </a>{' '}
         helper.
@@ -81,7 +81,7 @@ function StackDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Use the <code>divider</code> prop to insert an element between each child. This works
-        particularly well with the <a href="/components/dividers/">Divider</a> component.
+        particularly well with the <a href="/material-ui/react-divider/">Divider</a> component.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

@@ -99,8 +99,8 @@ function MenusDoc(props) {
       <Typography className="mb-40" component="div">
         If used for item selection, when opened, simple menus places the initial focus on the
         selected menu item. The currently selected menu item is set using the <code>selected</code>{' '}
-        prop (from <a href="/api/list-item/">ListItem</a>). To use a selected menu item without
-        impacting the initial focus, set the <code>variant</code> prop to &quot;menu&quot;.
+        prop (from <a href="/material-ui/api/list-item/">ListItem</a>). To use a selected menu item
+        without impacting the initial focus, set the <code>variant</code> prop to &quot;menu&quot;.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -117,8 +117,8 @@ function MenusDoc(props) {
       <Typography className="mb-40" component="div">
         Because the <code>Menu</code> component uses the <code>Popover</code> component to position
         itself, you can use the same{' '}
-        <a href="/components/popover/#anchor-playground">positioning props</a> to position it. For
-        instance, you can display the menu on top of the anchor:
+        <a href="/material-ui/react-popover/#anchor-playground">positioning props</a> to position
+        it. For instance, you can display the menu on top of the anchor:
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -170,7 +170,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

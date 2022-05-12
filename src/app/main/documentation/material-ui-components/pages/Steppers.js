@@ -45,13 +45,12 @@ function SteppersDoc(props) {
           <strong>Types of Steppers</strong>: Horizontal, Vertical, Linear, Non-linear
         </li>
       </ul>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          <strong>Note:</strong> Steppers are no longer documented in the{' '}
-          <a href="https://material.io/">Material Design guidelines</a>, but MUI will continue to
-          support them.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::warning
+        <strong>Note:</strong> Steppers are no longer documented in the{' '}
+        <a href="https://material.io/">Material Design guidelines</a>, but Material UI will continue
+        to support them. :::
+      </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Horizontal stepper
       </Typography>
@@ -150,7 +149,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

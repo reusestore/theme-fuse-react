@@ -147,11 +147,9 @@ const options = ['The Godfather', 'Pulp Fiction'];
           the textbox.
         </li>
       </ol>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          ⚠️ These two states are isolated, they should be controlled independently.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::warning ⚠️ These two states are isolated, they should be controlled independently. :::
+      </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
           name="ControllableStates.js"
@@ -182,6 +180,14 @@ const options = ['The Godfather', 'Pulp Fiction'];
           component={require('../components/autocomplete/FreeSolo.js').default}
           raw={require('!raw-loader!../components/autocomplete/FreeSolo.js')}
         />
+      </Typography>
+      <Typography className="mb-40" component="div">
+        :::warning ⚠️ Be careful when using the free solo mode with non-string options, as it may
+        cause type mismatch.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The value created by typing into the textbox is always a string, regardless of the type of
+        the options. :::
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Creatable
@@ -380,12 +386,10 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           raw={require('!raw-loader!../components/autocomplete/GoogleMaps.js')}
         />
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          ⚠️ Before you can start using the Google Maps JavaScript API and Places API, you must sign
-          up and create a billing account.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::warning ⚠️ Before you can start using the Google Maps JavaScript API and Places API, you
+        must sign up and create a billing account. :::
+      </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Multiple values
       </Typography>

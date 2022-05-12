@@ -34,7 +34,7 @@ function TextareaAutosizeDoc(props) {
 
       <ul>
         <li>
-          📦 <a href="/size-snapshot">2.1 kB gzipped</a>
+          📦 <a href="/size-snapshot">1.5 kB gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -78,15 +78,12 @@ function TextareaAutosizeDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled
+        Base
       </Typography>
-      <ul>
-        <li>
-          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">784 B gzipped</a>
-        </li>
-      </ul>
       <Typography className="mb-40" component="div">
-        As the component does not have any styles, it also comes with the Base package.
+        The <a href="/base/react-textarea-autosize/">TextareaAutosize</a> component is defined in
+        the @mui/base package. It is reexported from @mui/material for convenience. In your
+        application you may import it from either package.
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">

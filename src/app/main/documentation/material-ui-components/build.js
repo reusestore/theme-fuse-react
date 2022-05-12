@@ -436,6 +436,7 @@ function removeExcludedComponents() {
     path.resolve(examplesDirectory, './about-the-lab'),
     path.resolve(examplesDirectory, './material-icons'),
     path.resolve(examplesDirectory, './icons'),
+    path.resolve(examplesDirectory, './pickers'),
   ];
 
   excludedComponents.forEach((_path) => rmDir(_path));

@@ -140,12 +140,10 @@ function CheckboxesDoc(props) {
           raw={require('!raw-loader!../components/checkboxes/IndeterminateCheckbox.js')}
         />
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          ⚠️ When indeterminate is set, the value of the <code>checked</code> prop only impacts the
-          form submitted values. It has no accessibility or UX implications.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::warning ⚠️ When indeterminate is set, the value of the <code>checked</code> prop only
+        impacts the form submitted values. It has no accessibility or UX implications. :::
+      </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         FormGroup
       </Typography>
@@ -181,7 +179,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -228,7 +226,7 @@ function CheckboxesDoc(props) {
         <li>
           All form controls should have labels, and this includes radio buttons, checkboxes, and
           switches. In most cases, this is done by using the <code>{`<label>`}</code> element (
-          <a href="/api/form-control-label/">FormControlLabel</a>).
+          <a href="/material-ui/api/form-control-label/">FormControlLabel</a>).
         </li>
         <li>
           When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the

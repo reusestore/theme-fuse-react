@@ -114,12 +114,10 @@ function CardsDoc(props) {
           raw={require('!raw-loader!../components/cards/ImgMediaCard.js')}
         />
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          ⚠️ When <code>{`component="img"`}</code>, CardMedia relies on <code>object-fit</code> for
-          centering the image. It&#39;s not supported by IE11.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::warning ⚠️ When <code>{`component="img"`}</code>, CardMedia relies on{' '}
+        <code>object-fit</code> for centering the image. It&#39;s not supported by IE11. :::
+      </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Primary action
       </Typography>

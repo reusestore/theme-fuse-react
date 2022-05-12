@@ -34,8 +34,8 @@ function RadioButtonsDoc(props) {
 
       <Typography className="mb-40" component="div">
         Use radio buttons when the user needs to see all available options. If available options can
-        be collapsed, consider using a <a href="/components/selects/">Select component</a> because
-        it uses less space.
+        be collapsed, consider using a <a href="/material-ui/react-select/">Select component</a>{' '}
+        because it uses less space.
       </Typography>
       <Typography className="mb-40" component="div">
         Radio buttons should have the most commonly used option selected by default.
@@ -166,7 +166,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -249,7 +249,7 @@ import { useRadioGroup } from '@mui/material/RadioGroup';
         <li>
           All form controls should have labels, and this includes radio buttons, checkboxes, and
           switches. In most cases, this is done by using the <code>{`<label>`}</code> element (
-          <a href="/api/form-control-label/">FormControlLabel</a>).
+          <a href="/material-ui/api/form-control-label/">FormControlLabel</a>).
         </li>
         <li>
           When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the

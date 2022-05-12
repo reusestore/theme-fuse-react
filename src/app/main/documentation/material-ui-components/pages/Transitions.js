@@ -158,7 +158,7 @@ function TransitionsDoc(props) {
         <li>
           <strong>Forward the ref</strong>: The transition components require the first child
           element to forward its ref to the DOM node. For more details about ref, check out{' '}
-          <a href="/guides/composition/#caveat-with-refs">Caveat with refs</a>
+          <a href="/material-ui/guides/composition/#caveat-with-refs">Caveat with refs</a>
         </li>
         <li>
           <strong>Single element</strong>: The transition components require only one child element
@@ -238,19 +238,19 @@ export default Main() {
       </Typography>
       <ul>
         <li>
-          <a href="/components/modal/#transitions">Modal</a>
+          <a href="/material-ui/react-modal/#transitions">Modal</a>
         </li>
         <li>
-          <a href="/components/dialogs/#transitions">Dialog</a>
+          <a href="/material-ui/react-dialog/#transitions">Dialog</a>
         </li>
         <li>
-          <a href="/components/popper/#transitions">Popper</a>
+          <a href="/material-ui/react-popper/#transitions">Popper</a>
         </li>
         <li>
-          <a href="/components/snackbars/#transitions">Snackbar</a>
+          <a href="/material-ui/react-snackbar/#transitions">Snackbar</a>
         </li>
         <li>
-          <a href="/components/tooltips/#transitions">Tooltip</a>
+          <a href="/material-ui/react-tooltip/#transitions">Tooltip</a>
         </li>
       </ul>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

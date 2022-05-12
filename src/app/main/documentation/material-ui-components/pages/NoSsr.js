@@ -88,7 +88,7 @@ function NoSsrDoc(props) {
       </Typography>
       <ul>
         <li>
-          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">784 B gzipped</a>
+          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">362 B gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">

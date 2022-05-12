@@ -26,7 +26,7 @@ function TextFieldsDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Text Field
+        Text field
       </Typography>
       <Typography className="description">Text fields let users enter and edit text.</Typography>
 
@@ -96,12 +96,10 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         The <code>multiline</code> prop transforms the text field into a{' '}
-        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea">
-          <code>{`<textarea>`}</code>
-        </a>{' '}
-        element. Unless the <code>rows</code> prop is set, the height of the text field dynamically
-        matches its content (using <a href="/components/textarea-autosize/">TextareaAutosize</a>).
-        You can use the <code>minRows</code> and <code>maxRows</code> props to bound it.
+        <a href="/material-ui/react-textarea-autosize/">TextareaAutosize</a> element. Unless the{' '}
+        <code>rows</code> prop is set, the height of the text field dynamically matches its content
+        (using <a href="/material-ui/react-textarea-autosize/">TextareaAutosize</a>). You can use
+        the <code>minRows</code> and <code>maxRows</code> props to bound it.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -117,7 +115,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         The <code>select</code> prop makes the text field use the{' '}
-        <a href="/components/selects/">Select</a> component internally.
+        <a href="/material-ui/react-select/">Select</a> component internally.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -241,27 +239,27 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <code>TextField</code> is composed of smaller components (
-        <a href="/api/form-control/">
+        <a href="/material-ui/api/form-control/">
           <code>FormControl</code>
         </a>
         ,
-        <a href="/api/input/">
+        <a href="/material-ui/api/input/">
           <code>Input</code>
         </a>
         ,
-        <a href="/api/filled-input/">
+        <a href="/material-ui/api/filled-input/">
           <code>FilledInput</code>
         </a>
         ,
-        <a href="/api/input-label/">
+        <a href="/material-ui/api/input-label/">
           <code>InputLabel</code>
         </a>
         ,
-        <a href="/api/outlined-input/">
+        <a href="/material-ui/api/outlined-input/">
           <code>OutlinedInput</code>
         </a>
         , and{' '}
-        <a href="/api/form-helper-text/">
+        <a href="/material-ui/api/form-helper-text/">
           <code>FormHelperText</code>
         </a>
         ) that you can leverage directly to significantly customize your form inputs.
@@ -314,7 +312,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here are some examples of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -328,7 +326,7 @@ function TextFieldsDoc(props) {
       <Typography className="mb-40" component="div">
         Customization does not stop at CSS. You can use composition to build custom components and
         give your app a unique feel. Below is an example using the{' '}
-        <a href="/api/input-base/">
+        <a href="/material-ui/api/input-base/">
           <code>InputBase</code>
         </a>{' '}
         component, inspired by Google Maps.
@@ -670,6 +668,10 @@ const MyInputComponent = React.forwardRef((props, ref) => {
           validation.
         </li>
         <li>
+          <a href="https://github.com/dohomi/react-hook-form-mui">react-hook-form-mui</a>: MUI and
+          react-hook-form combined.
+        </li>
+        <li>
           <a href="https://github.com/stackworx/formik-mui">formik-material-ui</a>: Bindings for
           using MUI with <a href="https://formik.org/">formik</a>.
         </li>
@@ -681,50 +683,19 @@ const MyInputComponent = React.forwardRef((props, ref) => {
           <a href="https://github.com/lookfirst/mui-rff">mui-rff</a>: Bindings for using MUI with{' '}
           <a href="https://final-form.org/react">React Final Form</a>.
         </li>
+        <li>
+          <a href="https://www.npmjs.com/package/@ui-schema/ds-material">@ui-schema/ds-material</a>{' '}
+          Bindings for using Material UI with{' '}
+          <a href="https://github.com/ui-schema/ui-schema">UI Schema</a>. JSON Schema compatible.
+        </li>
+        <li>
+          <a href="https://data-driven-forms.org/provided-mappers/mui-component-mapper">
+            @data-driven-forms/mui-component-mapper
+          </a>
+          : Bindings for using Material UI with{' '}
+          <a href="https://github.com/data-driven-forms/react-forms">Data Driven Forms</a>.
+        </li>
       </ul>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled
-      </Typography>
-      <Typography className="mb-40" component="div">
-        For advanced customization scenarios, you can use the unstyled primitives.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        The basic building blocks are the <code>InputUnstyled</code> component and the{' '}
-        <code>useInput</code> hook.
-      </Typography>
-      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Unstyled component
-      </Typography>
-      <Typography className="mb-40" component="div">
-        The <code>InputUnstyled</code> component wraps the native <code>input</code> or{' '}
-        <code>textarea</code> element. You can, optionally, provide a custom component to be
-        rendered instead.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="UnstyledInput.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/text-fields/UnstyledInput.js').default}
-          raw={require('!raw-loader!../components/text-fields/UnstyledInput.js')}
-        />
-      </Typography>
-      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Hook
-      </Typography>
-      <Typography className="mb-40" component="div">
-        The <code>useInput</code> hook is the headless version of the <code>InputUnstyled</code>{' '}
-        component. Use it for even greater control over the rendered output.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="UseInput.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/text-fields/UseInput.js').default}
-          raw={require('!raw-loader!../components/text-fields/UseInput.js')}
-        />
-      </Typography>
     </>
   );
 }

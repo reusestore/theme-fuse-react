@@ -67,9 +67,9 @@ function PaperDoc(props) {
         Elevation
       </Typography>
       <Typography className="mb-40" component="div">
-        The elevation can be used to establish a hierachy between other content. In practical terms,
-        the elevation controls the size of the shadow applied to the surface. In dark mode, raising
-        the elevation also makes the surface lighter.
+        The elevation can be used to establish a hierarchy between other content. In practical
+        terms, the elevation controls the size of the shadow applied to the surface. In dark mode,
+        raising the elevation also makes the surface lighter.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

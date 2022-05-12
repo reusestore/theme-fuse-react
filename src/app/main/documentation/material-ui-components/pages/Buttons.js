@@ -144,8 +144,8 @@ function ButtonsDoc(props) {
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">
-        Note that the documentation <a href="/guides/api/#native-properties">avoids</a> mentioning
-        native props (there are a lot) in the API section of the components.
+        Note that the documentation <a href="/material-ui/guides/api/#native-properties">avoids</a>{' '}
+        mentioning native props (there are a lot) in the API section of the components.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Color
@@ -162,8 +162,8 @@ function ButtonsDoc(props) {
       <Typography className="mb-40" component="div">
         In addition to using the default button colors, you can add custom ones, or disable any you
         don&#39;t need. See the{' '}
-        <a href="/customization/palette/#adding-new-colors">Adding new colors</a> example for more
-        info.
+        <a href="/material-ui/customization/palette/#adding-new-colors">Adding new colors</a>{' '}
+        example for more info.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Sizes
@@ -263,7 +263,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here are some examples of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -332,7 +332,7 @@ function ButtonsDoc(props) {
         One frequent use case is to perform navigation on the client only, without an HTTP
         round-trip to the server. The <code>ButtonBase</code> component provides the{' '}
         <code>component</code> prop to handle this use case. Here is a{' '}
-        <a href="/guides/routing/#button">more detailed guide</a>.
+        <a href="/material-ui/guides/routing/#button">more detailed guide</a>.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Limitations
@@ -368,7 +368,7 @@ function ButtonsDoc(props) {
       <ul>
         <li>
           You should add <code>pointer-events: none;</code> back when you need to display{' '}
-          <a href="/components/tooltips/#disabled-elements">tooltips on disabled elements</a>.
+          <a href="/material-ui/react-tooltip/#disabled-elements">tooltips on disabled elements</a>.
         </li>
         <li>
           The cursor won&#39;t change if you render something other than a button element, for
@@ -393,96 +393,6 @@ function ButtonsDoc(props) {
       <Typography className="mb-40" component="div">
         This has the advantage of supporting any element, for instance, a link <code>{`<a>`}</code>{' '}
         element.
-      </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled
-      </Typography>
-      <Typography className="mb-40" component="div">
-        The button also comes with an unstyled version. It&#39;s ideal for doing heavy
-        customizations and minimizing bundle size.
-      </Typography>
-      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Unstyled component
-      </Typography>
-
-      <FuseHighlight component="pre" className="language-js">
-        {` 
-import ButtonUnstyled from '@mui/base/ButtonUnstyled';
-`}
-      </FuseHighlight>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="UnstyledButtonsSimple.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/buttons/UnstyledButtonsSimple.js').default}
-          raw={require('!raw-loader!../components/buttons/UnstyledButtonsSimple.js')}
-        />
-      </Typography>
-      <Typography className="text-16 mt-16 mb-10" component="h4">
-        Customizing the root element
-      </Typography>
-      <Typography className="mb-40" component="div">
-        By default, the <code>ButtonUnstyled</code> renders a native <code>button</code> element.
-        You are free to override this by setting the <code>component</code> or{' '}
-        <code>components.Root</code> prop. If a non-interactive element (such as a span) is provided
-        this way, the <code>ButtonUnstyled</code> will take care of adding accessibility attributes.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="UnstyledButtonsSpan.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/buttons/UnstyledButtonsSpan.js').default}
-          raw={require('!raw-loader!../components/buttons/UnstyledButtonsSpan.js')}
-        />
-      </Typography>
-      <Typography className="mb-40" component="div">
-        Compare the attributes on the span with the button from the previous demo.
-      </Typography>
-      <Typography className="text-16 mt-16 mb-10" component="h4">
-        Complex customization
-      </Typography>
-      <Typography className="mb-40" component="div">
-        You are not limited to using HTML elements for the button structure. SVG elements, even with
-        complex structure, are equally acceptable.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="UnstyledButtonCustom.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/buttons/UnstyledButtonCustom.js').default}
-          raw={require('!raw-loader!../components/buttons/UnstyledButtonCustom.js')}
-        />
-      </Typography>
-      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        useButton hook
-      </Typography>
-
-      <FuseHighlight component="pre" className="language-js">
-        {` 
-import { useButton } from '@mui/base/ButtonUnstyled';
-`}
-      </FuseHighlight>
-      <Typography className="mb-40" component="div">
-        If you need to use Button&#39;s functionality in another component, you can use the{' '}
-        <code>useButton</code> hook. It returns props to be placed on a custom button element and
-        fields representing the internal state of the button.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        The <code>useButton</code> hook requires the ref of the element it&#39;ll be used on.
-        Additionally, you need to provide the <code>component</code> prop (unless you intend to use
-        the plain <code>button</code>).
-      </Typography>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="UseButton.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/buttons/UseButton.js').default}
-          raw={require('!raw-loader!../components/buttons/UseButton.js')}
-        />
       </Typography>
     </>
   );

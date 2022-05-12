@@ -26,7 +26,7 @@ function ToggleButtonDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Toggle Buttons
+        Toggle button
       </Typography>
       <Typography className="description">
         Toggle buttons can be used to group related options.
@@ -168,7 +168,7 @@ const handleDevices = (event, newDevices) => {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

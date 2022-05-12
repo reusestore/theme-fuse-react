@@ -34,10 +34,10 @@ function DialogsDoc(props) {
       </Typography>
 
       <Typography className="mb-40" component="div">
-        A Dialog is a type of <a href="/components/modal/">modal</a> window that appears in front of
-        app content to provide critical information or ask for a decision. Dialogs disable all app
-        functionality when they appear, and remain on screen until confirmed, dismissed, or a
-        required action has been taken.
+        A Dialog is a type of <a href="/material-ui/react-modal/">modal</a> window that appears in
+        front of app content to provide critical information or ask for a decision. Dialogs disable
+        all app functionality when they appear, and remain on screen until confirmed, dismissed, or
+        a required action has been taken.
       </Typography>
       <Typography className="mb-40" component="div">
         Dialogs are purposefully interruptive, so they should be used sparingly.
@@ -146,7 +146,7 @@ function DialogsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         The dialog has a close button added to aid usability.
@@ -194,7 +194,7 @@ function DialogsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         You may make a dialog responsively full screen using{' '}
-        <a href="/components/use-media-query/#usemediaquery">
+        <a href="/material-ui/react-use-media-query/#usemediaquery">
           <code>useMediaQuery</code>
         </a>
         .
@@ -291,19 +291,34 @@ function MyComponent() {
         Performance
       </Typography>
       <Typography className="mb-40" component="div">
-        Follow the <a href="/components/modal/#performance">Modal performance section</a>.
+        Follow the <a href="/material-ui/react-modal/#performance">Modal performance section</a>.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Limitations
       </Typography>
       <Typography className="mb-40" component="div">
-        Follow the <a href="/components/modal/#limitations">Modal limitations section</a>.
+        Follow the <a href="/material-ui/react-modal/#limitations">Modal limitations section</a>.
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Complementary projects
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Material UI Confirm
+      </Typography>
+      <Typography className="mb-40" component="div">
+        {' '}
+        src="https://img.shields.io/github/stars/jonatanklosko/material-ui-confirm" alt="stars/>
+        src="https://img.shields.io/npm/dm/material-ui-confirm.svg" alt="npm downloads/>
+      </Typography>
+      <Typography className="mb-40" component="div">
+        This package provides dialogs for confirming user actions without writing boilerplate code.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Accessibility
       </Typography>
       <Typography className="mb-40" component="div">
-        Follow the <a href="/components/modal/#accessibility">Modal accessibility section</a>.
+        Follow the <a href="/material-ui/react-modal/#accessibility">Modal accessibility section</a>
+        .
       </Typography>
     </>
   );

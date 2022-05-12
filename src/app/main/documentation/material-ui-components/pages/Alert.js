@@ -92,7 +92,7 @@ function AlertDoc(props) {
         Transition
       </Typography>
       <Typography className="mb-40" component="div">
-        You can use a <a href="/components/transitions/">transition component</a> such as{' '}
+        You can use a <a href="/material-ui/transitions/">transition component</a> such as{' '}
         <code>Collapse</code> to transition the appearance of the alert.
       </Typography>
       <Typography className="mb-40" component="div">
@@ -114,7 +114,8 @@ function AlertDoc(props) {
       <Typography className="mb-40" component="div">
         You can change the default severity to icon mapping with the <code>iconMapping</code> prop.
         This can be defined globally using{' '}
-        <a href="/customization/theme-components/#default-props">theme customization</a>.
+        <a href="/material-ui/customization/theme-components/#default-props">theme customization</a>
+        .
       </Typography>
       <Typography className="mb-40" component="div">
         Setting the icon prop to <code>false</code> will remove the icon altogether.
@@ -163,7 +164,8 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         You can use the Snackbar to{' '}
-        <a href="/components/snackbars/#customized-snackbars">display a toast</a> with the Alert.
+        <a href="/material-ui/react-snackbar/#customized-snackbars">display a toast</a> with the
+        Alert.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Color

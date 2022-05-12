@@ -61,7 +61,7 @@ function MasonryDoc(props) {
       <Typography className="mb-40" component="div">
         This example demonstrates the use of <code>Masonry</code> for images. <code>Masonry</code>{' '}
         orders its children by row. If you&#39;d like to order images by column, check out{' '}
-        <a href="/components/image-list/#masonry-image-list">ImageList</a>.
+        <a href="/material-ui/react-image-list/#masonry-image-list">ImageList</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -154,13 +154,12 @@ function MasonryDoc(props) {
         <code>defaultColumns</code> and <code>defaultSpacing</code>, which are used to support
         server-side rendering.
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          <strong>Note</strong>: <code>defaultHeight</code> should be large enough to render all
-          rows. Also, it is worth mentioning that items are not added to the shortest column in case
-          of server-side rendering.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::info
+        <strong>Note</strong>: <code>defaultHeight</code> should be large enough to render all rows.
+        Also, it is worth mentioning that items are not added to the shortest column in case of
+        server-side rendering. :::
+      </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
           name="SSRMasonry.js"

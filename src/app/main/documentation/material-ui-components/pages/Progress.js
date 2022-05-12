@@ -208,7 +208,7 @@ function Progress(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here are some examples of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

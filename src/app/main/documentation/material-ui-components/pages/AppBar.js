@@ -26,21 +26,21 @@ function AppBarDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        App Bar
+        App bar
       </Typography>
       <Typography className="description">
-        The App Bar displays information and actions relating to the current screen.
+        The App bar displays information and actions relating to the current screen.
       </Typography>
 
       <Typography className="mb-40" component="div">
-        The top App Bar provides content and actions related to the current screen. It&#39;s used
+        The top App bar provides content and actions related to the current screen. It&#39;s used
         for branding, screen titles, navigation, and actions.
       </Typography>
       <Typography className="mb-40" component="div">
         It can transform into a contextual action bar or be used as a navbar.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Basic App Bar
+        Basic App bar
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -52,7 +52,7 @@ function AppBarDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        App Bar with menu
+        App bar with menu
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -64,7 +64,7 @@ function AppBarDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        App Bar with responsive menu
+        App bar with responsive menu
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -76,7 +76,7 @@ function AppBarDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        App Bar with search field
+        App bar with search field
       </Typography>
       <Typography className="mb-40" component="div">
         A side searchbar.
@@ -91,7 +91,7 @@ function AppBarDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        App Bar with a primary search field
+        App bar with a primary search field
       </Typography>
       <Typography className="mb-40" component="div">
         A primary searchbar.
@@ -133,7 +133,7 @@ function AppBarDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Bottom App Bar
+        Bottom App bar
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -205,7 +205,7 @@ function App() {
         You can use the <code>useScrollTrigger()</code> hook to respond to user scroll actions.
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Hide App Bar
+        Hide App bar
       </Typography>
       <Typography className="mb-40" component="div">
         The app bar hides on scroll down to leave more space for reading.
@@ -220,7 +220,7 @@ function App() {
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Elevate App Bar
+        Elevate App bar
       </Typography>
       <Typography className="mb-40" component="div">
         The app bar elevates on scroll to communicate that the user is not at the top of the page.

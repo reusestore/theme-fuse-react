@@ -61,8 +61,10 @@ function ListsDoc(props) {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         You can find a{' '}
-        <a href="/guides/routing/#list">demo with React Router following this section</a> of the
-        documentation.
+        <a href="/material-ui/guides/routing/#list">
+          demo with React Router following this section
+        </a>{' '}
+        of the documentation.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Nested List
@@ -259,7 +261,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here are some examples of customizing the component. You can learn more about this in the
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

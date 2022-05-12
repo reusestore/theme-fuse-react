@@ -6,7 +6,7 @@ import TreeView from '@mui/lab/TreeView';
 import TreeItem, { treeItemClasses } from '@mui/lab/TreeItem';
 import Collapse from '@mui/material/Collapse';
 // web.cjs is required for IE11 support
-import { animated, useSpring } from 'react-spring/web.cjs';
+import { useSpring, animated } from 'react-spring/web.cjs';
 
 function MinusSquare(props) {
   return (

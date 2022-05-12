@@ -37,14 +37,14 @@ function PopoverDoc(props) {
       <ul>
         <li>
           The component is built on top of the{' '}
-          <a href="/components/modal/">
+          <a href="/material-ui/react-modal/">
             <code>Modal</code>
           </a>{' '}
           component.
         </li>
         <li>
           The scroll and click away are blocked unlike with the{' '}
-          <a href="/components/popper/">
+          <a href="/material-ui/react-popper/">
             <code>Popper</code>
           </a>{' '}
           component.

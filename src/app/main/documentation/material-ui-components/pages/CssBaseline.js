@@ -99,7 +99,7 @@ export default function MyApp() {
         <li>The margin in all browsers is removed.</li>
         <li>
           The default Material Design background color is applied. It&#39;s using{' '}
-          <a href="/customization/default-theme/?expand-path=$.palette.background">
+          <a href="/material-ui/customization/default-theme/?expand-path=$.palette.background">
             <code>theme.palette.background.default</code>
           </a>{' '}
           for standard devices and a white background for print devices.
@@ -128,11 +128,10 @@ export default function MyApp() {
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Scrollbars
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          This API is deprecated, consider using <a href="#color-scheme">color-scheme</a> instead.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::error This API is deprecated, consider using <a href="#color-scheme">color-scheme</a>{' '}
+        instead. :::
+      </Typography>
       <Typography className="mb-40" component="div">
         The colors of the scrollbars can be customized to improve the contrast (especially on
         Windows). Add this code to your theme (for dark mode).
@@ -185,7 +184,9 @@ const theme = createTheme({
           No base font-size is declared on the <code>{`<html>`}</code>, but 16px is assumed (the
           browser default). You can learn more about the implications of changing the{' '}
           <code>{`<html>`}</code> default font size in{' '}
-          <a href="/customization/typography/#typography-html-font-size">the theme documentation</a>{' '}
+          <a href="/material-ui/customization/typography/#typography-html-font-size">
+            the theme documentation
+          </a>{' '}
           page.
         </li>
         <li>
@@ -202,7 +203,9 @@ const theme = createTheme({
       </Typography>
       <Typography className="mb-40" component="div">
         Head to the{' '}
-        <a href="/customization/how-to-customize/#5-global-css-override">global customization</a>{' '}
+        <a href="/material-ui/customization/how-to-customize/#5-global-css-override">
+          global customization
+        </a>{' '}
         section of the documentation to change the output of these components.
       </Typography>
     </>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 // web.cjs is required for IE11 support
-import { animated, useSpring } from 'react-spring/web.cjs';
+import { useSpring, animated } from 'react-spring/web.cjs';
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const { in: open, children, onEnter, onExited, ...other } = props;

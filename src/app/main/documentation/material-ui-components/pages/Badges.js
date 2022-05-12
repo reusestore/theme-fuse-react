@@ -1,5 +1,4 @@
 import FuseExample from '@fuse/core/FuseExample';
-import FuseHighlight from '@fuse/core/FuseHighlight';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -68,7 +67,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -95,8 +94,8 @@ function BadgesDoc(props) {
         />
       </Typography>
       <Typography className="mb-40" component="div">
-        The badge auto hides with badgeContent is zero. You can override this with the{' '}
-        <code>showZero</code> prop.
+        The badge hides automatically when <code>badgeContent</code> is zero. You can override this
+        with the <code>showZero</code> prop.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -168,28 +167,6 @@ function BadgesDoc(props) {
           iframe={false}
           component={require('../components/badges/BadgeAlignment.js').default}
           raw={require('!raw-loader!../components/badges/BadgeAlignment.js')}
-        />
-      </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled
-      </Typography>
-      <Typography className="mb-40" component="div">
-        The badge also comes with an unstyled version. It&#39;s ideal for doing heavy customizations
-        and minimizing bundle size.
-      </Typography>
-
-      <FuseHighlight component="pre" className="language-js">
-        {` 
-import BadgeUnstyled from '@mui/base/BadgeUnstyled';
-`}
-      </FuseHighlight>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="UnstyledBadge.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/badges/UnstyledBadge.js').default}
-          raw={require('!raw-loader!../components/badges/UnstyledBadge.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

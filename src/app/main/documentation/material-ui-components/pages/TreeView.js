@@ -26,7 +26,7 @@ function TreeViewDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Tree View
+        Tree view
       </Typography>
       <Typography className="description">
         A tree view widget presents a hierarchical list.

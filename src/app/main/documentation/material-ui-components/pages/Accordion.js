@@ -37,13 +37,12 @@ function AccordionDoc(props) {
         An accordion is a lightweight container that may either be used standalone, or be connected
         to a larger surface, such as a card.
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          <strong>Note:</strong> Accordions are no longer documented in the{' '}
-          <a href="https://material.io/">Material Design guidelines</a>, but MUI will continue to
-          support them. It was formerly known as the &quot;expansion panel&quot;.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        <strong>Note:</strong>
+        Accordions are no longer documented in the{' '}
+        <a href="https://material.io/">Material Design guidelines</a>, but MUI will continue to
+        support them. It was formerly known as the &quot;expansion panel&quot;.
+      </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Basic accordion
       </Typography>
@@ -77,7 +76,7 @@ function AccordionDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

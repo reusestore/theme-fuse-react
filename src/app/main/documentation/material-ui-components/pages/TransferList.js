@@ -25,7 +25,7 @@ function TransferListDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Transfer List
+        Transfer list
       </Typography>
       <Typography className="description">
         A transfer list (or "shuttle") enables the user to move one or more list items between
@@ -73,8 +73,8 @@ function TransferListDoc(props) {
       <ul>
         <li>
           It only works on desktop. If you have a limited amount of options to select, prefer the{' '}
-          <a href="/components/autocomplete/#multiple-values">Autocomplete</a> component. If mobile
-          support is important for you, have a look at{' '}
+          <a href="/material-ui/react-autocomplete/#multiple-values">Autocomplete</a> component. If
+          mobile support is important for you, have a look at{' '}
           <a href="https://github.com/mui/material-ui/issues/27579">#27579</a>.
         </li>
         <li>

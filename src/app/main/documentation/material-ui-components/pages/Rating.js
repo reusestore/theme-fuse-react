@@ -96,7 +96,7 @@ function RatingDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here are some examples of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -146,7 +146,8 @@ function RatingDoc(props) {
           Labels for the radio buttons containing actual text (&quot;1 Star&quot;, &quot;2
           Stars&quot;, …). Be sure to provide a suitable function to the <code>getLabelText</code>{' '}
           prop when the page is in a language other than English. You can use the{' '}
-          <a href="https://mui.com/guides/localization/">included locales</a>, or provide your own.
+          <a href="https://mui.com/material-ui/guides/localization/">included locales</a>, or
+          provide your own.
         </li>
         <li>
           A visually distinct appearance for the rating icons. By default, the rating component uses

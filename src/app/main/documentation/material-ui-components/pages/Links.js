@@ -36,8 +36,9 @@ function LinksDoc(props) {
         Basic links
       </Typography>
       <Typography className="mb-40" component="div">
-        The Link component is built on top of the <a href="/api/typography/">Typography</a>{' '}
-        component, meaning that you can use its props.
+        The Link component is built on top of the{' '}
+        <a href="/material-ui/api/typography/">Typography</a> component, meaning that you can use
+        its props.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -104,7 +105,7 @@ function LinksDoc(props) {
         One frequent use case is to perform navigation on the client only, without an HTTP
         round-trip to the server. The <code>Link</code> component provides the{' '}
         <code>component</code> prop to handle this use case. Here is a{' '}
-        <a href="/guides/routing/#link">more detailed guide</a>.
+        <a href="/material-ui/guides/routing/#link">more detailed guide</a>.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Accessibility

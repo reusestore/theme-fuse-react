@@ -1,5 +1,4 @@
 import FuseExample from '@fuse/core/FuseExample';
-import FuseHighlight from '@fuse/core/FuseHighlight';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -47,7 +46,7 @@ function PopperDoc(props) {
         </li>
         <li>
           The children is{' '}
-          <a href="/components/portal/">
+          <a href="/material-ui/react-portal/">
             <code>Portal</code>
           </a>{' '}
           to the body of the document to avoid rendering problems. You can disable this behavior
@@ -55,7 +54,7 @@ function PopperDoc(props) {
         </li>
         <li>
           The scroll isn&#39;t blocked like with the{' '}
-          <a href="/components/popover/">
+          <a href="/material-ui/react-popover/">
             <code>Popover</code>
           </a>{' '}
           component. The placement of the popper updates with the available area in the viewport.
@@ -63,11 +62,11 @@ function PopperDoc(props) {
         <li>
           Clicking away does not hide the <code>Popper</code> component. If you need this behavior,
           you can use{' '}
-          <a href="/components/click-away-listener/">
+          <a href="/material-ui/react-click-away-listener/">
             <code>ClickAwayListener</code>
           </a>{' '}
           - see the example in the{' '}
-          <a href="/components/menus/#menulist-composition">menu documentation section</a>.
+          <a href="/material-ui/react-menu/#menulist-composition">menu documentation section</a>.
         </li>
         <li>
           The <code>anchorEl</code> is passed as the reference object to create a new{' '}
@@ -202,21 +201,6 @@ function PopperDoc(props) {
           raw={require('!raw-loader!../components/popper/PopperPopupState.js')}
         />
       </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled
-      </Typography>
-      <Typography className="mb-40" component="div">
-        The @mui/base package contain an unstyled version of Popper - PopperUnstyled. It does not
-        have a dependency on @mui/material. The only difference between Popper and PopperUnstyled is
-        the support for theming. Popper can read the <code>direction</code> field from the current
-        theme, while PopperUnstyled accepts the <code>direction</code> prop instead.
-      </Typography>
-
-      <FuseHighlight component="pre" className="language-js">
-        {` 
-import Popper from '@mui/base/PopperUnstyled';
-`}
-      </FuseHighlight>
     </>
   );
 }

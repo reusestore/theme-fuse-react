@@ -47,34 +47,35 @@ function ModalDoc(props) {
         </li>
         <li>♿️ Adds the appropriate ARIA roles automatically.</li>
       </ul>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          <strong>Terminology note</strong>. The term &quot;modal&quot; is sometimes used to mean
-          &quot;dialog&quot;, but this is a misnomer. A modal window describes parts of a UI. An
-          element is considered modal if{' '}
-          <a href="https://en.wikipedia.org/wiki/Modal_window">
-            it blocks interaction with the rest of the application
-          </a>
-          .
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::info
+        <strong>Terminology note</strong>.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The term &quot;modal&quot; is sometimes used to mean &quot;dialog&quot;, but this is a
+        misnomer. A modal window describes parts of a UI. An element is considered modal if{' '}
+        <a href="https://en.wikipedia.org/wiki/Modal_window">
+          it blocks interaction with the rest of the application
+        </a>
+        . :::
+      </Typography>
       <Typography className="mb-40" component="div">
         If you are creating a modal dialog, you probably want to use the{' '}
-        <a href="/components/dialogs/">Dialog</a> component rather than directly using Modal. Modal
-        is a lower-level construct that is leveraged by the following components:
+        <a href="/material-ui/react-dialog/">Dialog</a> component rather than directly using Modal.
+        Modal is a lower-level construct that is leveraged by the following components:
       </Typography>
       <ul>
         <li>
-          <a href="/components/dialogs/">Dialog</a>
+          <a href="/material-ui/react-dialog/">Dialog</a>
         </li>
         <li>
-          <a href="/components/drawers/">Drawer</a>
+          <a href="/material-ui/react-drawer/">Drawer</a>
         </li>
         <li>
-          <a href="/components/menus/">Menu</a>
+          <a href="/material-ui/react-menu/">Menu</a>
         </li>
         <li>
-          <a href="/components/popover/">Popover</a>
+          <a href="/material-ui/react-popover/">Popover</a>
         </li>
       </ul>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -92,33 +93,6 @@ function ModalDoc(props) {
       <Typography className="mb-40" component="div">
         Notice that you can disable the outline (often blue or gold) with the{' '}
         <code>outline: 0</code> CSS property.
-      </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled
-      </Typography>
-      <ul>
-        <li>
-          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">4.7 kB gzipped</a>
-        </li>
-      </ul>
-      <Typography className="mb-40" component="div">
-        The modal also comes with an unstyled version. It&#39;s ideal for doing heavy customizations
-        and minimizing bundle size.
-      </Typography>
-
-      <FuseHighlight component="pre" className="language-js">
-        {` 
-import ModalUnstyled from '@mui/base/ModalUnstyled';
-`}
-      </FuseHighlight>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="ModalUnstyled.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/modal/ModalUnstyled.js').default}
-          raw={require('!raw-loader!../components/modal/ModalUnstyled.js')}
-        />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Nested modal

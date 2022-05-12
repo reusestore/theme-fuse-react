@@ -113,24 +113,6 @@ const MaterialUIComponentsNavigation = {
       url: '/documentation/material-ui-components/css-baseline',
     },
     {
-      id: 'datePicker',
-      title: 'Date Picker',
-      type: 'item',
-      url: '/documentation/material-ui-components/date-picker',
-    },
-    {
-      id: 'dateRangePicker',
-      title: 'Date Range Picker',
-      type: 'item',
-      url: '/documentation/material-ui-components/date-range-picker',
-    },
-    {
-      id: 'dateTimePicker',
-      title: 'Date Time Picker',
-      type: 'item',
-      url: '/documentation/material-ui-components/date-time-picker',
-    },
-    {
       id: 'dialogs',
       title: 'Dialogs',
       type: 'item',
@@ -213,12 +195,6 @@ const MaterialUIComponentsNavigation = {
       title: 'Paper',
       type: 'item',
       url: '/documentation/material-ui-components/paper',
-    },
-    {
-      id: 'pickers',
-      title: 'Pickers',
-      type: 'item',
-      url: '/documentation/material-ui-components/pickers',
     },
     {
       id: 'popover',
@@ -329,12 +305,6 @@ const MaterialUIComponentsNavigation = {
       url: '/documentation/material-ui-components/textarea-autosize',
     },
     {
-      id: 'timePicker',
-      title: 'Time Picker',
-      type: 'item',
-      url: '/documentation/material-ui-components/time-picker',
-    },
-    {
       id: 'timeline',
       title: 'Timeline',
       type: 'item',
@@ -363,12 +333,6 @@ const MaterialUIComponentsNavigation = {
       title: 'Transitions',
       type: 'item',
       url: '/documentation/material-ui-components/transitions',
-    },
-    {
-      id: 'trapFocus',
-      title: 'Trap Focus',
-      type: 'item',
-      url: '/documentation/material-ui-components/trap-focus',
     },
     {
       id: 'treeView',

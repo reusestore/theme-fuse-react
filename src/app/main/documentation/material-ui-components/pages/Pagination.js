@@ -140,7 +140,7 @@ function PaginationDoc(props) {
           raw={require('!raw-loader!../components/pagination/PaginationControlled.js')}
         />
       </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+      {/*   <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Router integration
       </Typography>
       <Typography className="mb-40" component="div">
@@ -151,7 +151,7 @@ function PaginationDoc(props) {
           component={require('../components/pagination/PaginationLink.js').default}
           raw={require('!raw-loader!../components/pagination/PaginationLink.js')}
         />
-      </Typography>
+      </Typography> */}
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         <code>usePagination</code>
       </Typography>
@@ -196,17 +196,15 @@ import { usePagination } from '@mui/material/Pagination';
           raw={require('!raw-loader!../components/pagination/TablePagination.js')}
         />
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          ⚠️ Note that the <code>Pagination</code> page prop starts at 1 to match the requirement of
-          including the value in the URL, while the <code>TablePagination</code> page prop starts at
-          0 to match the requirement of zero-based JavaScript arrays that comes with rendering a lot
-          of tabular data.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::info ⚠️ Note that the <code>Pagination</code> page prop starts at 1 to match the
+        requirement of including the value in the URL, while the <code>TablePagination</code> page
+        prop starts at 0 to match the requirement of zero-based JavaScript arrays that comes with
+        rendering a lot of tabular data. :::
+      </Typography>
       <Typography className="mb-40" component="div">
         You can learn more about this use case in the{' '}
-        <a href="/components/tables/#custom-pagination-options">table section</a> of the
+        <a href="/material-ui/react-table/#custom-pagination-options">table section</a> of the
         documentation.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

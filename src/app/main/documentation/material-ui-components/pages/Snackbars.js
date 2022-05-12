@@ -64,7 +64,7 @@ function SnackbarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here are some examples of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -145,8 +145,8 @@ function SnackbarsDoc(props) {
         Change transition
       </Typography>
       <Typography className="mb-40" component="div">
-        <a href="/components/transitions/#grow">Grow</a> is the default transition but you can use a
-        different one.
+        <a href="/material-ui/transitions/#grow">Grow</a> is the default transition but you can use
+        a different one.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -161,7 +161,7 @@ function SnackbarsDoc(props) {
         Control Slide direction
       </Typography>
       <Typography className="mb-40" component="div">
-        You can change the direction of the <a href="/components/transitions/#slide">Slide</a>{' '}
+        You can change the direction of the <a href="/material-ui/transitions/#slide">Slide</a>{' '}
         transition.
       </Typography>
       <Typography className="mb-40" component="div">
@@ -170,7 +170,7 @@ function SnackbarsDoc(props) {
 
       <FuseHighlight component="pre" className="language-jsx">
         {` 
-import Slide from '@material-ui/core/Slide';
+import Slide from '@mui/material/Slide';
 
 function TransitionLeft(props) {
   return <Slide {...props} direction="left" />;

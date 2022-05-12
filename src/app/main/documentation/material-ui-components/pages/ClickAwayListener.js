@@ -26,7 +26,7 @@ function ClickAwayListenerDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Click away listener
+        Click-away listener
       </Typography>
       <Typography className="description">
         Detect if a click event happened outside of an element. It listens for clicks that occur
@@ -35,9 +35,9 @@ function ClickAwayListenerDoc(props) {
 
       <ul>
         <li>
-          📦 <a href="/size-snapshot">1.5 kB gzipped</a>.
+          📦 <a href="/size-snapshot">992 B gzipped</a>.
         </li>
-        <li>⚛️ Support portals</li>
+        <li>⚛️ Supports portals</li>
       </ul>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Example
@@ -57,14 +57,15 @@ function ClickAwayListenerDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Notice that the component only accepts one child element. You can find a more advanced demo
-        on the <a href="/components/menus/#menulist-composition">Menu documentation section</a>.
+        on the{' '}
+        <a href="/material-ui/react-menu/#menulist-composition">Menu documentation section</a>.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Portal
       </Typography>
       <Typography className="mb-40" component="div">
         The following demo uses{' '}
-        <a href="/components/portal/">
+        <a href="/material-ui/react-portal/">
           <code>Portal</code>
         </a>{' '}
         to render the dropdown into a new &quot;subtree&quot; outside of current DOM hierarchy.
@@ -94,11 +95,10 @@ function ClickAwayListenerDoc(props) {
           raw={require('!raw-loader!../components/click-away-listener/LeadingClickAway.js')}
         />
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          ⚠️ In this mode, only interactions on the scrollbar of the document is ignored.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::warning ⚠️ In this mode, only interactions on the scrollbar of the document is ignored.
+        :::
+      </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Accessibility
       </Typography>
@@ -132,7 +132,7 @@ function ClickAwayListenerDoc(props) {
       </Typography>
       <ul>
         <li>
-          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">784 B gzipped</a>
+          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">981 B gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">

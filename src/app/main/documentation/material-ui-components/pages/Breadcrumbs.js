@@ -103,7 +103,7 @@ function BreadcrumbsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -114,7 +114,7 @@ function BreadcrumbsDoc(props) {
           raw={require('!raw-loader!../components/breadcrumbs/CustomizedBreadcrumbs.js')}
         />
       </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+      {/*   <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Integration with react-router
       </Typography>
       <Typography className="mb-40" component="div">
@@ -125,7 +125,7 @@ function BreadcrumbsDoc(props) {
           component={require('../components/breadcrumbs/RouterBreadcrumbs.js').default}
           raw={require('!raw-loader!../components/breadcrumbs/RouterBreadcrumbs.js')}
         />
-      </Typography>
+      </Typography> */}
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Accessibility
       </Typography>

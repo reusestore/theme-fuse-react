@@ -36,11 +36,11 @@ function PortalDoc(props) {
       <Typography className="mb-40" component="div">
         The children of the portal component will be appended to the <code>container</code>{' '}
         specified. The component is used internally by the{' '}
-        <a href="/components/modal/">
+        <a href="/material-ui/react-modal/">
           <code>Modal</code>
         </a>{' '}
         and{' '}
-        <a href="/components/popper/">
+        <a href="/material-ui/react-popper/">
           <code>Popper</code>
         </a>{' '}
         components.

@@ -66,7 +66,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         The{' '}
-        <a href="/components/data-grid/">
+        <a href="/x/react-data-grid/">
           <code>DataGrid</code> component
         </a>{' '}
         is designed for use-cases that are focused on handling large amounts of tabular data. While
@@ -125,7 +125,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here is an example of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -230,7 +230,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         An example of a table with expandable rows, revealing more information. It utilizes the{' '}
-        <a href="/api/collapse/">
+        <a href="/material-ui/api/collapse/">
           <code>Collapse</code>
         </a>{' '}
         component.
@@ -278,34 +278,6 @@ function TablesDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled
-      </Typography>
-      <Typography className="mb-40" component="div">
-        If you would like to use an unstyled Table, you can use the primitive elements and enhance
-        the table with the unstyled pagination as shown in the demo below.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="TableUnstyled.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/tables/TableUnstyled.js').default}
-          raw={require('!raw-loader!../components/tables/TableUnstyled.js')}
-        />
-      </Typography>
-      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Customized look and feel
-      </Typography>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="TableCustomized.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/tables/TableCustomized.js').default}
-          raw={require('!raw-loader!../components/tables/TableCustomized.js')}
-        />
-      </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Accessibility
       </Typography>
       <Typography className="mb-40" component="div">
@@ -331,6 +303,14 @@ function TablesDoc(props) {
           component={require('../components/tables/AcccessibleTable.js').default}
           raw={require('!raw-loader!../components/tables/AcccessibleTable.js')}
         />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Unstyled
+      </Typography>
+      <Typography className="mb-40" component="div">
+        If you would like to use an unstyled Table, you can use the primitive HTML elements and
+        enhance the table with the TablePaginationUnstyled component. See the demos in the{' '}
+        <a href="/base/react-table-pagination/">unstyled table pagination docs</a>
       </Typography>
     </>
   );

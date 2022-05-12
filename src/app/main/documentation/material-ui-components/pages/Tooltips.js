@@ -70,7 +70,7 @@ function TooltipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here are some examples of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -122,7 +122,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         You can find a similar concept in the{' '}
-        <a href="/guides/composition/#wrapping-components">wrapping components</a> guide.
+        <a href="/material-ui/guides/composition/#wrapping-components">wrapping components</a>{' '}
+        guide.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Triggers
@@ -203,12 +204,10 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
         so a <code>Tooltip</code> will not activate on normal events like hover. To accommodate
         disabled elements, add a simple wrapper element, such as a <code>span</code>.
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          ⚠️ In order to work with Safari, you need at least one display block or flex item below
-          the tooltip wrapper.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::warning ⚠️ In order to work with Safari, you need at least one display block or flex item
+        below the tooltip wrapper. :::
+      </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
           name="DisabledTooltips.js"
@@ -218,13 +217,12 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           raw={require('!raw-loader!../components/tooltips/DisabledTooltips.js')}
         />
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          If you&#39;re not wrapping a MUI component that inherits from <code>ButtonBase</code>, for
-          instance, a native <code>{`<button>`}</code> element, you should also add the CSS property{' '}
-          <em>pointer-events: none;</em> to your element when disabled:
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::warning If you&#39;re not wrapping a MUI component that inherits from{' '}
+        <code>ButtonBase</code>, for instance, a native <code>{`<button>`}</code> element, you
+        should also add the CSS property <em>pointer-events: none;</em> to your element when
+        disabled: :::
+      </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
         {` 

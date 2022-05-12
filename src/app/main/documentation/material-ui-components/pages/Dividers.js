@@ -124,11 +124,10 @@ function DividersDoc(props) {
           raw={require('!raw-loader!../components/dividers/VerticalDividers.js')}
         />
       </Typography>
-      <blockquote>
-        <Typography className="mb-40" component="div">
-          Note the use of the <code>flexItem</code> prop to accommodate for the flex container.
-        </Typography>
-      </blockquote>
+      <Typography className="mb-40" component="div">
+        :::info Note the use of the <code>flexItem</code> prop to accommodate for the flex
+        container. :::
+      </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Vertical with variant middle
       </Typography>

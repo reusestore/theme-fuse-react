@@ -18,9 +18,6 @@ const Chips = lazy(() => import('./pages/Chips'));
 const ClickAwayListener = lazy(() => import('./pages/ClickAwayListener'));
 const Container = lazy(() => import('./pages/Container'));
 const CssBaseline = lazy(() => import('./pages/CssBaseline'));
-const DatePicker = lazy(() => import('./pages/DatePicker'));
-const DateRangePicker = lazy(() => import('./pages/DateRangePicker'));
-const DateTimePicker = lazy(() => import('./pages/DateTimePicker'));
 const Dialogs = lazy(() => import('./pages/Dialogs'));
 const Dividers = lazy(() => import('./pages/Dividers'));
 const Drawers = lazy(() => import('./pages/Drawers'));
@@ -35,7 +32,6 @@ const Modal = lazy(() => import('./pages/Modal'));
 const NoSsr = lazy(() => import('./pages/NoSsr'));
 const Pagination = lazy(() => import('./pages/Pagination'));
 const Paper = lazy(() => import('./pages/Paper'));
-const Pickers = lazy(() => import('./pages/Pickers'));
 const Popover = lazy(() => import('./pages/Popover'));
 const Popper = lazy(() => import('./pages/Popper'));
 const Portal = lazy(() => import('./pages/Portal'));
@@ -54,13 +50,11 @@ const Tables = lazy(() => import('./pages/Tables'));
 const Tabs = lazy(() => import('./pages/Tabs'));
 const TextFields = lazy(() => import('./pages/TextFields'));
 const TextareaAutosize = lazy(() => import('./pages/TextareaAutosize'));
-const TimePicker = lazy(() => import('./pages/TimePicker'));
 const Timeline = lazy(() => import('./pages/Timeline'));
 const ToggleButton = lazy(() => import('./pages/ToggleButton'));
 const Tooltips = lazy(() => import('./pages/Tooltips'));
 const TransferList = lazy(() => import('./pages/TransferList'));
 const Transitions = lazy(() => import('./pages/Transitions'));
-const TrapFocus = lazy(() => import('./pages/TrapFocus'));
 const TreeView = lazy(() => import('./pages/TreeView'));
 const Typography = lazy(() => import('./pages/Typography'));
 
@@ -138,18 +132,6 @@ const MaterialUIComponentsRoutes = [
     element: <CssBaseline />,
   },
   {
-    path: 'material-ui-components/date-picker',
-    element: <DatePicker />,
-  },
-  {
-    path: 'material-ui-components/date-range-picker',
-    element: <DateRangePicker />,
-  },
-  {
-    path: 'material-ui-components/date-time-picker',
-    element: <DateTimePicker />,
-  },
-  {
     path: 'material-ui-components/dialogs',
     element: <Dialogs />,
   },
@@ -204,10 +186,6 @@ const MaterialUIComponentsRoutes = [
   {
     path: 'material-ui-components/paper',
     element: <Paper />,
-  },
-  {
-    path: 'material-ui-components/pickers',
-    element: <Pickers />,
   },
   {
     path: 'material-ui-components/popover',
@@ -282,10 +260,6 @@ const MaterialUIComponentsRoutes = [
     element: <TextareaAutosize />,
   },
   {
-    path: 'material-ui-components/time-picker',
-    element: <TimePicker />,
-  },
-  {
     path: 'material-ui-components/timeline',
     element: <Timeline />,
   },
@@ -304,10 +278,6 @@ const MaterialUIComponentsRoutes = [
   {
     path: 'material-ui-components/transitions',
     element: <Transitions />,
-  },
-  {
-    path: 'material-ui-components/trap-focus',
-    element: <TrapFocus />,
   },
   {
     path: 'material-ui-components/tree-view',

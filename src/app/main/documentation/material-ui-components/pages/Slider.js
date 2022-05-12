@@ -211,7 +211,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Here are some examples of customizing the component. You can learn more about this in the{' '}
-        <a href="/customization/how-to-customize/">overrides documentation page</a>.
+        <a href="/material-ui/customization/how-to-customize/">overrides documentation page</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -330,34 +330,6 @@ function SliderDoc(props) {
           iframe={false}
           component={require('../components/slider/NonLinearSlider.js').default}
           raw={require('!raw-loader!../components/slider/NonLinearSlider.js')}
-        />
-      </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled
-      </Typography>
-
-      <ul>
-        <li>
-          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">5.6 kB gzipped</a>
-        </li>
-      </ul>
-      <Typography className="mb-40" component="div">
-        The slider also comes with an unstyled version. It&#39;s ideal for doing heavy
-        customizations and minimizing bundle size.
-      </Typography>
-
-      <FuseHighlight component="pre" className="language-js">
-        {` 
-import SliderUnstyled from '@mui/base/SliderUnstyled';
-`}
-      </FuseHighlight>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          name="UnstyledSlider.js"
-          className="my-24"
-          iframe={false}
-          component={require('../components/slider/UnstyledSlider.js').default}
-          raw={require('!raw-loader!../components/slider/UnstyledSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
