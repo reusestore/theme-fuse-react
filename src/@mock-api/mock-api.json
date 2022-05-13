@@ -4,10 +4,15 @@
     "title": "Fuse Mock API",
     "version": "1.0.0",
     "contact": {
-      "name": "Mustafa HELVACI",
-      "url": "http://fusetheme.com/"
+      "url": "http://fusetheme.com/",
+      "email": "themes@withinpixels.com",
+      "name": "Fuse Theme"
     },
-    "description": "Fuse Theme Family Mock API Open API Definitions"
+    "description": "Fuse Theme Family Mock API Open API Definitions",
+    "license": {
+      "name": "private",
+      "url": "https://themeforest.net/licenses/terms/regular"
+    }
   },
   "servers": [
     {
@@ -25,31 +30,82 @@
             "description": "OK"
           }
         },
-        "description": "Update user data",
+        "description": "Update user data.",
         "tags": [
           "auth"
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/auth_user"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "uuid": "string",
+                    "from": "string",
+                    "password": "string",
+                    "role": "string",
+                    "data": {
+                      "displayName": "string",
+                      "photoURL": "string",
+                      "email": "string",
+                      "settings": {
+                        "layout": {},
+                        "theme": {}
+                      },
+                      "shortcuts": [
+                        "string"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/auth/sign-in": {
       "get": {
-        "summary": "Sign in",
+        "summary": "Sign In",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {}
+                  "$ref": "#/components/schemas/auth_user"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "uuid": "string",
+                      "from": "string",
+                      "password": "string",
+                      "role": "string",
+                      "data": {
+                        "displayName": "string",
+                        "photoURL": "string",
+                        "email": "string",
+                        "settings": {
+                          "layout": {},
+                          "theme": {}
+                        },
+                        "shortcuts": [
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "auth_signIn",
-        "description": "Retrieve user",
+        "description": "Retrieve user.",
         "tags": [
           "auth"
         ]
@@ -58,23 +114,43 @@
     },
     "/auth/sign-up": {
       "get": {
-        "summary": "Sign up",
+        "summary": "Sign Up",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {}
+                  "$ref": "#/components/schemas/auth_user"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "uuid": "string",
+                      "from": "string",
+                      "password": "string",
+                      "role": "string",
+                      "data": {
+                        "displayName": "string",
+                        "photoURL": "string",
+                        "email": "string",
+                        "settings": {
+                          "layout": {},
+                          "theme": {}
+                        },
+                        "shortcuts": [
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "auth_signUp",
-        "description": "Retrieve user",
+        "description": "Retrieve user.",
         "tags": [
           "auth"
         ]
@@ -90,16 +166,36 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {}
+                  "$ref": "#/components/schemas/auth_user"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "uuid": "string",
+                      "from": "string",
+                      "password": "string",
+                      "role": "string",
+                      "data": {
+                        "displayName": "string",
+                        "photoURL": "string",
+                        "email": "string",
+                        "settings": {
+                          "layout": {},
+                          "theme": {}
+                        },
+                        "shortcuts": [
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "auth_signInWithAccessToken",
-        "description": "Retrieve user",
+        "description": "Retrieve user with access token.",
         "tags": [
           "auth"
         ]
@@ -116,15 +212,21 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {}
+                  "items": {
+                    "$ref": "#/components/schemas/profile_photos_videos"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/profile_photos_videos"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "profile_getPhotosVideos",
-        "description": "Retrieve photos and videos",
+        "description": "Retrieve photos and videos.",
         "tags": [
           "profile"
         ]
@@ -140,16 +242,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {}
+                  "$ref": "#/components/schemas/profile_timeline"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/profile_timeline"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "profile_getTimeline",
-        "description": "Retrieve timeline",
+        "description": "Retrieve timeline.",
         "tags": [
           "profile"
         ]
@@ -165,16 +270,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {}
+                  "$ref": "#/components/schemas/profile_about"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/profile_about"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "profile_getAbout",
-        "description": "Retrieve about",
+        "description": "Retrieve about.",
         "tags": [
           "profile"
         ]
@@ -191,17 +299,23 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {}
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/icons_feather"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "icons_getFeatherIcons",
-        "description": "Retrieve feather icons data",
+        "description": "Retrieve feather icons data.",
         "tags": [
-          "project-dashboard"
+          "icons"
         ]
       },
       "parameters": []
@@ -216,17 +330,23 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {}
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/icons_heroicons"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "icons_getHeroicons",
-        "description": "Retrieve heroicons data",
+        "description": "Retrieve heroicons data.",
         "tags": [
-          "project-dashboard"
+          "icons"
         ]
       },
       "parameters": []
@@ -241,17 +361,23 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {}
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/icons_material"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "icons_getMaterialIcons",
-        "description": "Retrieve material icons data",
+        "description": "Retrieve material icons data.",
         "tags": [
-          "project-dashboard"
+          "icons"
         ]
       },
       "parameters": []
@@ -267,13 +393,17 @@
                 "schema": {
                   "type": "object"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/project_dashboard_widgets"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "projectDashboard_getWidgetsidgets",
-        "description": "Retrieve dashboard widgets.",
+        "description": "Retrieve Project dashboard widgets.",
         "tags": [
           "project-dashboard"
         ]
@@ -289,15 +419,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/project_dashboard_projects"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "projectDashboard_getProjectsidgets",
-        "description": "Retrieve dashboard projects.",
+        "description": "Retrieve Project dashboard projects.",
         "tags": [
           "project-dashboard"
         ]
@@ -315,13 +452,17 @@
                 "schema": {
                   "type": "object"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/crypto_dashboard_widgets"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "cryptoDashboard_getWidgets",
-        "description": "Retrieve dashboard widgets.",
+        "description": "Retrieve Crypto dashboard widgets.",
         "tags": [
           "crypto-dashboard"
         ]
@@ -339,13 +480,17 @@
                 "schema": {
                   "type": "object"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/finance_dashboard_widgets"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "financeDashboard_getWidgets",
-        "description": "Retrieve dashboard widgets.",
+        "description": "Retrieve Finance dashboard widgets.",
         "tags": [
           "finance-dashboard"
         ]
@@ -363,13 +508,17 @@
                 "schema": {
                   "type": "object"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/analytics_dashboard_widgets"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "analyticsDashboard_getWidgets",
-        "description": "Retrieve dashboard widgets.",
+        "description": "Retrieve Analytics dashboard widgets.",
         "tags": [
           "analytics-dashboard"
         ]
@@ -390,13 +539,17 @@
                     "$ref": "#/components/schemas/calendar_event"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/calendar_events"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "calendar_getEvents",
-        "description": "Retrieve events.",
+        "description": "Retrieve Calendar events.",
         "tags": [
           "calendar"
         ]
@@ -440,7 +593,8 @@
           },
           "name": "eventSlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "Event slug"
         }
       ],
       "put": {
@@ -453,6 +607,21 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/calendar_event"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string",
+                      "allDay": true,
+                      "start": "string",
+                      "end": "string",
+                      "extendedProps": {
+                        "desc": "string",
+                        "label": "string"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -465,19 +634,26 @@
                 "$ref": "#/components/schemas/calendar_event"
               }
             }
-          }
+          },
+          "description": ""
         },
-        "description": "Update event."
+        "description": "Update Calendar event.",
+        "tags": [
+          "calendar"
+        ]
       },
       "delete": {
-        "summary": "",
+        "summary": "Delete Event",
         "operationId": "calendar_deleteEvent",
         "responses": {
           "200": {
             "description": "OK"
           }
         },
-        "description": "Delete event."
+        "description": "Delete event.",
+        "tags": [
+          "calendar"
+        ]
       }
     },
     "/calendar/labels": {
@@ -494,13 +670,17 @@
                     "$ref": "#/components/schemas/calendar_label"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/calendar_labels"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "calendar_getLabels",
-        "description": "Retrieve labels.",
+        "description": "Retrieve Calendar labels.",
         "tags": [
           "calendar"
         ]
@@ -516,6 +696,15 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/calendar_label"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string",
+                      "color": "string"
+                    }
+                  }
                 }
               }
             }
@@ -524,7 +713,7 @@
         "tags": [
           "calendar"
         ],
-        "description": "Create label.",
+        "description": "Create Calendar label.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -544,7 +733,8 @@
           },
           "name": "labelSlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "Label slug"
         }
       ],
       "put": {
@@ -557,6 +747,15 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/calendar_label"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string",
+                      "color": "string"
+                    }
+                  }
                 }
               }
             }
@@ -571,17 +770,23 @@
             }
           }
         },
-        "description": "Update label."
+        "description": "Update Calendar label.",
+        "tags": [
+          "calendar"
+        ]
       },
       "delete": {
-        "summary": "",
+        "summary": "Delete label",
         "operationId": "calendar_deleteLabel",
         "responses": {
           "200": {
             "description": "OK"
           }
         },
-        "description": "Delete label."
+        "description": "Delete Calendar label.",
+        "tags": [
+          "calendar"
+        ]
       }
     },
     "/mailbox/mails/actions": {
@@ -629,7 +834,11 @@
                     "$ref": "#/components/schemas/mailbox_mail"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/mailbox_mails"
+                  }
+                }
               }
             }
           }
@@ -647,7 +856,8 @@
           },
           "name": "folderSlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "folder slug"
         }
       ],
       "post": {
@@ -658,12 +868,50 @@
             "description": "OK"
           }
         },
-        "description": "Create Mail",
+        "description": "Create Mail in a folder.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/mailbox_mail"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "type": "string",
+                    "from": {
+                      "avatar": "string",
+                      "contact": "string"
+                    },
+                    "to": "string",
+                    "cc": [
+                      null
+                    ],
+                    "bcc": [
+                      null
+                    ],
+                    "date": "string",
+                    "subject": "string",
+                    "content": "string",
+                    "attachments": [
+                      {
+                        "type": "string",
+                        "name": "string",
+                        "size": 0,
+                        "preview": "string",
+                        "downloadUrl": "string"
+                      }
+                    ],
+                    "starred": true,
+                    "important": true,
+                    "unread": true,
+                    "folder": "string",
+                    "labels": [
+                      null
+                    ]
+                  }
+                }
               }
             }
           }
@@ -687,7 +935,11 @@
                     "$ref": "#/components/schemas/mailbox_mail"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/mailbox_mails"
+                  }
+                }
               }
             }
           }
@@ -705,7 +957,8 @@
           },
           "name": "labelSlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "label slug"
         }
       ]
     },
@@ -723,7 +976,11 @@
                     "$ref": "#/components/schemas/mailbox_mail"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/mailbox_mails"
+                  }
+                }
               }
             }
           }
@@ -741,7 +998,8 @@
           },
           "name": "filterSlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "filter slug"
         }
       ]
     },
@@ -759,13 +1017,17 @@
                     "$ref": "#/components/schemas/mailbox_filter"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/mailbox_filters"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "mailbox_getFilters",
-        "description": "Retrieve filters.",
+        "description": "Retrieve mail filters.",
         "tags": [
           "mailbox"
         ]
@@ -786,13 +1048,17 @@
                     "$ref": "#/components/schemas/mailbox_label"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/mailbox_labels"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "mailbox_getLabels",
-        "description": "Retrieve labels.",
+        "description": "Retrieve mail labels.",
         "tags": [
           "mailbox"
         ]
@@ -808,6 +1074,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/mailbox_label"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string",
+                      "slug": "string",
+                      "icon": "string"
+                    }
+                  }
                 }
               }
             }
@@ -816,12 +1092,22 @@
         "tags": [
           "mailbox"
         ],
-        "description": "Create label.",
+        "description": "Create mail label.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/mailbox_label"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string",
+                    "slug": "string",
+                    "icon": "string"
+                  }
+                }
               }
             }
           }
@@ -836,7 +1122,8 @@
           },
           "name": "labelSlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "label slug"
         }
       ],
       "put": {
@@ -849,6 +1136,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/mailbox_label"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string",
+                      "slug": "string",
+                      "icon": "string"
+                    }
+                  }
                 }
               }
             }
@@ -859,21 +1156,37 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/mailbox_label"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string",
+                    "slug": "string",
+                    "icon": "string"
+                  }
+                }
               }
             }
           }
         },
-        "description": "Update label."
+        "description": "Update mail label.",
+        "tags": [
+          "mailbox"
+        ]
       },
       "delete": {
-        "summary": "",
+        "summary": "Delete label",
         "operationId": "mailbox_deleteLabel",
         "responses": {
           "200": {
             "description": "OK"
           }
         },
-        "description": "Delete label."
+        "description": "Delete mail label.",
+        "tags": [
+          "mailbox"
+        ]
       }
     },
     "/mailbox/folders": {
@@ -890,13 +1203,17 @@
                     "$ref": "#/components/schemas/mailbox_folder"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/mailbox_folders"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "mailbox_getFolders",
-        "description": "Retrieve folders.",
+        "description": "Retrieve mail folders.",
         "tags": [
           "mailbox"
         ]
@@ -917,7 +1234,11 @@
                     "$ref": "#/components/schemas/notification"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/notifications"
+                  }
+                }
               }
             }
           }
@@ -937,12 +1258,26 @@
             "description": "OK"
           }
         },
-        "description": "Create Notification",
+        "description": "Create a notification.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/notification"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "icon": "string",
+                    "title": "string",
+                    "description": "string",
+                    "time": "string",
+                    "read": true,
+                    "link": "string",
+                    "useRouter": true
+                  }
+                }
               }
             }
           }
@@ -976,7 +1311,20 @@
                 "schema": {
                   "$ref": "#/components/schemas/notification"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "icon": "string",
+                      "title": "string",
+                      "description": "string",
+                      "time": "string",
+                      "read": true,
+                      "link": "string",
+                      "useRouter": true
+                    }
+                  }
+                }
               }
             }
           }
@@ -994,7 +1342,8 @@
           },
           "name": "notificationId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "notification id"
         }
       ],
       "delete": {
@@ -1023,15 +1372,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/scrumboard_member"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/scrumboard_member"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/scrumboard_members"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getMembers",
-        "description": "Retrieve member.",
+        "description": "Retrieve scrumboard members.",
         "tags": [
           "scrumboard"
         ]
@@ -1045,7 +1401,7 @@
             "description": "OK"
           }
         },
-        "description": "Create Member",
+        "description": "Create Scrumboard member.",
         "tags": [
           "scrumboard"
         ],
@@ -1054,6 +1410,15 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_member"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "name": "string",
+                    "avatar": "string"
+                  }
+                }
               }
             }
           }
@@ -1071,13 +1436,21 @@
                 "schema": {
                   "$ref": "#/components/schemas/scrumboard_member"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "name": "string",
+                      "avatar": "string"
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getMember",
-        "description": "Retrieve member by id.",
+        "description": "Retrieve Scrumboard member by id.",
         "tags": [
           "scrumboard"
         ]
@@ -1089,7 +1462,8 @@
           },
           "name": "memberId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "member id"
         }
       ],
       "put": {
@@ -1103,12 +1477,21 @@
             "description": "Not Found"
           }
         },
-        "description": "Update member information.",
+        "description": "Update Scrumboard member information.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_member"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "name": "string",
+                    "avatar": "string"
+                  }
+                }
               }
             }
           },
@@ -1129,7 +1512,7 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete member.",
+        "description": "Delete Scrumboard member.",
         "tags": [
           "scrumboard"
         ]
@@ -1144,15 +1527,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/scrumboard_list"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/scrumboard_list"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/scrumboard_lists"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getLists",
-        "description": "Retrieve board list.",
+        "description": "Retrieve Scrumboard board lists.",
         "tags": [
           "scrumboard"
         ]
@@ -1164,7 +1554,8 @@
           },
           "name": "boardId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "boar id"
         }
       ],
       "post": {
@@ -1175,7 +1566,7 @@
             "description": "OK"
           }
         },
-        "description": "Create List",
+        "description": "Create Scrumboard board list.",
         "tags": [
           "scrumboard"
         ],
@@ -1184,6 +1575,15 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_list"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "boardId": "string",
+                    "title": "string"
+                  }
+                }
               }
             }
           }
@@ -1201,13 +1601,21 @@
                 "schema": {
                   "$ref": "#/components/schemas/scrumboard_list"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "boardId": "string",
+                      "title": "string"
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getList",
-        "description": "Retrieve list by id.",
+        "description": "Retrieve Scrumboard board list by id.",
         "tags": [
           "scrumboard"
         ]
@@ -1219,7 +1627,8 @@
           },
           "name": "listId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "list id"
         },
         {
           "schema": {
@@ -1227,7 +1636,8 @@
           },
           "name": "bordId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "board id"
         }
       ],
       "put": {
@@ -1241,7 +1651,7 @@
             "description": "Not Found"
           }
         },
-        "description": "Update list information.",
+        "description": "Update Scrumboard board list information.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1267,7 +1677,7 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete list.",
+        "description": "Delete Scrumboard board list.",
         "tags": [
           "scrumboard"
         ]
@@ -1282,15 +1692,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/scrumboard_label"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/scrumboard_label"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/scrumboard_labels"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getLabels",
-        "description": "Retrieve label list.",
+        "description": "Retrieve Scrumboard board labels.",
         "tags": [
           "scrumboard"
         ]
@@ -1302,7 +1719,8 @@
           },
           "name": "boardId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "board id"
         }
       ],
       "post": {
@@ -1313,7 +1731,7 @@
             "description": "OK"
           }
         },
-        "description": "Create Label",
+        "description": "Create Scrumboard board label.",
         "tags": [
           "scrumboard"
         ],
@@ -1322,6 +1740,15 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_label"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "boardId": "string",
+                    "title": "string"
+                  }
+                }
               }
             }
           }
@@ -1339,13 +1766,21 @@
                 "schema": {
                   "$ref": "#/components/schemas/scrumboard_label"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "boardId": "string",
+                      "title": "string"
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getLabel",
-        "description": "Retrieve label by id.",
+        "description": "Retrieve Scrumboard board label by id.",
         "tags": [
           "scrumboard"
         ]
@@ -1357,7 +1792,8 @@
           },
           "name": "labelId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "label id"
         },
         {
           "schema": {
@@ -1365,7 +1801,8 @@
           },
           "name": "boardId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "board id"
         }
       ],
       "put": {
@@ -1379,12 +1816,21 @@
             "description": "Not Found"
           }
         },
-        "description": "Update label information.",
+        "description": "Update Scrumboard board label information.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_label"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "boardId": "string",
+                    "title": "string"
+                  }
+                }
               }
             }
           },
@@ -1405,7 +1851,7 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete label.",
+        "description": "Delete Scrumboard board label.",
         "tags": [
           "scrumboard"
         ]
@@ -1420,15 +1866,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/scrumboard_card"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/scrumboard_card"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/scrumboard_cards"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getCards",
-        "description": "Retrieve card list.",
+        "description": "Retrieve Scrumboard board cards.",
         "tags": [
           "scrumboard"
         ]
@@ -1440,7 +1893,8 @@
           },
           "name": "boardId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "board id"
         }
       ],
       "post": {
@@ -1451,7 +1905,7 @@
             "description": "OK"
           }
         },
-        "description": "Create Card",
+        "description": "Create Scrumboard board card.",
         "tags": [
           "scrumboard"
         ],
@@ -1460,6 +1914,57 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_card"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "boardId": "string",
+                    "listId": "string",
+                    "title": "string",
+                    "description": "string",
+                    "labels": [
+                      {}
+                    ],
+                    "dueDate": 0,
+                    "attachmentCoverId": "string",
+                    "memberIds": [
+                      null
+                    ],
+                    "attachments": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "src": "string",
+                        "time": 0,
+                        "type": "string"
+                      }
+                    ],
+                    "subscribed": true,
+                    "checklists": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "checkItems": [
+                          {
+                            "id": 0,
+                            "name": "string",
+                            "checked": true
+                          }
+                        ]
+                      }
+                    ],
+                    "activities": [
+                      {
+                        "id": 0,
+                        "type": "string",
+                        "idMember": "string",
+                        "message": "string",
+                        "time": 0
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
@@ -1477,13 +1982,63 @@
                 "schema": {
                   "$ref": "#/components/schemas/scrumboard_card"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "boardId": "string",
+                      "listId": "string",
+                      "title": "string",
+                      "description": "string",
+                      "labels": [
+                        null
+                      ],
+                      "dueDate": 0,
+                      "attachmentCoverId": "string",
+                      "memberIds": [
+                        null
+                      ],
+                      "attachments": [
+                        {
+                          "id": "string",
+                          "name": "string",
+                          "src": "string",
+                          "time": 0,
+                          "type": "string"
+                        }
+                      ],
+                      "subscribed": true,
+                      "checklists": [
+                        {
+                          "id": "string",
+                          "name": "string",
+                          "checkItems": [
+                            {
+                              "id": 0,
+                              "name": "string",
+                              "checked": true
+                            }
+                          ]
+                        }
+                      ],
+                      "activities": [
+                        {
+                          "id": 0,
+                          "type": "string",
+                          "idMember": "string",
+                          "message": "string",
+                          "time": 0
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getCard",
-        "description": "Retrieve card by id.",
+        "description": "Retrieve Scrumboard board card by id.",
         "tags": [
           "scrumboard"
         ]
@@ -1495,7 +2050,8 @@
           },
           "name": "cardId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "car id"
         },
         {
           "schema": {
@@ -1503,7 +2059,8 @@
           },
           "name": "boardId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "board id"
         }
       ],
       "put": {
@@ -1517,12 +2074,63 @@
             "description": "Not Found"
           }
         },
-        "description": "Update card information.",
+        "description": "Update Scrumboard board card information.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_card"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "boardId": "string",
+                    "listId": "string",
+                    "title": "string",
+                    "description": "string",
+                    "labels": [
+                      null
+                    ],
+                    "dueDate": 0,
+                    "attachmentCoverId": "string",
+                    "memberIds": [
+                      null
+                    ],
+                    "attachments": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "src": "string",
+                        "time": 0,
+                        "type": "string"
+                      }
+                    ],
+                    "subscribed": true,
+                    "checklists": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "checkItems": [
+                          {
+                            "id": 0,
+                            "name": "string",
+                            "checked": true
+                          }
+                        ]
+                      }
+                    ],
+                    "activities": [
+                      {
+                        "id": 0,
+                        "type": "string",
+                        "idMember": "string",
+                        "message": "string",
+                        "time": 0
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -1543,7 +2151,7 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete card.",
+        "description": "Delete Scrumboard board card.",
         "tags": [
           "scrumboard"
         ]
@@ -1558,15 +2166,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/scrumboard_board"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/scrumboard_board"
+                  }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/scrumboard_boards"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getBoards",
-        "description": "Retrieve board list.",
+        "description": "Retrieve Scrumboard boards.",
         "tags": [
           "scrumboard"
         ]
@@ -1580,7 +2195,7 @@
             "description": "OK"
           }
         },
-        "description": "Create Board",
+        "description": "Create Scrumboard board.",
         "tags": [
           "scrumboard"
         ],
@@ -1589,6 +2204,30 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_board"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string",
+                    "description": "string",
+                    "icon": "string",
+                    "lastActivity": "string",
+                    "members": [
+                      null
+                    ],
+                    "settings": {
+                      "subscribed": true,
+                      "cardCoverImages": true
+                    },
+                    "lists": [
+                      {
+                        "id": "string",
+                        "cards": []
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
@@ -1606,13 +2245,38 @@
                 "schema": {
                   "$ref": "#/components/schemas/scrumboard_board"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string",
+                      "description": "string",
+                      "icon": "string",
+                      "lastActivity": "string",
+                      "members": [
+                        null
+                      ],
+                      "settings": {
+                        "subscribed": true,
+                        "cardCoverImages": true
+                      },
+                      "lists": [
+                        {
+                          "id": "string",
+                          "cards": [
+                            "string"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "scrumboard_getBoard",
-        "description": "Retrieve board by id.",
+        "description": "Retrieve Scrumboard board by id.",
         "tags": [
           "scrumboard"
         ]
@@ -1624,7 +2288,8 @@
           },
           "name": "boardId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "board id"
         }
       ],
       "put": {
@@ -1638,12 +2303,38 @@
             "description": "Not Found"
           }
         },
-        "description": "Update board information.",
+        "description": "Update Scrumboard board information.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/scrumboard_board"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string",
+                    "description": "string",
+                    "icon": "string",
+                    "lastActivity": "string",
+                    "members": [
+                      null
+                    ],
+                    "settings": {
+                      "subscribed": true,
+                      "cardCoverImages": true
+                    },
+                    "lists": [
+                      {
+                        "id": "string",
+                        "cards": [
+                          "string"
+                        ]
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -1664,7 +2355,7 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete board.",
+        "description": "Delete Scrumboard board.",
         "tags": [
           "scrumboard"
         ]
@@ -1684,7 +2375,11 @@
                     "$ref": "#/components/schemas/notes_note"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/notes_notes"
+                  }
+                }
               }
             }
           }
@@ -1709,6 +2404,24 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/notes_note"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string",
+                    "content": "string",
+                    "tasks": null,
+                    "image": null,
+                    "reminder": null,
+                    "labels": [
+                      null
+                    ],
+                    "archived": true,
+                    "createdAt": "string",
+                    "updatedAt": null
+                  }
+                }
               }
             }
           },
@@ -1731,7 +2444,24 @@
                 "schema": {
                   "$ref": "#/components/schemas/notes_note"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string",
+                      "content": "string",
+                      "tasks": null,
+                      "image": null,
+                      "reminder": null,
+                      "labels": [
+                        null
+                      ],
+                      "archived": true,
+                      "createdAt": "string",
+                      "updatedAt": null
+                    }
+                  }
+                }
               }
             }
           }
@@ -1749,7 +2479,8 @@
           },
           "name": "noteId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "note id"
         }
       ],
       "put": {
@@ -1769,6 +2500,24 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/notes_note"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string",
+                    "content": "string",
+                    "tasks": null,
+                    "image": null,
+                    "reminder": null,
+                    "labels": [
+                      null
+                    ],
+                    "archived": true,
+                    "createdAt": "string",
+                    "updatedAt": null
+                  }
+                }
               }
             }
           },
@@ -1812,13 +2561,17 @@
                     "$ref": "#/components/schemas/notes_label"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/notes_labels"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "notes_getLabels",
-        "description": "Retrieve all label list."
+        "description": "Retrieve note labels."
       },
       "parameters": [],
       "post": {
@@ -1832,12 +2585,20 @@
             "description": "OK"
           }
         },
-        "description": "Create new Label.",
+        "description": "Create new note Label.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/notes_label"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string"
+                  }
+                }
               }
             }
           },
@@ -1859,13 +2620,20 @@
                 "schema": {
                   "$ref": "#/components/schemas/notes_label"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string"
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "notes_getLabel",
-        "description": "Retrieve label by id."
+        "description": "Retrieve note label by id."
       },
       "parameters": [
         {
@@ -1874,7 +2642,8 @@
           },
           "name": "labelId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "label id"
         }
       ],
       "put": {
@@ -1897,6 +2666,14 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/notes_label"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string"
+                  }
+                }
               }
             }
           },
@@ -1917,7 +2694,7 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete label."
+        "description": "Delete note label."
       }
     },
     "/notes/archive": {
@@ -1934,10 +2711,14 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/help_center_guide"
+                    "$ref": "#/components/schemas/notes_note"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/notes_notes"
+                  }
+                }
               }
             }
           }
@@ -1961,10 +2742,14 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/help_center_guide"
+                    "$ref": "#/components/schemas/notes_note"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/notes_notes"
+                  }
+                }
               }
             }
           }
@@ -1991,19 +2776,23 @@
                     "$ref": "#/components/schemas/help_center_guide"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/help_center_guides"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "helpCenter_getGuides",
-        "description": "Retrieve all guides."
+        "description": "Retrieve Help Center guides."
       },
       "parameters": []
     },
     "/help-center/guides/{categorySlug}": {
       "get": {
-        "summary": "Get Guide list by Category",
+        "summary": "Get Guide List by Category",
         "tags": [
           "help-center"
         ],
@@ -2018,13 +2807,17 @@
                     "$ref": "#/components/schemas/help_center_guide"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/help_center_guides"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "helpCenter_getGuidesByCategorySlug",
-        "description": "Retrieve guide list by category slug."
+        "description": "Retrieve Help Center guide list by category slug."
       },
       "parameters": [
         {
@@ -2033,13 +2826,14 @@
           },
           "name": "categorySlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "category slug"
         }
       ]
     },
     "/help-center/guides/{categorySlug}/{guideSlug}": {
       "get": {
-        "summary": "Get Guide",
+        "summary": "Get Guide by Category",
         "tags": [
           "help-center"
         ],
@@ -2049,18 +2843,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/help_center_guide"
-                  }
+                  "$ref": "#/components/schemas/help_center_guide"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "categoryId": "string",
+                      "slug": "string",
+                      "title": "string",
+                      "subtitle": "string"
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "helpCenter_getGuideByCategoryGuideSlug",
-        "description": "Retrieve guide by category and guide slug."
+        "description": "Retrieve Help Center guide by category and guide slug."
       },
       "parameters": [
         {
@@ -2069,7 +2870,8 @@
           },
           "name": "categorySlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "category slug"
         },
         {
           "schema": {
@@ -2077,13 +2879,14 @@
           },
           "name": "guideSlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "guide slug"
         }
       ]
     },
     "/help-center/guides/categories": {
       "get": {
-        "summary": "Get FAQ Categories",
+        "summary": "Get Guide Categories",
         "tags": [
           "help-center"
         ],
@@ -2098,19 +2901,23 @@
                     "$ref": "#/components/schemas/help_center_guide_category"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/help_center_guide_categories"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "helpCenter_getGuideCategories",
-        "description": "Retrieve guide categories."
+        "description": "Retrieve Help Center guide categories."
       },
       "parameters": []
     },
     "/help-center/faqs": {
       "get": {
-        "summary": "Get Orders",
+        "summary": "Get FAQs",
         "tags": [
           "help-center"
         ],
@@ -2125,19 +2932,23 @@
                     "$ref": "#/components/schemas/help_center_faq"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/help_center_faqs"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "helpCenter_getFaqs",
-        "description": "Retrieve all faqs."
+        "description": "Retrieve Help Center faqs."
       },
       "parameters": []
     },
     "/help-center/faqs/{categorySlug}": {
       "get": {
-        "summary": "Get Orders",
+        "summary": "Get FAQ List by Category",
         "tags": [
           "help-center"
         ],
@@ -2152,13 +2963,17 @@
                     "$ref": "#/components/schemas/help_center_faq"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/help_center_faqs"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "helpCenter_getFaqsByCategorySlug",
-        "description": "Retrieve faqs by category slug."
+        "description": "Retrieve Help Center faqs by category slug."
       },
       "parameters": [
         {
@@ -2167,13 +2982,14 @@
           },
           "name": "categorySlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "category slug"
         }
       ]
     },
     "/help-center/faqs/most": {
       "get": {
-        "summary": "Get mostly faqs",
+        "summary": "Get Mostly FAQs",
         "tags": [
           "help-center"
         ],
@@ -2188,13 +3004,17 @@
                     "$ref": "#/components/schemas/help_center_faq"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/help_center_faqs"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "helpCenter_getMostlyFaqs",
-        "description": "Retrieve mostly asked faqs."
+        "description": "Retrieve Help Center mostly asked faqs."
       },
       "parameters": []
     },
@@ -2215,13 +3035,17 @@
                     "$ref": "#/components/schemas/help_center_faq_category"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/help_center_faq_categories"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "helpCenter_getFaqCategories",
-        "description": "Retrieve faq categories."
+        "description": "Retrieve Help Center faq categories."
       },
       "parameters": []
     },
@@ -2239,13 +3063,28 @@
                 "schema": {
                   "$ref": "#/components/schemas/file_manager_item"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "folderId": null,
+                      "name": "string",
+                      "createdBy": "string",
+                      "createdAt": "string",
+                      "modifiedAt": "string",
+                      "size": "string",
+                      "type": "string",
+                      "contents": "string",
+                      "description": "string"
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "fileManager_getFolder",
-        "description": "Retrieve folder by id."
+        "description": "Retrieve File Manager folder by id."
       },
       "parameters": [
         {
@@ -2254,7 +3093,8 @@
           },
           "name": "folderId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "folder id"
         }
       ],
       "put": {
@@ -2302,7 +3142,7 @@
     },
     "/ecommerce/orders": {
       "get": {
-        "summary": "Get Orders",
+        "summary": "Get E-commerce Orders",
         "tags": [
           "e-commerce"
         ],
@@ -2317,19 +3157,23 @@
                     "$ref": "#/components/schemas/ecommerce_order"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/ecommerce_orders"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "ecommerce_getOrders",
-        "description": "Retrieve orders."
+        "description": "Retrieve E-commerce orders."
       },
       "parameters": []
     },
     "/ecommerce/orders/{orderId}": {
       "get": {
-        "summary": "Get Order",
+        "summary": "Get E-commerce Order",
         "tags": [
           "e-commerce"
         ],
@@ -2339,15 +3183,73 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chat_contact"
+                  "$ref": "#/components/schemas/ecommerce_order"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "reference": "string",
+                      "subtotal": "string",
+                      "tax": "string",
+                      "discount": "string",
+                      "total": "string",
+                      "date": "string",
+                      "customer": {
+                        "id": 0,
+                        "firstName": "string",
+                        "lastName": "string",
+                        "avatar": "string",
+                        "company": "string",
+                        "jobTitle": "string",
+                        "email": "string",
+                        "phone": "string",
+                        "invoiceAddress": {
+                          "address": "string",
+                          "lat": 0,
+                          "lng": 0
+                        },
+                        "shippingAddress": {
+                          "address": "string",
+                          "lat": 0,
+                          "lng": 0
+                        }
+                      },
+                      "products": [
+                        null
+                      ],
+                      "status": [
+                        {
+                          "id": 0,
+                          "name": "string",
+                          "color": "string",
+                          "date": "string"
+                        }
+                      ],
+                      "payment": {
+                        "transactionId": "string",
+                        "amount": "string",
+                        "method": "string",
+                        "date": "string"
+                      },
+                      "shippingDetails": [
+                        {
+                          "tracking": "string",
+                          "carrier": "string",
+                          "weight": "string",
+                          "fee": "string",
+                          "date": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "ecommerce_getOrder",
-        "description": "Retrieve order by id."
+        "description": "Retrieve E-commerce order by id."
       },
       "parameters": [
         {
@@ -2356,11 +3258,12 @@
           },
           "name": "orderId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "order id"
         }
       ],
       "put": {
-        "summary": "Update Order",
+        "summary": "Update E-commerce Order",
         "tags": [
           "e-commerce"
         ],
@@ -2373,19 +3276,78 @@
             "description": "Not Found"
           }
         },
-        "description": "Update order information.",
+        "description": "Update E-commerce order information.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ecommerce_order"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "reference": "string",
+                    "subtotal": "string",
+                    "tax": "string",
+                    "discount": "string",
+                    "total": "string",
+                    "date": "string",
+                    "customer": {
+                      "id": 0,
+                      "firstName": "string",
+                      "lastName": "string",
+                      "avatar": "string",
+                      "company": "string",
+                      "jobTitle": "string",
+                      "email": "string",
+                      "phone": "string",
+                      "invoiceAddress": {
+                        "address": "string",
+                        "lat": 0,
+                        "lng": 0
+                      },
+                      "shippingAddress": {
+                        "address": "string",
+                        "lat": 0,
+                        "lng": 0
+                      }
+                    },
+                    "products": [
+                      null
+                    ],
+                    "status": [
+                      {
+                        "id": 0,
+                        "name": "string",
+                        "color": "string",
+                        "date": "string"
+                      }
+                    ],
+                    "payment": {
+                      "transactionId": "string",
+                      "amount": "string",
+                      "method": "string",
+                      "date": "string"
+                    },
+                    "shippingDetails": [
+                      {
+                        "tracking": "string",
+                        "carrier": "string",
+                        "weight": "string",
+                        "fee": "string",
+                        "date": "string"
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       },
       "delete": {
-        "summary": "Delete Order",
+        "summary": "Delete E-commerce Order",
         "tags": [
           "e-commerce"
         ],
@@ -2398,12 +3360,12 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete order."
+        "description": "Delete E-commerce order."
       }
     },
     "/ecommerce/products": {
       "get": {
-        "summary": "Get Products",
+        "summary": "Get E-commerce Products",
         "tags": [
           "e-commerce"
         ],
@@ -2415,16 +3377,20 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/academy_course"
+                    "$ref": "#/components/schemas/ecommerce_product"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/ecommerce_products"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "ecommerce_getProducts",
-        "description": "Retrieve products."
+        "description": "Retrieve E-commerce products."
       },
       "parameters": [],
       "delete": {
@@ -2451,7 +3417,7 @@
           },
           "description": "Product ids"
         },
-        "description": "Remove products by ids"
+        "description": "Remove E-commerce products by ids"
       }
     },
     "/ecommerce/products/{productId}": {
@@ -2466,15 +3432,46 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chat_contact"
+                  "$ref": "#/components/schemas/ecommerce_product"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "name": "string",
+                      "handle": "string",
+                      "description": "string",
+                      "categories": [
+                        null
+                      ],
+                      "tags": [
+                        null
+                      ],
+                      "featuredImageId": "string",
+                      "images": [
+                        null
+                      ],
+                      "priceTaxExcl": 0,
+                      "priceTaxIncl": 0,
+                      "taxRate": 0,
+                      "comparedPrice": 0,
+                      "quantity": 0,
+                      "sku": "string",
+                      "width": "string",
+                      "height": "string",
+                      "depth": "string",
+                      "weight": "string",
+                      "extraShippingFee": 0,
+                      "active": true
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "ecommerce_getProduct",
-        "description": "Retrieve product by id."
+        "description": "Retrieve E-commerce product by id."
       },
       "parameters": [
         {
@@ -2483,7 +3480,8 @@
           },
           "name": "productId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "product id"
         }
       ],
       "put": {
@@ -2500,12 +3498,44 @@
             "description": "Not Found"
           }
         },
-        "description": "Update product information.",
+        "description": "Update E-commerce product information.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ecommerce_product"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "name": "string",
+                    "handle": "string",
+                    "description": "string",
+                    "categories": [
+                      null
+                    ],
+                    "tags": [
+                      null
+                    ],
+                    "featuredImageId": "string",
+                    "images": [
+                      null
+                    ],
+                    "priceTaxExcl": 0,
+                    "priceTaxIncl": 0,
+                    "taxRate": 0,
+                    "comparedPrice": 0,
+                    "quantity": 0,
+                    "sku": "string",
+                    "width": "string",
+                    "height": "string",
+                    "depth": "string",
+                    "weight": "string",
+                    "extraShippingFee": 0,
+                    "active": true
+                  }
+                }
               }
             }
           }
@@ -2525,12 +3555,12 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete product."
+        "description": "Delete E-commerce product."
       }
     },
     "/academy/courses": {
       "get": {
-        "summary": "Get Courses",
+        "summary": "Get Academy Courses",
         "tags": [
           "academy"
         ],
@@ -2545,19 +3575,23 @@
                     "$ref": "#/components/schemas/academy_course"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/academy_courses"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "academy_getCourses",
-        "description": "Retrieve courses."
+        "description": "Retrieve Academy courses."
       },
       "parameters": []
     },
     "/academy/courses/{courseId}": {
       "get": {
-        "summary": "Get Course",
+        "summary": "Get Academy Course",
         "tags": [
           "academy"
         ],
@@ -2567,15 +3601,33 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chat_contact"
+                  "$ref": "#/components/schemas/academy_course"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "title": "string",
+                      "slug": "string",
+                      "description": "string",
+                      "category": "string",
+                      "duration": 0,
+                      "totalSteps": 0,
+                      "updatedAt": "string",
+                      "featured": true,
+                      "progress": {
+                        "currentStep": 0,
+                        "completed": 0
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "academy_getCourse",
-        "description": "Retrieve course by id."
+        "description": "Retrieve Academy course by id."
       },
       "parameters": [
         {
@@ -2584,11 +3636,12 @@
           },
           "name": "courseId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "course id"
         }
       ],
       "put": {
-        "summary": "Update Course",
+        "summary": "Update Academy Course",
         "tags": [
           "academy"
         ],
@@ -2601,19 +3654,38 @@
             "description": "Not Found"
           }
         },
-        "description": "Update course information.",
+        "description": "Update Academy course information.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/academy_course"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "title": "string",
+                    "slug": "string",
+                    "description": "string",
+                    "category": "string",
+                    "duration": 0,
+                    "totalSteps": 0,
+                    "updatedAt": "string",
+                    "featured": true,
+                    "progress": {
+                      "currentStep": 0,
+                      "completed": 0
+                    }
+                  }
+                }
               }
             }
           }
         }
       },
       "delete": {
-        "summary": "Delete Course",
+        "summary": "Delete Academy Course",
         "tags": [
           "academy"
         ],
@@ -2626,12 +3698,12 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete course."
+        "description": "Delete Academy course."
       }
     },
     "/academy/categories": {
       "get": {
-        "summary": "Get Categories",
+        "summary": "Get Academy Categories",
         "tags": [
           "academy"
         ],
@@ -2643,22 +3715,26 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/academy_course"
+                    "$ref": "#/components/schemas/academy_category"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/academy_categories"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "academy_getCategories",
-        "description": "Retrieve categories."
+        "description": "Retrieve Academy categories."
       },
       "parameters": []
     },
     "/chat/contacts": {
       "get": {
-        "summary": "Get Contacts",
+        "summary": "Get Chat Contacts",
         "tags": [
           "chat"
         ],
@@ -2673,19 +3749,23 @@
                     "$ref": "#/components/schemas/chat_contact"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/chat_contacts"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "chat_getContacts",
-        "description": "Retrieve contacts."
+        "description": "Retrieve Chat contacts."
       },
       "parameters": []
     },
     "/chat/contacts/{contactId}": {
       "get": {
-        "summary": "Get Contact",
+        "summary": "Get Chat Contact",
         "tags": [
           "chat"
         ],
@@ -2697,13 +3777,52 @@
                 "schema": {
                   "$ref": "#/components/schemas/chat_contact"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "avatar": "string",
+                      "name": "string",
+                      "about": "string",
+                      "details": {
+                        "emails": [
+                          {
+                            "email": "string",
+                            "label": "string"
+                          }
+                        ],
+                        "phoneNumbers": [
+                          {
+                            "country": "string",
+                            "phoneNumber": "string",
+                            "label": "string"
+                          }
+                        ],
+                        "title": "string",
+                        "company": "string",
+                        "birthday": "string",
+                        "address": "string"
+                      },
+                      "attachments": {
+                        "media": [
+                          null
+                        ],
+                        "docs": [
+                          null
+                        ],
+                        "links": [
+                          null
+                        ]
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         },
         "operationId": "chat_getContact",
-        "description": "Retrieve contact by contact id."
+        "description": "Retrieve Chat contact by id."
       },
       "parameters": [
         {
@@ -2712,11 +3831,12 @@
           },
           "name": "contactId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "contact id"
         }
       ],
       "put": {
-        "summary": "Update Contact",
+        "summary": "Update Chat Contact",
         "tags": [
           "chat"
         ],
@@ -2735,13 +3855,53 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/chat_contact"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "avatar": "string",
+                    "name": "string",
+                    "about": "string",
+                    "details": {
+                      "emails": [
+                        {
+                          "email": "string",
+                          "label": "string"
+                        }
+                      ],
+                      "phoneNumbers": [
+                        {
+                          "country": "string",
+                          "phoneNumber": "string",
+                          "label": "string"
+                        }
+                      ],
+                      "title": "string",
+                      "company": "string",
+                      "birthday": "string",
+                      "address": "string"
+                    },
+                    "attachments": {
+                      "media": [
+                        null
+                      ],
+                      "docs": [
+                        null
+                      ],
+                      "links": [
+                        null
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
         }
       },
       "delete": {
-        "summary": "Delete Contact",
+        "summary": "Delete Chat Contact",
         "tags": [
           "chat"
         ],
@@ -2774,7 +3934,11 @@
                     "$ref": "#/components/schemas/chat_chat"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/chat_chats"
+                  }
+                }
               }
             }
           }
@@ -2792,7 +3956,8 @@
           },
           "name": "contactId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "contact id"
         }
       ],
       "get": {
@@ -2809,7 +3974,11 @@
                     "$ref": "#/components/schemas/chat_message"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/chat_messages"
+                  }
+                }
               }
             }
           },
@@ -2865,6 +4034,11 @@
                 "items": {
                   "$ref": "#/components/schemas/chat_message"
                 }
+              },
+              "examples": {
+                "example-1": {
+                  "$ref": "#/components/examples/chat_messages"
+                }
               }
             }
           },
@@ -2874,7 +4048,7 @@
     },
     "/chat/profile": {
       "get": {
-        "summary": "Get User Profile",
+        "summary": "Get Chat User Profile",
         "tags": [
           "chat"
         ],
@@ -2886,13 +4060,17 @@
                 "schema": {
                   "$ref": "#/components/schemas/chat_profile"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/chat_profile"
+                  }
+                }
               }
             }
           }
         },
         "operationId": "chat_getUserProfile",
-        "description": "Retrieve user profile."
+        "description": "Retrieve Chat user profile."
       },
       "parameters": []
     },
@@ -2913,7 +4091,11 @@
                     "$ref": "#/components/schemas/task"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/tasks"
+                  }
+                }
               }
             }
           }
@@ -2930,36 +4112,30 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/contact"
+                  "$ref": "#/components/schemas/task"
                 },
                 "examples": {
-                  "Dejesus Michael": {
+                  "example-1": {
                     "value": {
                       "id": "string",
-                      "avatar": "string",
-                      "background": "string",
-                      "name": "string",
-                      "emails": [
-                        {
-                          "email": "string",
-                          "label": "string"
-                        }
-                      ],
-                      "phoneNumbers": [
-                        {
-                          "country": "string",
-                          "phoneNumber": "string",
-                          "label": "string"
-                        }
-                      ],
+                      "type": "string",
                       "title": "string",
-                      "company": "string",
-                      "birthday": "string",
-                      "address": "string",
                       "notes": "string",
+                      "completed": true,
+                      "dueDate": "string",
+                      "priority": 0,
                       "tags": [
-                        "string"
-                      ]
+                        null
+                      ],
+                      "assignedTo": null,
+                      "subTasks": [
+                        {
+                          "id": "string",
+                          "title": "string",
+                          "completed": true
+                        }
+                      ],
+                      "order": 0
                     }
                   }
                 }
@@ -2971,42 +4147,37 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/contact"
+                "$ref": "#/components/schemas/task"
               },
               "examples": {
-                "Create Contact Dejesus Michael": {
+                "example-1": {
                   "value": {
-                    "avatar": "string",
-                    "background": "string",
-                    "name": "string",
-                    "emails": [
-                      {
-                        "email": "string",
-                        "label": "string"
-                      }
-                    ],
-                    "phoneNumbers": [
-                      {
-                        "country": "string",
-                        "phoneNumber": "string",
-                        "label": "string"
-                      }
-                    ],
+                    "id": "string",
+                    "type": "string",
                     "title": "string",
-                    "company": "string",
-                    "birthday": "string",
-                    "address": "string",
                     "notes": "string",
+                    "completed": true,
+                    "dueDate": "string",
+                    "priority": 0,
                     "tags": [
-                      "string"
-                    ]
+                      null
+                    ],
+                    "assignedTo": null,
+                    "subTasks": [
+                      {
+                        "id": "string",
+                        "title": "string",
+                        "completed": true
+                      }
+                    ],
+                    "order": 0
                   }
                 }
               }
             }
           }
         },
-        "description": "Creates new task.",
+        "description": "Creates a new task.",
         "tags": [
           "tasks"
         ]
@@ -3021,7 +4192,8 @@
           },
           "name": "taskId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "task id"
         }
       ],
       "get": {
@@ -3034,7 +4206,31 @@
                 "schema": {
                   "$ref": "#/components/schemas/task"
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "type": "string",
+                      "title": "string",
+                      "notes": "string",
+                      "completed": true,
+                      "dueDate": "string",
+                      "priority": 0,
+                      "tags": [
+                        null
+                      ],
+                      "assignedTo": null,
+                      "subTasks": [
+                        {
+                          "id": "string",
+                          "title": "string",
+                          "completed": true
+                        }
+                      ],
+                      "order": 0
+                    }
+                  }
+                }
               }
             }
           },
@@ -3077,6 +4273,31 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/task"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": "string",
+                      "type": "string",
+                      "title": "string",
+                      "notes": "string",
+                      "completed": true,
+                      "dueDate": "string",
+                      "priority": 0,
+                      "tags": [
+                        null
+                      ],
+                      "assignedTo": null,
+                      "subTasks": [
+                        {
+                          "id": "string",
+                          "title": "string",
+                          "completed": true
+                        }
+                      ],
+                      "order": 0
+                    }
+                  }
                 }
               }
             }
@@ -3088,6 +4309,31 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/task"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": "string",
+                    "type": "string",
+                    "title": "string",
+                    "notes": "string",
+                    "completed": true,
+                    "dueDate": "string",
+                    "priority": 0,
+                    "tags": [
+                      null
+                    ],
+                    "assignedTo": null,
+                    "subTasks": [
+                      {
+                        "id": "string",
+                        "title": "string",
+                        "completed": true
+                      }
+                    ],
+                    "order": 0
+                  }
+                }
               }
             }
           },
@@ -3110,8 +4356,8 @@
                   }
                 },
                 "examples": {
-                  "all": {
-                    "$ref": "#/components/examples/contacts_tags"
+                  "example-1": {
+                    "$ref": "#/components/examples/tasks_tags"
                   }
                 }
               }
@@ -3137,10 +4383,10 @@
                   "$ref": "#/components/schemas/tag"
                 },
                 "examples": {
-                  "Work": {
+                  "example-1": {
                     "value": {
-                      "id": "c31e9e5d-e0cb-4574-a13f-8a6ee5ff8309",
-                      "title": "Work"
+                      "id": "string",
+                      "title": "string"
                     }
                   }
                 }
@@ -3155,16 +4401,17 @@
                 "$ref": "#/components/schemas/tag"
               },
               "examples": {
-                "Work": {
+                "example-1": {
                   "value": {
-                    "title": "Work"
+                    "id": "string",
+                    "title": "string"
                   }
                 }
               }
             }
           }
         },
-        "description": "Creates new tag.",
+        "description": "Creates a new tag.",
         "tags": [
           "tasks"
         ]
@@ -3178,7 +4425,8 @@
           },
           "name": "contactId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "contact id"
         }
       ],
       "get": {
@@ -3192,41 +4440,32 @@
                   "$ref": "#/components/schemas/contact"
                 },
                 "examples": {
-                  "Get User Dejesus Michael": {
+                  "example-1": {
                     "value": {
-                      "id": "cd5fa417-b667-482d-b208-798d9da3213c",
-                      "avatar": "assets/images/avatars/male-01.jpg",
-                      "background": "assets/images/cards/14-640x480.jpg",
-                      "name": "Dejesus Michael",
+                      "id": "string",
+                      "avatar": "string",
+                      "background": "string",
+                      "name": "string",
                       "emails": [
                         {
-                          "email": "dejesusmichael@mail.org",
-                          "label": "Personal"
-                        },
-                        {
-                          "email": "michael.dejesus@vitricomp.io",
-                          "label": "Work"
+                          "email": "string",
+                          "label": "string"
                         }
                       ],
                       "phoneNumbers": [
                         {
-                          "country": "bs",
-                          "phoneNumber": "984 531 2468",
-                          "label": "Mobile"
-                        },
-                        {
-                          "country": "bs",
-                          "phoneNumber": "806 470 2693",
-                          "label": "Work"
+                          "country": "string",
+                          "phoneNumber": "string",
+                          "label": "string"
                         }
                       ],
-                      "title": "Track Service Worker",
-                      "company": "Vitricomp",
-                      "birthday": "1975-01-10T12:00:00.000Z",
-                      "address": "279 Independence Avenue, Calvary, Guam, PO4127",
-                      "notes": "<p>Do incididunt cillum duis eu pariatur enim proident minim officia amet proident consequat consequat qui consequat magna magna occaecat aliquip culpa pariatur velit nisi nostrud irure eu ullamco exercitation sint.</p><p>Cillum deserunt laborum laborum quis nisi enim et aliquip labore excepteur in excepteur labore amet in ipsum ipsum nostrud deserunt lorem nisi voluptate dolor minim enim ut eu cupidatat enim.</p>",
+                      "title": "string",
+                      "company": "string",
+                      "birthday": "string",
+                      "address": "string",
+                      "notes": "string",
                       "tags": [
-                        "56ddbd47-4078-4ddd-8448-73c5e88d5f59"
+                        "string"
                       ]
                     }
                   }
@@ -3271,9 +4510,33 @@
                 "$ref": "#/components/schemas/contact"
               },
               "examples": {
-                "Update Name": {
+                "example-1": {
                   "value": {
-                    "name": "John Doe"
+                    "id": "string",
+                    "avatar": "string",
+                    "background": "string",
+                    "name": "string",
+                    "emails": [
+                      {
+                        "email": "string",
+                        "label": "string"
+                      }
+                    ],
+                    "phoneNumbers": [
+                      {
+                        "country": "string",
+                        "phoneNumber": "string",
+                        "label": "string"
+                      }
+                    ],
+                    "title": "string",
+                    "company": "string",
+                    "birthday": "string",
+                    "address": "string",
+                    "notes": "string",
+                    "tags": [
+                      "string"
+                    ]
                   }
                 }
               }
@@ -3319,7 +4582,11 @@
                     "$ref": "#/components/schemas/contact"
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "$ref": "#/components/examples/contacts"
+                  }
+                }
               }
             }
           }
@@ -3380,8 +4647,9 @@
                 "$ref": "#/components/schemas/contact"
               },
               "examples": {
-                "Create Contact Dejesus Michael": {
+                "example-1": {
                   "value": {
+                    "id": "string",
                     "avatar": "string",
                     "background": "string",
                     "name": "string",
@@ -3412,7 +4680,7 @@
             }
           }
         },
-        "description": "Creates new contact.",
+        "description": "Creates a new contact.",
         "tags": [
           "contacts"
         ]
@@ -3427,7 +4695,8 @@
           },
           "name": "tagId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "tag id"
         }
       ],
       "get": {
@@ -3441,10 +4710,10 @@
                   "$ref": "#/components/schemas/tag"
                 },
                 "examples": {
-                  "Get Work": {
+                  "example-1": {
                     "value": {
-                      "id": "c31e9e5d-e0cb-4574-a13f-8a6ee5ff8309",
-                      "title": "Work"
+                      "id": "string",
+                      "title": "string"
                     }
                   }
                 }
@@ -3488,9 +4757,10 @@
                 "$ref": "#/components/schemas/tag"
               },
               "examples": {
-                "Update Title": {
+                "example-1": {
                   "value": {
-                    "name": "Friend"
+                    "id": "string",
+                    "title": "string"
                   }
                 }
               }
@@ -3534,7 +4804,7 @@
                   }
                 },
                 "examples": {
-                  "all": {
+                  "example-1": {
                     "$ref": "#/components/examples/contacts_tags"
                   }
                 }
@@ -3561,10 +4831,10 @@
                   "$ref": "#/components/schemas/tag"
                 },
                 "examples": {
-                  "Work": {
+                  "example-1": {
                     "value": {
-                      "id": "c31e9e5d-e0cb-4574-a13f-8a6ee5ff8309",
-                      "title": "Work"
+                      "id": "string",
+                      "title": "string"
                     }
                   }
                 }
@@ -3579,9 +4849,10 @@
                 "$ref": "#/components/schemas/tag"
               },
               "examples": {
-                "Work": {
+                "example-1": {
                   "value": {
-                    "title": "Work"
+                    "id": "string",
+                    "title": "string"
                   }
                 }
               }
@@ -3612,7 +4883,7 @@
                   }
                 },
                 "examples": {
-                  "all": {
+                  "example-1": {
                     "$ref": "#/components/examples/countries"
                   }
                 }
@@ -3873,7 +5144,7 @@
           },
           "dueDate": {
             "type": "string",
-            "minLength": 1
+            "nullable": true
           },
           "priority": {
             "type": "number"
@@ -3886,7 +5157,6 @@
           "subTasks": {
             "type": "array",
             "uniqueItems": true,
-            "minItems": 1,
             "items": {
               "type": "object",
               "properties": {
@@ -3919,7 +5189,6 @@
           "title",
           "notes",
           "completed",
-          "dueDate",
           "priority",
           "tags",
           "subTasks",
@@ -3929,6 +5198,15 @@
       "chat_message": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "e6b2b82f-b199-4a60-9696-5f3e40d2715d",
+            "chatId": "",
+            "contactId": "me",
+            "value": "Hi!",
+            "createdAt": "2022-01-05T15:56:48.732Z"
+          }
+        },
         "properties": {
           "id": {
             "type": "string",
@@ -3938,8 +5216,7 @@
             "type": "string"
           },
           "contactId": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "value": {
             "type": "string",
@@ -3956,28 +5233,28 @@
           "contactId",
           "value",
           "createdAt"
-        ],
-        "x-examples": {
-          "example-1": {
-            "id": "e6b2b82f-b199-4a60-9696-5f3e40d2715d",
-            "chatId": "",
-            "contactId": "me",
-            "value": "Hi!",
-            "createdAt": "2022-01-05T15:56:48.732Z"
-          }
-        }
+        ]
       },
       "chat_chat": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "ff6bc7f1-449a-4419-af62-b89ce6cae0aa",
+            "contactId": "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edf",
+            "unreadCount": 2,
+            "muted": false,
+            "lastMessage": "See you tomorrow!",
+            "lastMessageAt": "26/04/2021"
+          }
+        },
         "properties": {
           "id": {
             "type": "string",
             "minLength": 1
           },
           "contactId": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "unreadCount": {
             "type": "number"
@@ -4001,17 +5278,7 @@
           "muted",
           "lastMessage",
           "lastMessageAt"
-        ],
-        "x-examples": {
-          "example-1": {
-            "id": "ff6bc7f1-449a-4419-af62-b89ce6cae0aa",
-            "contactId": "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edf",
-            "unreadCount": 2,
-            "muted": false,
-            "lastMessage": "See you tomorrow!",
-            "lastMessageAt": "26/04/2021"
-          }
-        }
+        ]
       },
       "chat_contact": {
         "description": "",
@@ -4073,7 +5340,7 @@
           },
           "avatar": {
             "type": "string",
-            "minLength": 1
+            "nullable": true
           },
           "name": {
             "type": "string",
@@ -4088,7 +5355,6 @@
             "required": [
               "emails",
               "phoneNumbers",
-              "title",
               "company",
               "birthday",
               "address"
@@ -4186,7 +5452,6 @@
         },
         "required": [
           "id",
-          "avatar",
           "name",
           "about",
           "details",
@@ -4351,41 +5616,6 @@
             "title": "Web",
             "slug": "web",
             "color": "#2196f3"
-          }
-        }
-      },
-      "academy_course_step": {
-        "description": "",
-        "type": "object",
-        "properties": {
-          "order": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string",
-            "minLength": 1
-          },
-          "subtitle": {
-            "type": "string",
-            "minLength": 1
-          },
-          "content": {
-            "type": "string",
-            "minLength": 1
-          }
-        },
-        "required": [
-          "order",
-          "title",
-          "subtitle",
-          "content"
-        ],
-        "x-examples": {
-          "example-1": {
-            "order": 1,
-            "title": "Get the sample code",
-            "subtitle": "Where to find the sample code and how to access it",
-            "content": "<h2 class=\"text-2xl sm:text-3xl\">Get the sample code</h1>"
           }
         }
       },
@@ -4615,8 +5845,7 @@
             ],
             "properties": {
               "transactionId": {
-                "type": "string",
-                "minLength": 1
+                "type": "string"
               },
               "amount": {
                 "type": "string",
@@ -5073,8 +6302,7 @@
             "type": "string"
           },
           "content": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "tasks": {},
           "image": {},
@@ -5201,7 +6429,6 @@
           "lists": {
             "type": "array",
             "uniqueItems": true,
-            "minItems": 1,
             "items": {
               "type": "object",
               "properties": {
@@ -5212,7 +6439,7 @@
                 "cards": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "string"
                   }
                 }
               },
@@ -5231,7 +6458,8 @@
           "members",
           "settings",
           "lists"
-        ]
+        ],
+        "title": ""
       },
       "scrumboard_card": {
         "description": "",
@@ -5351,21 +6579,18 @@
             "minLength": 1
           },
           "description": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "labels": {
             "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "items": {}
           },
           "dueDate": {
-            "type": "number"
+            "type": "number",
+            "nullable": true
           },
           "attachmentCoverId": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "memberIds": {
             "type": "array",
@@ -5413,7 +6638,6 @@
           "checklists": {
             "type": "array",
             "uniqueItems": true,
-            "minItems": 1,
             "items": {
               "type": "object",
               "properties": {
@@ -5500,7 +6724,6 @@
           "title",
           "description",
           "labels",
-          "dueDate",
           "attachmentCoverId",
           "memberIds",
           "attachments",
@@ -5706,8 +6929,7 @@
           },
           "attachments": {
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
+            "uniqueItems": false,
             "items": {
               "type": "object",
               "properties": {
@@ -5727,6 +6949,9 @@
                   "minLength": 1
                 },
                 "downloadUrl": {
+                  "type": "string"
+                },
+                "": {
                   "type": "string"
                 }
               },
@@ -5762,8 +6987,6 @@
           "type",
           "from",
           "to",
-          "cc",
-          "bcc",
           "date",
           "subject",
           "content",
@@ -5878,38 +7101,27 @@
         }
       },
       "mailbox_label": {
-        "description": "",
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "title": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "slug": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
-          "icon": {
-            "type": "string",
-            "minLength": 1
+          "color": {
+            "type": "string"
           }
         },
-        "required": [
-          "id",
-          "title",
-          "slug",
-          "icon"
-        ],
         "x-examples": {
           "example-1": {
-            "id": "7c004a19-4506-48ef-93ab-f16381302e3b",
-            "title": "Inbox",
-            "slug": "inbox",
-            "icon": "heroicons-outline:inbox"
+            "id": "b67fc437-6118-4ec8-a3c7-9320b828e3fc",
+            "title": "Forums",
+            "slug": "forums",
+            "color": "green"
           }
         }
       },
@@ -5951,9 +7163,22 @@
       "calendar_event": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": 0,
+            "title": "All Day Event very long title",
+            "allDay": true,
+            "start": "2022-04-01T00:00:00+03:00",
+            "end": "2022-04-02T00:00:00+03:00",
+            "extendedProps": {
+              "desc": "Big conference for important people",
+              "label": "5dab5f7b-757a-4467-ace1-305fe07b11fe"
+            }
+          }
+        },
         "properties": {
           "id": {
-            "type": "number"
+            "type": "string"
           },
           "title": {
             "type": "string",
@@ -5972,20 +7197,20 @@
           },
           "extendedProps": {
             "type": "object",
+            "required": [
+              "desc",
+              "label"
+            ],
             "properties": {
               "desc": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 0
               },
               "label": {
                 "type": "string",
                 "minLength": 1
               }
-            },
-            "required": [
-              "desc",
-              "label"
-            ]
+            }
           }
         },
         "required": [
@@ -5995,20 +7220,7 @@
           "start",
           "end",
           "extendedProps"
-        ],
-        "x-examples": {
-          "example-1": {
-            "id": 0,
-            "title": "All Day Event very long title",
-            "allDay": true,
-            "start": "2022-04-01T00:00:00+03:00",
-            "end": "2022-04-02T00:00:00+03:00",
-            "extendedProps": {
-              "desc": "Big conference for important people",
-              "label": "5dab5f7b-757a-4467-ace1-305fe07b11fe"
-            }
-          }
-        }
+        ]
       },
       "notification": {
         "type": "object",
@@ -6051,6 +7263,639 @@
           }
         },
         "title": ""
+      },
+      "auth_user": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string"
+              },
+              "photoURL": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "layout": {
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "theme": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              },
+              "shortcuts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "uuid": "XgbuVEXBU5gtSKdbQRP1Zbbby1i1",
+            "from": "custom-db",
+            "password": "admin",
+            "role": "admin",
+            "data": {
+              "displayName": "Abbott Keitch",
+              "photoURL": "assets/images/avatars/brian-hughes.jpg",
+              "email": "admin@fusetheme.com",
+              "settings": {
+                "layout": {},
+                "theme": {}
+              },
+              "shortcuts": [
+                "apps.calendar",
+                "apps.mailbox",
+                "apps.contacts"
+              ]
+            }
+          }
+        }
+      },
+      "profile_photos_videos": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "info": {
+            "type": "string"
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "preview": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "id": "1",
+            "name": "June 2018",
+            "info": "5 Photos",
+            "media": [
+              {
+                "type": "photo",
+                "title": "A Walk Amongst Friends",
+                "preview": "assets/images/apps/profile/a-walk-amongst-friends-small.jpg"
+              },
+              {
+                "type": "photo",
+                "title": "Braies Lake",
+                "preview": "assets/images/apps/profile/braies-lake-small.jpg"
+              },
+              {
+                "type": "photo",
+                "title": "Fall Glow",
+                "preview": "assets/images/apps/profile/fall-glow-small.jpg"
+              },
+              {
+                "type": "photo",
+                "title": "First Snow",
+                "preview": "assets/images/apps/profile/first-snow-small.jpg"
+              },
+              {
+                "type": "photo",
+                "title": "Lago di Braies",
+                "preview": "assets/images/apps/profile/lago-di-braies-small.jpg"
+              }
+            ]
+          }
+        }
+      },
+      "profile_timeline": {
+        "type": "object",
+        "properties": {
+          "activities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "avatar": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "message": {
+                  "type": "string"
+                },
+                "time": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "avatar": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "message": {
+                  "type": "string"
+                },
+                "time": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "like": {
+                  "type": "integer"
+                },
+                "share": {
+                  "type": "integer"
+                },
+                "media": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "preview": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "user": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "avatar": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "time": {
+                        "type": "string"
+                      },
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "article": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "subtitle": {
+                      "type": "string"
+                    },
+                    "excerpt": {
+                      "type": "string"
+                    },
+                    "media": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "preview": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "activities": [
+              {
+                "id": "1",
+                "user": {
+                  "name": "Bernard Langley",
+                  "avatar": "assets/images/avatars/male-02.jpg"
+                },
+                "message": "started following you.",
+                "time": "13 mins. ago"
+              },
+              {
+                "id": "2",
+                "user": {
+                  "name": "Mclaughlin Steele",
+                  "avatar": "assets/images/avatars/male-03.jpg"
+                },
+                "message": "sent you a message.",
+                "time": "June 10,2015"
+              },
+              {
+                "id": "3",
+                "user": {
+                  "name": "Garry Newman",
+                  "avatar": "assets/images/avatars/male-04.jpg"
+                },
+                "message": "shared a public post with your group.",
+                "time": "June 9,2015"
+              },
+              {
+                "id": "4",
+                "user": {
+                  "name": "Carl Henderson",
+                  "avatar": "assets/images/avatars/male-05.jpg"
+                },
+                "message": "wants to play Fallout Shelter with you.",
+                "time": "June 8,2015"
+              },
+              {
+                "id": "5",
+                "user": {
+                  "name": "Jane Dean",
+                  "avatar": "assets/images/avatars/female-05.jpg"
+                },
+                "message": "started following you.",
+                "time": "June 7,2015"
+              },
+              {
+                "id": "6",
+                "user": {
+                  "name": "Juan Carpenter",
+                  "avatar": "assets/images/avatars/male-07.jpg"
+                },
+                "message": "sent you a message.",
+                "time": "June 6,2015"
+              },
+              {
+                "id": "7",
+                "user": {
+                  "name": "Judith Burton",
+                  "avatar": "assets/images/avatars/female-06.jpg"
+                },
+                "message": "shared a photo with you.",
+                "time": "June 5,2015"
+              },
+              {
+                "id": "8",
+                "user": {
+                  "name": "Vincent Munoz",
+                  "avatar": "assets/images/avatars/male-08.jpg"
+                },
+                "message": "shared a photo with you.",
+                "time": "June 4,2015"
+              }
+            ],
+            "posts": [
+              {
+                "id": "1",
+                "user": {
+                  "name": "Garry Newman",
+                  "avatar": "assets/images/avatars/male-09.jpg"
+                },
+                "message": "Remember the place we were talking about the other night? Found it!",
+                "time": "32 minutes ago",
+                "type": "post",
+                "like": 5,
+                "share": 21,
+                "media": {
+                  "type": "image",
+                  "preview": "assets/images/cards/14-640x480.jpg"
+                },
+                "comments": [
+                  {
+                    "id": "1",
+                    "user": {
+                      "name": "Alice Freeman",
+                      "avatar": "assets/images/avatars/female-07.jpg"
+                    },
+                    "time": "June 10, 2015",
+                    "message": "That’s a wonderful place. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et eleifend ligula. Fusce posuere in sapien ac facilisis. Etiam sit amet justo non felis ornare feugiat."
+                  }
+                ]
+              },
+              {
+                "id": "2",
+                "user": {
+                  "name": "Andrew Green",
+                  "avatar": "assets/images/avatars/male-11.jpg"
+                },
+                "message": "Hey, man! Check this, it’s pretty awesome!",
+                "time": "June 12, 2015",
+                "type": "article",
+                "like": 98,
+                "share": 6,
+                "article": {
+                  "title": "Never stop changing!",
+                  "subtitle": "John Westrock",
+                  "excerpt": "John Westrock's new photo album called 'Never stop changing' is published! It features more than 200 photos that will take you right in.",
+                  "media": {
+                    "type": "image",
+                    "preview": "assets/images/cards/36-640x480.jpg"
+                  }
+                },
+                "comments": [
+                  {
+                    "id": "1",
+                    "user": {
+                      "name": "Alice Freeman",
+                      "avatar": "assets/images/avatars/female-09.jpg"
+                    },
+                    "time": "June 10, 2015",
+                    "message": "That’s a wonderful place. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et eleifend ligula. Fusce posuere in sapien ac facilisis. Etiam sit amet justo non felis ornare feugiat."
+                  }
+                ]
+              },
+              {
+                "id": "3",
+                "user": {
+                  "name": "Carl Henderson",
+                  "avatar": "assets/images/avatars/male-12.jpg"
+                },
+                "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et eleifend ligula. Fusce posuere in sapien ac facilisis. Etiam sit amet justo non felis ornare feugiat. Aenean lorem ex, ultrices sit amet ligula sed...",
+                "time": "June 10, 2015",
+                "type": "something",
+                "like": 4,
+                "share": 1
+              }
+            ]
+          }
+        }
+      },
+      "profile_about": {
+        "type": "object",
+        "properties": {
+          "general": {
+            "type": "object",
+            "properties": {
+              "gender": {
+                "type": "string"
+              },
+              "birthday": {
+                "type": "string"
+              },
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "about": {
+                "type": "string"
+              }
+            }
+          },
+          "work": {
+            "type": "object",
+            "properties": {
+              "occupation": {
+                "type": "string"
+              },
+              "skills": {
+                "type": "string"
+              },
+              "jobs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "company": {
+                      "type": "string"
+                    },
+                    "date": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "contact": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "tel": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "websites": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "emails": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "members": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "friends": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "avatar": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "general": {
+              "gender": "Male",
+              "birthday": "February 30th, 1974",
+              "locations": [
+                "London, UK",
+                "New York, USA"
+              ],
+              "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget pharetra felis, sed ullamcorper dui. Sed et elementum neque. Vestibulum pellente viverra ultrices. Etiam justo augue, vehicula ac gravida a, interdum sit amet nisl. Integer vitae nisi id nibh dictum mollis in vitae tortor."
+            },
+            "work": {
+              "occupation": "Developer",
+              "skills": "C#, PHP, Javascript, Angular, JS, HTML, CSS",
+              "jobs": [
+                {
+                  "company": "Self-Employed",
+                  "date": "2010 - Now"
+                },
+                {
+                  "company": "Google",
+                  "date": "2008 - 2010"
+                }
+              ]
+            },
+            "contact": {
+              "address": "Ut pharetra luctus est quis sodales. Duis nisi tortor, bibendum eget tincidunt, aliquam ac elit. Mauris nec euismod odio.",
+              "tel": [
+                "+6 555 6600",
+                "+9 555 5255"
+              ],
+              "websites": [
+                "withinpixels.com"
+              ],
+              "emails": [
+                "mail@withinpixels.com",
+                "mail@creapond.com"
+              ]
+            },
+            "groups": [
+              {
+                "id": "1",
+                "name": "Android",
+                "category": "Technology",
+                "members": "1.856.546"
+              },
+              {
+                "id": "2",
+                "name": "Google",
+                "category": "Web",
+                "members": "1.226.121"
+              },
+              {
+                "id": "3",
+                "name": "Fallout",
+                "category": "Games",
+                "members": "526.142"
+              }
+            ],
+            "friends": [
+              {
+                "id": "1",
+                "name": "Garry Newman",
+                "avatar": "assets/images/avatars/male-11.jpg"
+              },
+              {
+                "id": "2",
+                "name": "Carl Henderson",
+                "avatar": "assets/images/avatars/male-12.jpg"
+              },
+              {
+                "id": "3",
+                "name": "Jane Dean",
+                "avatar": "assets/images/avatars/female-11.jpg"
+              },
+              {
+                "id": "4",
+                "name": "Garry Arnold",
+                "avatar": "assets/images/avatars/male-13.jpg"
+              },
+              {
+                "id": "5",
+                "name": "Vincent Munoz",
+                "avatar": "assets/images/avatars/male-14.jpg"
+              },
+              {
+                "id": "6",
+                "name": "Alice Freeman",
+                "avatar": "assets/images/avatars/female-12.jpg"
+              },
+              {
+                "id": "7",
+                "name": "Andrew Green",
+                "avatar": "assets/images/avatars/male-16.jpg"
+              }
+            ]
+          }
+        }
       }
     },
     "securitySchemes": {},
@@ -17909,7 +19754,7 @@
               }
             ],
             "payment": {
-              "transactionId": 1974588,
+              "transactionId": "1974588",
               "amount": "63.36",
               "method": "PayPal",
               "date": "2015/11/28 22:24:58"
@@ -18329,7 +20174,7 @@
               }
             ],
             "payment": {
-              "transactionId": 44464979,
+              "transactionId": "44464979",
               "amount": "42.54",
               "method": "Credit Card",
               "date": "2015/06/30 11:59:49"
@@ -30941,49 +32786,84 @@
   },
   "tags": [
     {
-      "name": "academy"
+      "name": "academy",
+      "description": "Academy App"
     },
     {
-      "name": "analytics-dashboard"
+      "name": "analytics-dashboard",
+      "description": "Analytics Dashboard App"
     },
     {
-      "name": "chat"
+      "name": "auth",
+      "description": "Authentication"
     },
     {
-      "name": "contacts"
+      "name": "calendar",
+      "description": "Calendar App"
     },
     {
-      "name": "countries"
+      "name": "chat",
+      "description": "Chat App"
     },
     {
-      "name": "crypto-dashboard"
+      "name": "contacts",
+      "description": "Contacts App"
     },
     {
-      "name": "e-commerce"
+      "name": "countries",
+      "description": "Countries"
     },
     {
-      "name": "file-manager"
+      "name": "crypto-dashboard",
+      "description": "Crypto Dashboard App"
     },
     {
-      "name": "finance-dashboard"
+      "name": "e-commerce",
+      "description": "E-Commerce App"
     },
     {
-      "name": "help-center"
+      "name": "file-manager",
+      "description": "File Manager App"
     },
     {
-      "name": "mailbox"
+      "name": "finance-dashboard",
+      "description": "Finance Dashboard App"
     },
     {
-      "name": "notes"
+      "name": "help-center",
+      "description": "Help Center App"
     },
     {
-      "name": "project-dashboard"
+      "name": "icons",
+      "description": "Icons"
     },
     {
-      "name": "scrumboard"
+      "name": "mailbox",
+      "description": "Mailbox App"
     },
     {
-      "name": "tasks"
+      "name": "notes",
+      "description": "Notes App"
+    },
+    {
+      "name": "notifications",
+      "description": "Notifications"
+    },
+    {
+      "name": "profile",
+      "description": "Profile App"
+    },
+    {
+      "name": "project-dashboard",
+      "description": "Project Dashboard App"
+    },
+    {
+      "name": "scrumboard",
+      "description": "Scrumboard App"
+    },
+    {
+      "name": "tasks",
+      "description": "Tasks App"
     }
   ]
 }

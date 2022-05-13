@@ -105,6 +105,13 @@ const DocumentationNavigation = {
       ],
     },
     {
+      id: 'mock-api',
+      title: 'Mock API',
+      type: 'item',
+      icon: 'heroicons-outline:cloud',
+      url: '/documentation/mock-api',
+    },
+    {
       id: 'theming',
       title: 'Theming',
       type: 'collapse',

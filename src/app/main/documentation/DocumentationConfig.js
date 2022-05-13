@@ -8,6 +8,7 @@ import MaterialUIComponentsRoutes from './material-ui-components/MaterialUICompo
 import ThemingDocRoutes from './theming/ThemingDocRoutes';
 import ThirdPartyComponentsRoutes from './third-party-components/ThirdPartyComponentsRoutes';
 import ConfigurationDocRoutes from './configuration/ConfigurationDocRoutes';
+import MockApiDoc from './mock-api/MockApiDoc';
 
 const DocumentationPageLayout = lazy(() => import('./DocumentationPageLayout'));
 const ChangelogDoc = lazy(() => import('./changelog/ChangelogDoc'));
@@ -17,6 +18,10 @@ const DocumentationConfig = {
     {
       path: 'documentation',
       element: <Navigate to="/documentation/getting-started/introduction" />,
+    },
+    {
+      path: 'documentation/mock-api',
+      element: <MockApiDoc />,
     },
     {
       path: 'documentation',
