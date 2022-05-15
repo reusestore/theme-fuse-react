@@ -5,7 +5,7 @@ const locale = {
   ECOMMERCE: 'التجارة الإلكترونية',
   ACADEMY: 'الأكاديمية',
   MAIL: 'بريد',
-  TODO: 'لكى يفعل',
+  TASKS: 'لكى يفعل',
   FILE_MANAGER: 'مدير الملفات',
   CONTACTS: 'جهات الاتصال',
   CHAT: 'دردشة',

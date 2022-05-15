@@ -17,6 +17,7 @@ const navigationConfig = [
     subtitle: 'Unique dashboard designs',
     type: 'group',
     icon: 'heroicons-outline:home',
+    translate: 'DASHBOARDS',
     children: [
       {
         id: 'dashboards.project',
@@ -40,6 +41,7 @@ const navigationConfig = [
     subtitle: 'Custom made application designs',
     type: 'group',
     icon: 'heroicons-outline:home',
+    translate: 'APPLICATIONS',
     children: [
       {
         id: 'apps.academy',
@@ -47,6 +49,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:academic-cap',
         url: '/apps/academy',
+        translate: 'ACADEMY',
       },
       {
         id: 'apps.calendar',
@@ -55,6 +58,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:calendar',
         url: '/apps/calendar',
+        translate: 'CALENDAR',
       },
       {
         id: 'apps.chat',
@@ -62,6 +66,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:chat-alt',
         url: '/apps/chat',
+        translate: 'CHAT',
       },
       {
         id: 'apps.contacts',
@@ -69,12 +74,14 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:user-group',
         url: '/apps/contacts',
+        translate: 'CONTACTS',
       },
       {
         id: 'apps.ecommerce',
         title: 'ECommerce',
         type: 'collapse',
         icon: 'heroicons-outline:shopping-cart',
+        translate: 'ECOMMERCE',
         children: [
           {
             id: 'e-commerce-products',
@@ -117,6 +124,7 @@ const navigationConfig = [
         icon: 'heroicons-outline:cloud',
         url: '/apps/file-manager',
         end: true,
+        translate: 'FILE_MANAGER',
       },
       {
         id: 'apps.help-center',
@@ -158,6 +166,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:mail',
         url: '/apps/mailbox',
+        translate: 'MAIL',
         badge: {
           title: '27',
           classes: 'px-8 bg-pink-600 text-white rounded-full',
@@ -169,6 +178,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:pencil-alt',
         url: '/apps/notes',
+        translate: 'NOTES',
       },
       {
         id: 'apps.scrumboard',
@@ -176,6 +186,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:view-boards',
         url: '/apps/scrumboard',
+        translate: 'SCRUMBOARD',
       },
       {
         id: 'apps.tasks',
@@ -184,6 +195,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:check-circle',
         url: '/apps/tasks',
+        translate: 'TASKS',
       },
       {
         id: 'apps.profile',
