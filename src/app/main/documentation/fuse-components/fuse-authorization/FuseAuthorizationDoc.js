@@ -191,141 +191,44 @@ function FuseAuthorizationDoc() {
       </FuseHighlight>
 
       <Typography className="mt-48 mb-4" variant="h5">
-        Making the the whole app auth protected:
+        Default Auth value:
+      </Typography>
+
+      <Typography className="" component="p">
+        If you don't want to set auth on every page config;
+        <br />
+        you can give defaultAuth role value in the file{' '}
+        <code>src/app/configs/settingsConfig.js</code>
+        <br />
+        <br />
+        The individual route configs which has auth option won't be overridden.
+      </Typography>
+
+      <Typography className="mt-24 mb-4" variant="h6">
+        Making the whole app auth protected by default:
       </Typography>
 
       <Typography className="mb-12" variant="subtitle2">
-        On routesConfig.js file
-      </Typography>
-
-      <Typography className="mb-16" component="p">
-        If you don't want to set auth on every page config;
-        <br />
-        You can give default auth role value in the <code>app/configs/routesConfig.js</code>
-        file,
-        <br />
-        Set defaultAuth paramater
-        <code>FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user'])</code>
-        ,
-        <br />
-        The individual route configs which has auth option won't be overridden,
-        <br />
-        With this configuration below, makes <b>whole app</b> auth protected by default:
+        src/app/configs/settingsConfig.js
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">
         {`
-					import FuseUtils from '@fuse/utils';
-          import FuseLoading from '@fuse/core/FuseLoading';
-          import { Navigate } from 'react-router-dom';
-          import userInterfaceConfigs from '../main/user-interface/UserInterfaceConfigs';
-          import SignInConfig from '../main/sign-in/SignInConfig';
-          import SignUpConfig from '../main/sign-up/SignUpConfig';
-          import SignOutConfig from '../main/sign-out/SignOutConfig';
-          import dashboardsConfigs from '../main/dashboards/dashboardsConfigs';
-          import appsConfigs from '../main/apps/appsConfigs';
-          import pagesConfigs from '../main/pages/pagesConfigs';
-          import authRoleExamplesConfigs from '../main/auth/authRoleExamplesConfigs';
-          import DocumentationConfig from '../main/documentation/DocumentationConfig';
-          
-          const routeConfigs = [
-            ...appsConfigs,
-            ...dashboardsConfigs,
-            ...pagesConfigs,
-            ...authRoleExamplesConfigs,
-            ...userInterfaceConfigs,
-            DocumentationConfig,
-            SignOutConfig,
-            SignInConfig,
-            SignUpConfig,
-          ];
-          
-          const routes = [
-            // if you want to make whole app auth protected by default change defaultAuth for example:
-            // ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
-            // The individual route configs which has auth option won't be overridden.
-            ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin']),
-            {
-              path: '/',
-              element: <Navigate to="dashboards/analytics" />,
-            },
-            {
-              path: 'loading',
-              element: <FuseLoading />,
-            },
-            {
-              path: '*',
-              element: <Navigate to="pages/error/404" />,
-            },
-          ];
-          
-          export default routes;
-
+					defaultAuth:['admin','staff','user']
 				`}
       </FuseHighlight>
 
-      <Typography className="mt-48 mb-4" variant="h5">
-        Allow everyone(guest,user) for accessing root (/) page as a landing page
+      <Typography className="mt-24 mb-4" variant="h6">
+        Making the whole app without authorization by default
       </Typography>
 
-      <Typography className="mb-16" component="p">
-        After configuring to make whole app protected as above, we need to set{' '}
-        <code>auth:null</code> at the route: <code>/</code> to make it accessible for everyone.
-        <br />
-        If you redirect the main route (/), also make sure to set the redirected route config
-        <code>auth:null</code>.
+      <Typography className="mb-12" variant="subtitle2">
+        src/app/configs/settingsConfig.js
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">
         {`
-				import FuseUtils from '@fuse/utils';
-        import FuseLoading from '@fuse/core/FuseLoading';
-        import { Navigate } from 'react-router-dom';
-        import userInterfaceConfigs from '../main/user-interface/UserInterfaceConfigs';
-        import SignInConfig from '../main/sign-in/SignInConfig';
-        import SignUpConfig from '../main/sign-up/SignUpConfig';
-        import SignOutConfig from '../main/sign-out/SignOutConfig';
-        import dashboardsConfigs from '../main/dashboards/dashboardsConfigs';
-        import appsConfigs from '../main/apps/appsConfigs';
-        import pagesConfigs from '../main/pages/pagesConfigs';
-        import authRoleExamplesConfigs from '../main/auth/authRoleExamplesConfigs';
-        import DocumentationConfig from '../main/documentation/DocumentationConfig';
-        
-        const routeConfigs = [
-          ...appsConfigs,
-          ...dashboardsConfigs,
-          ...pagesConfigs,
-          ...authRoleExamplesConfigs,
-          ...userInterfaceConfigs,
-          DocumentationConfig,
-          SignOutConfig,
-          SignInConfig,
-          SignUpConfig,
-        ];
-        
-        const routes = [
-          // if you want to make whole app auth protected by default change defaultAuth for example:
-          // ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
-          // The individual route configs which has auth option won't be overridden.
-          ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin']),
-          {
-            path     : '/',
-            exact    : true,
-            auth     : null,
-            element:LandingPage
-          },
-          {
-            path: 'loading',
-            element: <FuseLoading />,
-          },
-          {
-            path: '*',
-            element: <Navigate to="pages/error/404" />,
-          },
-        ];
-        
-        export default routes;
-
+				defaultAuth: null
 				`}
       </FuseHighlight>
 
@@ -343,22 +246,16 @@ function FuseAuthorizationDoc() {
 
       <FuseHighlight component="pre" className="language-js">
         {`
-					export const setUserData = user => async (dispatch, getState) => {
-					
-					  /*
-            You can redirect the logged-in user to a specific route depending on his role
-            */
+				export const setUser = createAsyncThunk('user/setUser', async (user, { dispatch, getState }) => {
+            /*
+              You can redirect the logged-in user to a specific route depending on his role
+              */
             if (user.loginRedirectUrl) {
               settingsConfig.loginRedirectUrl = user.loginRedirectUrl; // for example 'apps/academy'
             }
-						
-						/*
-							Set User Settings
-						*/
-						dispatch(setDefaultSettings(user.data.settings));
-						
-						dispatch(setUser(user));
-					};
+          
+            return user;
+          });
 				`}
       </FuseHighlight>
       <Typography className="mt-48 mb-4" variant="h5">
