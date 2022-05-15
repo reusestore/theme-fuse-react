@@ -135,7 +135,7 @@ function Order(props) {
           )}
         </>
       }
-      scroll={isMobile ? 'page' : 'content'}
+      scroll={isMobile ? 'normal' : 'content'}
     />
   );
 }

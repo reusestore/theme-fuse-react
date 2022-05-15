@@ -26,11 +26,6 @@ const Root = styled('div')(({ theme, config }) => ({
       maxWidth: `${config.containerWidth}px`,
       width: '100%',
       margin: '0 auto',
-      overflow: 'hidden',
-      // borderLeft: 1,
-      // borderRight: 1,
-      // borderStyle: 'solid',
-      // borderColor: theme.palette.divider,
     },
   }),
 }));
@@ -47,7 +42,7 @@ function Layout1(props) {
       <div className="flex flex-auto min-w-0">
         {config.navbar.display && config.navbar.position === 'left' && <NavbarWrapperLayout1 />}
 
-        <main id="fuse-main" className="flex flex-col flex-auto min-h-screen min-w-0 relative z-10">
+        <main id="fuse-main" className="flex flex-col flex-auto min-h-full min-w-0 relative z-10">
           {config.toolbar.display && (
             <ToolbarLayout1 className={config.toolbar.style === 'fixed' && 'sticky top-0'} />
           )}

@@ -27,7 +27,7 @@ function FileManagerApp() {
       rightSidebarOpen={Boolean(selectedItem)}
       rightSidebarContent={<DetailSidebarContent />}
       rightSidebarWidth={400}
-      scroll={isMobile ? 'page' : 'content'}
+      scroll={isMobile ? 'normal' : 'content'}
     />
   );
 }

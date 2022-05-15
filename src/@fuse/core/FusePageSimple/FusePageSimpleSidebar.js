@@ -43,7 +43,7 @@ const FusePageSimpleSidebar = forwardRef((props, ref) => {
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
-          container={rootRef.current}
+          // container={rootRef.current}
           BackdropProps={{
             classes: {
               root: 'FusePageSimple-backdrop',
@@ -54,6 +54,7 @@ const FusePageSimpleSidebar = forwardRef((props, ref) => {
           <FusePageSimpleSidebarContent {...props} />
         </SwipeableDrawer>
       </Hidden>
+
       {variant === 'permanent' && (
         <Hidden lgDown>
           <Drawer

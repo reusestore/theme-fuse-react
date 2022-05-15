@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
-import EmptyNormalScrollComponent from './empty/EmptyNormalScrollComponent';
-import EmptyPageScrollComponent from './empty/EmptyPageScrollComponent';
+import EmptyExampleComponent from './empty/EmptyExampleComponent';
 import PageLayoutOverview from './PageLayoutOverview';
 import SimpleWithSidebarsNormalScrollComponent from './simple/with-sidebars/SimpleWithSidebarsNormalScrollComponent';
 import SimpleWithSidebarsPageScrollComponent from './simple/with-sidebars/SimpleWithSidebarsPageScrollComponent';
@@ -19,35 +18,6 @@ import CardedWithSidebarsContentScrollComponent from './carded/with-sidebars/Car
 const OverviewPageLayoutsUI = lazy(() => import('./OverviewPageLayoutsUI'));
 
 export const overviews = {
-  empty: {
-    title: 'Empty Page Layout',
-    description:
-      'Layout that spans the entire width of the content area with 2 different scroll modes.',
-    availableOptions: [
-      {
-        value: 'normalScroll',
-        title: 'Normal Scroll',
-      },
-      {
-        value: 'pageScroll',
-        title: 'Page Scroll',
-      },
-    ],
-    selectedOption: 'normalScroll',
-    options: {
-      normalScroll: {
-        description: 'No scrolling area manipulations, entire viewport scrolls (body scroll).',
-        link: '/ui/page-layouts/empty/normal-scroll',
-        component: EmptyNormalScrollComponent,
-      },
-      pageScroll: {
-        description:
-          'Only the page area scrolls making the main toolbar and footer to stick to the top and bottom of the viewport respectively.',
-        link: '/ui/page-layouts/empty/page-scroll',
-        component: EmptyPageScrollComponent,
-      },
-    },
-  },
   carded: {
     fullWidth: {
       title: 'Carded Full Width Page Layout',
@@ -230,24 +200,7 @@ const pageLayoutsUIConfig = {
         },
         {
           path: 'empty',
-          children: [
-            {
-              path: '',
-              element: <Navigate to="overview" />,
-            },
-            {
-              path: 'overview',
-              element: <PageLayoutOverview data={overviews.empty} />,
-            },
-            {
-              path: 'normal-scroll',
-              element: <EmptyNormalScrollComponent />,
-            },
-            {
-              path: 'page-scroll',
-              element: <EmptyPageScrollComponent />,
-            },
-          ],
+          element: <EmptyExampleComponent />,
         },
         {
           path: 'carded',

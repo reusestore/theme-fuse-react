@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 function ModernInvoicePage() {
   return (
-    <div className="inline-block p-24 sm:p-40 text-left print:p-0">
+    <div className="inline-block p-24 sm:p-40 text-left print:p-0 w-full overflow-auto">
       <motion.div
         initial={{ opacity: 0, y: 200 }}
         animate={{ opacity: 1, y: 0 }}

@@ -83,7 +83,7 @@ function DocumentationPageLayout(props) {
       leftSidebarOnClose={() => {
         setLeftSidebarOpen(false);
       }}
-      scroll={isMobile ? 'page' : 'content'}
+      scroll={isMobile ? 'normal' : 'content'}
     />
   );
 }

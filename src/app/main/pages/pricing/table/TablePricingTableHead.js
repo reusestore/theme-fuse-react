@@ -17,7 +17,7 @@ function TablePricingTableHead(props) {
             <Chip
               label="POPULAR"
               color="secondary"
-              className="mx-12 h-24 px-4 rounded-full text-center leading-none text-sm font-semibold leading-6 tracking-wide"
+              className="hidden md:flex mx-12 h-24 px-4 rounded-full text-center leading-none text-sm font-semibold leading-6 tracking-wide"
               size="small"
             />
           )}
@@ -54,7 +54,6 @@ function TablePricingTableHead(props) {
 
         <Button
           className="w-full min-h-32 h-32 lg:min-h-40 lg:h-40 mt-12 lg:mt-24"
-          size="large"
           variant={isPopular ? 'contained' : 'outlined'}
           color={isPopular ? 'secondary' : 'inherit'}
         >

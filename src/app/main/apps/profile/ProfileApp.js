@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import AboutTab from './tabs/AboutTab';
 import PhotosVideosTab from './tabs/PhotosVideosTab';
 import TimelineTab from './tabs/TimelineTab';
+import useThemeMediaQuery from '../../../../@fuse/hooks/useThemeMediaQuery';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-header': {
@@ -22,6 +23,7 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
 
 function ProfileApp() {
   const [selectedTab, setSelectedTab] = useState(0);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
   function handleTabChange(event, value) {
     setSelectedTab(value);
@@ -117,6 +119,7 @@ function ProfileApp() {
           {selectedTab === 2 && <PhotosVideosTab />}
         </div>
       }
+      scroll={isMobile ? 'normal' : 'page'}
     />
   );
 }

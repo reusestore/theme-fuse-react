@@ -66,7 +66,7 @@ function MailboxApp(props) {
       leftSidebarOpen={leftSidebarOpen}
       leftSidebarOnClose={() => setLeftSidebarOpen(false)}
       leftSidebarWidth={288}
-      scroll={isMobile ? 'page' : 'content'}
+      scroll={isMobile ? 'normal' : 'content'}
       rightSidebarContent={<Outlet />}
       rightSidebarOpen={rightSidebarOpen}
       rightSidebarOnClose={() => setRightSidebarOpen(false)}

@@ -59,28 +59,11 @@ function MailList(props) {
     );
   }
 
-  const container = {
-    show: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
     <List className="p-0 w-full">
-      <motion.div variants={container} initial="hidden" animate="show">
-        {filteredData.map((mail) => (
-          <motion.div variants={item} key={mail.id}>
-            <MailListItem mail={mail} />
-          </motion.div>
-        ))}
-      </motion.div>
+      {filteredData.map((mail) => (
+        <MailListItem mail={mail} key={mail.id} />
+      ))}
     </List>
   );
 }

@@ -30,6 +30,8 @@ const Root = styled('div')(({ theme, opened }) => ({
   zIndex: 1000,
 
   [theme.breakpoints.down('lg')]: {
+    position: 'fixed',
+    height: '100%',
     width: 0,
     maxWidth: 0,
     minWidth: 0,
@@ -53,7 +55,7 @@ const Root = styled('div')(({ theme, opened }) => ({
     left: 0,
     width: 360,
     minWidth: 360,
-    height: '100vh',
+    height: '100%',
     margin: 0,
     overflow: 'hidden',
     zIndex: 1000,

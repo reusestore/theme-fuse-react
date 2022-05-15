@@ -1,21 +1,15 @@
-import { styled } from '@mui/material/styles';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Typography from '@mui/material/Typography';
 import Timeline from '@mui/lab/Timeline';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import exampleActivitiesData from './exampleActivitiesData';
 import ActivityTimelineItem from './ActivityTimelineItem';
 
-const Root = styled(FusePageSimple)({
-  '& .FusePageSimple-header': {},
-  '& .FusePageSimple-toolbar': {},
-  '& .FusePageSimple-content': {},
-  '& .FusePageSimple-sidebarHeader': {},
-  '& .FusePageSimple-sidebarContent': {},
-});
-
 function ActivitiesPage() {
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
+
   return (
-    <Root
+    <FusePageSimple
       content={
         <div className="flex flex-col flex-auto px-24 py-40 sm:px-64 sm:pt-72 sm:pb-80">
           <Typography className="text-4xl font-extrabold tracking-tight leading-none">
@@ -44,6 +38,7 @@ function ActivitiesPage() {
           </Timeline>
         </div>
       }
+      scroll={isMobile ? 'normal' : 'page'}
     />
   );
 }

@@ -31,6 +31,15 @@ const Root = styled('div')(({ theme, ...props }) => ({
     minWidth: 0,
     height: '100%',
     backgroundColor: theme.palette.background.paper,
+
+    ...(props.scroll === 'content' && {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      right: 0,
+      left: 0,
+      overflow: 'hidden',
+    }),
   },
 
   '& .FusePageCarded-header': {
@@ -168,10 +177,24 @@ const FusePageCarded = forwardRef((props, ref) => {
     <>
       <GlobalStyles
         styles={(theme) => ({
-          '#fuse-main': {
-            height: props.scroll === 'content' && '100vh',
-            overflow: props.scroll === 'normal' && 'hidden',
-          },
+          ...(props.scroll !== 'page' && {
+            '#fuse-toolbar': {
+              position: 'static',
+            },
+            '#fuse-footer': {
+              position: 'static',
+            },
+          }),
+          ...(props.scroll === 'page' && {
+            '#fuse-toolbar': {
+              position: 'sticky',
+              top: 0,
+            },
+            '#fuse-footer': {
+              position: 'sticky',
+              bottom: 0,
+            },
+          }),
         })}
       />
       <Root
@@ -181,12 +204,13 @@ const FusePageCarded = forwardRef((props, ref) => {
           props.className
         )}
         ref={rootRef}
+        scroll={props.scroll}
         leftsidebarwidth={props.leftSidebarWidth}
         rightsidebarwidth={props.rightSidebarWidth}
       >
         {props.header && <FusePageCardedHeader header={props.header} />}
 
-        <div className="flex flex-auto flex-col container z-10 h-full shadow-1 rounded-t-16">
+        <div className="flex flex-auto flex-col container z-10 h-full shadow-1 rounded-t-16 relative overflow-hidden">
           <div className="FusePageCarded-wrapper">
             {props.leftSidebarContent && (
               <FusePageCardedSidebar

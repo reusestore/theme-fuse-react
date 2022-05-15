@@ -12,7 +12,7 @@ function Products() {
     <FusePageCarded
       header={<ProductsHeader />}
       content={<ProductsTable />}
-      scroll={isMobile ? 'page' : 'content'}
+      scroll={isMobile ? 'normal' : 'content'}
     />
   );
 }

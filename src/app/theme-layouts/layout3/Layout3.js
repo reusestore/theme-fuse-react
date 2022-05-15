@@ -40,7 +40,7 @@ function Layout3(props) {
       {config.leftSidePanel.display && <LeftSideLayout3 />}
 
       <div className="flex flex-col flex-auto min-w-0">
-        <main id="fuse-main" className="flex flex-col flex-auto min-h-screen min-w-0 relative">
+        <main id="fuse-main" className="flex flex-col flex-auto min-h-full min-w-0 relative">
           {config.navbar.display && (
             <NavbarWrapperLayout3
               className={clsx(config.navbar.style === 'fixed' && 'sticky top-0 z-50')}

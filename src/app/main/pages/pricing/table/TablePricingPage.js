@@ -35,6 +35,7 @@ function TablePricingPage() {
             <circle r="234" cx="790" cy="491" />
           </Box>
         </svg>
+
         <div className="flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0 }}
@@ -153,6 +154,7 @@ function TablePricingPage() {
           </div>
         </div>
       </Paper>
+
       <Box
         sx={{ backgroundColor: 'primary.main', color: 'primary.contrastText' }}
         className="px-24 py-40 sm:py-48 sm:px-64"

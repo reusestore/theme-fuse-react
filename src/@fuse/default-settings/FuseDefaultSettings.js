@@ -88,6 +88,11 @@ export const defaultThemeOptions = {
         },
       },
     },
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
     MuiButton: {
       defaultProps: {
         variant: 'text',

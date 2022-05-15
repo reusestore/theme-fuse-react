@@ -35,7 +35,7 @@ function PhotosVideosTab() {
   };
 
   return (
-    <motion.div variants={container} initial="hidden" animate="show">
+    <motion.div variants={container} initial="hidden" animate="show" className="w-full">
       <div className="md:flex">
         <div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
           {data.map((period) => (

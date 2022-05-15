@@ -788,44 +788,6 @@ const navigationConfig = [
             type: 'item',
             url: '/ui/page-layouts/overview',
           },
-          /*   {
-            id: 'user-interface.page-layouts.carded',
-
-            title: 'Carded',
-            type: 'collapse',
-            children: [
-              {
-                id: 'user-interface.page-layouts.carded.fullwidth',
-                title: 'Fullwidth',
-                type: 'item',
-                url: '/ui/page-layouts/carded/fullwidth',
-              },
-              {
-                id: 'user-interface.page-layouts.carded.left-sidebar-1',
-                title: 'Left Sidebar #1',
-                type: 'item',
-                url: '/ui/page-layouts/carded/left-sidebar-1',
-              },
-              {
-                id: 'user-interface.page-layouts.carded.left-sidebar-2',
-                title: 'Left Sidebar #2',
-                type: 'item',
-                url: '/ui/page-layouts/carded/left-sidebar-2',
-              },
-              {
-                id: 'user-interface.page-layouts.carded.right-sidebar-1',
-                title: 'Right Sidebar #1',
-                type: 'item',
-                url: '/ui/page-layouts/carded/right-sidebar-1',
-              },
-              {
-                id: 'user-interface.page-layouts.carded.right-sidebar-2',
-                title: 'Right Sidebar #2',
-                type: 'item',
-                url: '/ui/page-layouts/carded/right-sidebar-2',
-              },
-            ],
-          }, */
           {
             id: 'user-interface.page-layouts.carded',
             title: 'Carded',
@@ -970,29 +932,9 @@ const navigationConfig = [
           },
           {
             id: 'user-interface.page-layouts.empty',
-            title: 'Empty',
-            type: 'collapse',
+            title: 'Empty Page',
+            type: 'item',
             url: '/ui/page-layouts/empty',
-            children: [
-              {
-                id: 'user-interface.page-layouts.empty.overview',
-                title: 'Empty Overview',
-                type: 'item',
-                url: '/ui/page-layouts/empty/overview',
-              },
-              {
-                id: 'user-interface.page-layouts.empty.normal-scroll',
-                title: 'Empty Normal Scroll',
-                type: 'item',
-                url: '/ui/page-layouts/empty/normal-scroll',
-              },
-              {
-                id: 'user-interface.page-layouts.empty.page-scroll',
-                title: 'Empty Page Scroll',
-                type: 'item',
-                url: '/ui/page-layouts/empty/page-scroll',
-              },
-            ],
           },
         ],
       },

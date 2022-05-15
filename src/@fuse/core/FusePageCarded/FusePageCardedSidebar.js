@@ -43,7 +43,7 @@ const FusePageCardedSidebar = forwardRef((props, ref) => {
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
-          container={rootRef.current}
+          // container={rootRef.current}
           BackdropProps={{
             classes: {
               root: 'FusePageCarded-backdrop',

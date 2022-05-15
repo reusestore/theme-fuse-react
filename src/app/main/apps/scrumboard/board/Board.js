@@ -72,7 +72,7 @@ function Board(props) {
         content={
           <>
             {board?.lists && (
-              <div className="flex flex-1 overflow-x-auto overflow-y-hidden">
+              <div className="flex flex-1 overflow-x-auto overflow-y-hidden h-full">
                 <DragDropContext onDragEnd={onDragEnd}>
                   <Droppable droppableId="list" type="list" direction="horizontal">
                     {(provided) => (
@@ -100,7 +100,7 @@ function Board(props) {
         rightSidebarOpen={sidebarOpen}
         rightSidebarContent={<BoardSettingsSidebar onSetSidebarOpen={setSidebarOpen} />}
         rightSidebarOnClose={() => setSidebarOpen(false)}
-        scroll={isMobile ? 'page' : 'content'}
+        scroll={isMobile ? 'normal' : 'content'}
         rightSidebarWidth={320}
       />
       <BoardCardDialog />

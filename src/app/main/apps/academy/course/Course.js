@@ -88,6 +88,7 @@ function Course(props) {
           <Hidden lgDown>
             <CourseProgress className="sticky top-0 z-10" course={course} />
           </Hidden>
+
           <Hidden lgUp>
             <Paper
               className="flex sticky top-0 z-10 items-center w-full px-16 py-8 border-b-1 shadow-0"
@@ -106,6 +107,7 @@ function Course(props) {
               </Typography>
             </Paper>
           </Hidden>
+
           <SwipeableViews index={activeStep - 1} enableMouseEvents onChangeIndex={handleStepChange}>
             {course.steps.map((step, index) => (
               <div

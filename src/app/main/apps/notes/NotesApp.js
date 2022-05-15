@@ -60,7 +60,7 @@ function NotesApp(props) {
           setLeftSidebarOpen(false);
         }}
         leftSidebarContent={<NotesSidebarContent />}
-        scroll={isMobile ? 'page' : 'content'}
+        scroll={isMobile ? 'normal' : 'content'}
       />
     </>
   );

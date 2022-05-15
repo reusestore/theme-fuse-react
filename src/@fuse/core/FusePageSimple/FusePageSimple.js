@@ -27,21 +27,24 @@ const Root = styled('div')(({ theme, ...props }) => ({
     flexDirection: 'row',
     flex: '1 1 auto',
     zIndex: 2,
-    // maxWidth: '100%',
     minWidth: 0,
     height: '100%',
     backgroundColor: theme.palette.background.default,
+
+    ...(props.scroll === 'content' && {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      right: 0,
+      left: 0,
+      overflow: 'hidden',
+    }),
   },
 
   '& .FusePageSimple-header': {
-    // height: headerHeight,
-    // minHeight: headerHeight,
     display: 'flex',
     flex: '0 0 auto',
-    // backgroundColor: theme.palette.background.paper,
-    // color: theme.palette.primary.main,
     backgroundSize: 'cover',
-    // borderBottom: `1px solid ${theme.palette.divider}`,
   },
 
   '& .FusePageSimple-topBg': {
@@ -75,6 +78,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
     flex: '1 1 auto',
     alignItems: 'start',
     minHeight: 0,
+    overflowY: 'auto',
   },
 
   '& .FusePageSimple-sidebarWrapper': {
@@ -187,10 +191,24 @@ const FusePageSimple = forwardRef((props, ref) => {
     <>
       <GlobalStyles
         styles={(theme) => ({
-          '#fuse-main': {
-            height: (props.scroll === 'content' || props.scroll === 'inner') && '100vh',
-            overflow: props.scroll === 'normal' && 'hidden',
-          },
+          ...(props.scroll !== 'page' && {
+            '#fuse-toolbar': {
+              position: 'static',
+            },
+            '#fuse-footer': {
+              position: 'static',
+            },
+          }),
+          ...(props.scroll === 'page' && {
+            '#fuse-toolbar': {
+              position: 'sticky',
+              top: 0,
+            },
+            '#fuse-footer': {
+              position: 'sticky',
+              bottom: 0,
+            },
+          }),
         })}
       />
       <Root
@@ -200,6 +218,7 @@ const FusePageSimple = forwardRef((props, ref) => {
           props.className
         )}
         ref={rootRef}
+        scroll={props.scroll}
         leftsidebarwidth={props.leftSidebarWidth}
         rightsidebarwidth={props.rightSidebarWidth}
       >

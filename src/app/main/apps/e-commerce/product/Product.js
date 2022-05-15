@@ -184,7 +184,7 @@ function Product(props) {
             </div>
           </>
         }
-        scroll={isMobile ? 'page' : 'content'}
+        scroll={isMobile ? 'normal' : 'content'}
       />
     </FormProvider>
   );
