@@ -1,4 +1,5 @@
 import themesConfig from 'app/configs/themesConfig';
+import i18n from '../../i18n';
 
 const settingsConfig = {
   layout: {
@@ -6,7 +7,7 @@ const settingsConfig = {
     config: {}, // checkout default layout configs at app/theme-layouts for example  app/theme-layouts/layout1/Layout1Config.js
   },
   customScrollbars: true,
-  direction: 'ltr', // rtl, ltr
+  direction: i18n.dir(i18n.options.lng) || 'ltr', // rtl, ltr
   theme: {
     main: themesConfig.default,
     navbar: themesConfig.defaultDark,

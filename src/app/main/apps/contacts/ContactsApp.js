@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import { styled } from '@mui/material/styles';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import ContactsSidebarContent from './ContactsSidebarContent';
 import ContactsHeader from './ContactsHeader';
 import ContactsList from './ContactsList';
@@ -12,7 +13,6 @@ import reducer from './store';
 import { getTags } from './store/tagsSlice';
 import { getCountries } from './store/countriesSlice';
 import { getContacts } from './store/contactsSlice';
-import useThemeMediaQuery from '../../../../@fuse/hooks/useThemeMediaQuery';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-header': {

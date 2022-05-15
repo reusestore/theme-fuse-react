@@ -103,7 +103,7 @@ const settingsSlice = createSlice({
   extraReducers: {
     [setDefaultSettings.fulfilled]: (state, action) => action.payload,
     [setUser.fulfilled]: (state, action) => {
-      const defaults = generateSettings(state.defaults, action.payload);
+      const defaults = generateSettings(state.defaults, action.payload?.data?.settings);
       return {
         ...state,
         defaults: _.merge({}, defaults),

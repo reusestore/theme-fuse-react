@@ -14,6 +14,7 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import themesConfig from 'app/configs/themesConfig';
 import { changeFuseTheme } from 'app/store/fuse/settingsSlice';
 import { useDispatch } from 'react-redux';
+import FuseSettingsViewerDialog from './FuseSettingsViewerDialog';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -151,6 +152,8 @@ function SettingsPanel() {
           </Typography>
 
           <FuseSettings />
+
+          <FuseSettingsViewerDialog className="mt-32" />
         </FuseScrollbars>
       </StyledDialog>
       <StyledDialog

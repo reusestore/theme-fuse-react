@@ -14,6 +14,7 @@ import _ from '@lodash';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import { getProduct, newProduct, resetProduct, selectProduct } from '../store/productSlice';
 import reducer from '../store';
 import ProductHeader from './ProductHeader';
@@ -22,7 +23,6 @@ import InventoryTab from './tabs/InventoryTab';
 import PricingTab from './tabs/PricingTab';
 import ProductImagesTab from './tabs/ProductImagesTab';
 import ShippingTab from './tabs/ShippingTab';
-import useThemeMediaQuery from '../../../../../@fuse/hooks/useThemeMediaQuery';
 
 /**
  * Form Validation Schema
