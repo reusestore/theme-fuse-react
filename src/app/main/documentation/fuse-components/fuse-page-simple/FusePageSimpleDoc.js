@@ -5,51 +5,15 @@ import { Link } from 'react-router-dom';
 const demos = [
   {
     id: 'full-width',
-    title: 'Full Width',
+    title: 'Full Width Overview',
     type: 'item',
-    url: '/ui/page-layouts/simple/full-width',
+    url: '/ui/page-layouts/simple/full-width/overview',
   },
   {
-    id: 'left-sidebar',
-    title: 'Left Sidebar',
+    id: 'with-sidebars',
+    title: 'With Sidebars Overview',
     type: 'item',
-    url: '/ui/page-layouts/simple/left-sidebar',
-  },
-  {
-    id: 'left-sidebar-2',
-    title: 'Left Sidebar 2',
-    type: 'item',
-    url: '/ui/page-layouts/simple/left-sidebar-2',
-  },
-  {
-    id: 'left-sidebar-3',
-    title: 'Left Sidebar 3',
-    type: 'item',
-    url: '/ui/page-layouts/simple/left-sidebar-3',
-  },
-  {
-    id: 'right-sidebar',
-    title: 'Right Sidebar',
-    type: 'item',
-    url: '/ui/page-layouts/simple/right-sidebar',
-  },
-  {
-    id: 'right-sidebar-2',
-    title: 'Right Sidebar 2',
-    type: 'item',
-    url: '/ui/page-layouts/simple/right-sidebar-2',
-  },
-  {
-    id: 'right-sidebar-3',
-    title: 'Right Sidebar 3',
-    type: 'item',
-    url: '/ui/page-layouts/simple/right-sidebar-3',
-  },
-  {
-    id: 'tabbed',
-    title: 'Tabbed',
-    type: 'item',
-    url: '/ui/page-layouts/simple/tabbed',
+    url: '/ui/page-layouts/simple/with-sidebars/overview',
   },
 ];
 
@@ -73,27 +37,16 @@ function FusePageSimpleDoc() {
                 header={
                     Header
                 }
-                contentToolbar={
-                    Content Toolbar
-                }
                 content={
                     Content
-                }
-                leftSidebarHeader={
-                    Left Sidebar Header
                 }
                 leftSidebarContent={
                     Left Sidebar Content
                 }
-                rightSidebarHeader={
-                    Right Sidebar Header
-                }
                 rightSidebarContent={
                     Right Sidebar Content
                 }
-                ref={pageLayout}
-                innerScroll
-                sidebarInner
+                scroll="page"
             />
         `}
       </FuseHighlight>

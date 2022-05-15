@@ -11,7 +11,6 @@ import {
   setNavigation,
   updateNavigationItem,
 } from 'app/store/fuse/navigationSlice';
-import authRoles from '../../../../auth/authRoles';
 
 function FuseNavigationDoc(props) {
   const dispatch = useDispatch();
@@ -85,23 +84,23 @@ function FuseNavigationDoc(props) {
       </Typography>
       <FuseHighlight component="pre" className="language-json">
         {`
-                                     {
-                                        'id'       : 'applications',
-                                        'title'    : 'Applications',
-                                        'type'     : 'group',
-                                        'icon'     : 'apps',
-                                        'url'      : '/apps/calendar' //optional
-                                        'children' : [
-                                             {
-                                                'id'       : 'calendar',
-                                                'title'    : 'Calendar',
-                                                'type'     : 'item',
-                                                'icon'     : 'today',
-                                                'url'      : '/apps/calendar'
-                                            }
-                                        ]
-                                     }
-                                `}
+              {
+                id: 'apps',
+                title: 'Applications',
+                subtitle: 'Custom made application designs',
+                type: 'group',
+                icon: 'heroicons-outline:home',
+                children: [
+                  {
+                    id: 'apps.academy',
+                    title: 'Academy',
+                    type: 'item',
+                    icon: 'heroicons-outline:academic-cap',
+                    url: '/apps/academy',
+                  }
+                ]
+             }
+        `}
       </FuseHighlight>
 
       <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
@@ -109,22 +108,22 @@ function FuseNavigationDoc(props) {
       </Typography>
       <FuseHighlight component="pre" className="language-json">
         {`
-                                     {
-                                        'id'       : 'dashboards',
-                                        'title'    : 'Dashboards',
-                                        'type'     : 'collapse',
-                                        'icon'     : 'dashboard',
-                                        'url'      : '/apps/dashboards/project' //optional
-                                        'children' : [
-                                            {
-                                                'id'   : 'project',
-                                                'title': 'Project',
-                                                'type' : 'item',
-                                                'url'  : '/apps/dashboards/project'
-                                            }
-                                        ]
-                                      }
-                                `}
+            {
+                id: 'apps.ecommerce',
+                title: 'ECommerce',
+                type: 'collapse',
+                icon: 'heroicons-outline:shopping-cart',
+                children: [
+                  {
+                    id: 'e-commerce-products',
+                    title: 'Products',
+                    type: 'item',
+                    url: 'apps/e-commerce/products',
+                    end: true,
+                  },
+              ]
+            }
+      `}
       </FuseHighlight>
 
       <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
@@ -132,13 +131,14 @@ function FuseNavigationDoc(props) {
       </Typography>
       <FuseHighlight component="pre" className="language-json">
         {`
-                                {
-                                    'id'   : 'project',
-                                    'title': 'Project',
-                                    'type' : 'item',
-                                    'url'  : '/apps/dashboards/project'
-                                }
-                                `}
+           {
+              id: 'dashboards.project',
+              title: 'Project',
+              type: 'item',
+              icon: 'heroicons-outline:clipboard-check',
+              url: '/dashboards/project',
+            }
+        `}
       </FuseHighlight>
       <Typography className="text-20 mt-24 mb-8 font-medium" component="h2">
         end: bool
@@ -148,13 +148,14 @@ function FuseNavigationDoc(props) {
       </Typography>
       <FuseHighlight component="pre" className="language-json">
         {`
-                                {
-                                    'id'   : 'project',
-                                    'title': 'Project',
-                                    'type' : 'item',
-                                    'url'  : '/apps/dashboards/project',
-                                    'end': true
-                                }
+          {
+              id: 'dashboards.project',
+              title: 'Project',
+              type: 'item',
+              icon: 'heroicons-outline:clipboard-check',
+              url: '/dashboards/project',
+              end: true
+          }
                                 `}
       </FuseHighlight>
       <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
@@ -162,37 +163,37 @@ function FuseNavigationDoc(props) {
       </Typography>
       <FuseHighlight component="pre" className="language-json">
         {`
-                                {
-                                    'id'    : 'test-link',
-                                    'title' : 'Test Link',
-                                    'type'  : 'link',
-                                    'icon'  : 'link',
-                                    'url'   : 'http://fusetheme.com',
-                                    'target': '_blank'
-                                },
-                               `}
+            {
+                'id'    : 'test-link',
+                'title' : 'Test Link',
+                'type'  : 'link',
+                'icon'  : 'link',
+                'url'   : 'http://fusetheme.com',
+                'target': '_blank'
+            },
+         `}
       </FuseHighlight>
       <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Divider
       </Typography>
       <FuseHighlight component="pre" className="language-json">
         {`
-                                {
-                                    'id'   : 'project',
-                                    'title': 'Project',
-                                    'type' : 'item',
-                                    'url'  : '/apps/dashboards/project'
-                                }
-                                {
-                                    'type': 'divider
-                                },
-                                {
-                                    'id'   : 'project',
-                                    'title': 'Project',
-                                    'type' : 'item',
-                                    'url'  : '/apps/dashboards/project'
-                                }
-                                `}
+          {
+              'id'   : 'project',
+              'title': 'Project',
+              'type' : 'item',
+              'url'  : '/apps/dashboards/project'
+          }
+          {
+              'type': 'divider
+          },
+          {
+              'id'   : 'project',
+              'title': 'Project',
+              'type' : 'item',
+              'url'  : '/apps/dashboards/project'
+          }
+          `}
       </FuseHighlight>
 
       <Typography className="mt-48 mb-8" variant="h4">
@@ -216,26 +217,40 @@ function FuseNavigationDoc(props) {
             dispatch(
               setNavigation([
                 {
+                  id: 'dashboards',
+                  title: 'Dashboards',
+                  subtitle: 'Unique dashboard designs',
+                  type: 'group',
+                  icon: 'heroicons-outline:home',
+                  children: [
+                    {
+                      id: 'dashboards.project',
+                      title: 'Project',
+                      type: 'item',
+                      icon: 'heroicons-outline:clipboard-check',
+                      url: '/dashboards/project',
+                    },
+                    {
+                      id: 'dashboards.analytics',
+                      title: 'Analytics',
+                      type: 'item',
+                      icon: 'heroicons-outline:chart-pie',
+                      url: '/dashboards/analytics',
+                    },
+                  ],
+                },
+                {
                   id: 'auth',
                   title: 'Auth',
                   type: 'group',
-                  icon: 'apps',
+                  icon: 'verified_user',
                   children: [
                     {
-                      id: 'login',
-                      title: 'Login',
+                      id: 'sign-out',
+                      title: 'Sign out',
                       type: 'item',
-                      url: 'login',
-                      auth: authRoles.onlyGuest,
-                      icon: 'lock',
-                    },
-                    {
-                      id: 'register',
-                      title: 'Register',
-                      type: 'item',
-                      url: 'register',
-                      auth: authRoles.onlyGuest,
-                      icon: 'person_add',
+                      url: 'sign-out',
+                      icon: 'exit_to_app',
                     },
                   ],
                 },
@@ -243,48 +258,64 @@ function FuseNavigationDoc(props) {
             );
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           Set Navigation
         </Button>
 
         <FuseHighlight component="pre" className="language-jsx mt-24">
           {`
-                                <Button
-                                    onClick={()=> {
-                                        dispatch(setNavigation([
-                                            {
-                                                'id'      : 'auth',
-                                                'title'   : 'Auth',
-                                                'type'    : 'group',
-                                                'icon'    : 'apps',
-                                                'children': [
-                                                    {
-                                                        'id'   : 'login',
-                                                        'title': 'Login',
-                                                        'type' : 'item',
-                                                        'url'  : '/login',
-                                                        auth   : authRoles.onlyGuest,
-                                                        'icon' : 'lock'
-                                                    },
-                                                    {
-                                                        'id'   : 'register',
-                                                        'title': 'Register',
-                                                        'type' : 'item',
-                                                        'url'  : '/register',
-                                                        auth   : authRoles.onlyGuest,
-                                                        'icon' : 'person_add'
-                                                    },
-                                                ]
-                                            }
-                                        ]));
-                                    }}
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Set Navigation
-                                </Button>
-                                `}
+          <Button
+            onClick={() => {
+              dispatch(
+                setNavigation([
+                  {
+                    id: 'dashboards',
+                    title: 'Dashboards',
+                    subtitle: 'Unique dashboard designs',
+                    type: 'group',
+                    icon: 'heroicons-outline:home',
+                    children: [
+                      {
+                        id: 'dashboards.project',
+                        title: 'Project',
+                        type: 'item',
+                        icon: 'heroicons-outline:clipboard-check',
+                        url: '/dashboards/project',
+                      },
+                      {
+                        id: 'dashboards.analytics',
+                        title: 'Analytics',
+                        type: 'item',
+                        icon: 'heroicons-outline:chart-pie',
+                        url: '/dashboards/analytics',
+                      },
+                    ],
+                  },
+                  {
+                    id: 'auth',
+                    title: 'Auth',
+                    type: 'group',
+                    icon: 'verified_user',
+                    children: [
+                      {
+                        id: 'sign-out',
+                        title: 'Sign out',
+                        type: 'item',
+                        url: 'sign-out',
+                        icon: 'exit_to_app',
+                      },
+                    ],
+                  },
+                ])
+              );
+            }}
+            variant="contained"
+            color="secondary"
+          >
+            Set Navigation
+          </Button>
+        `}
         </FuseHighlight>
       </div>
 
@@ -305,23 +336,23 @@ function FuseNavigationDoc(props) {
             dispatch(resetNavigation());
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           Reset Navigation
         </Button>
 
         <FuseHighlight component="pre" className="language-jsx mt-24">
           {`
-                                <Button
-                                    onClick={()=> {
-                                        dispatch(resetNavigation());
-                                    }}
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Reset Navigation
-                                </Button>
-                                `}
+            <Button
+                onClick={()=> {
+                    dispatch(resetNavigation());
+                }}
+                variant="contained"
+                color="secondary"
+            >
+                Reset Navigation
+            </Button>
+            `}
         </FuseHighlight>
       </div>
 
@@ -346,41 +377,31 @@ function FuseNavigationDoc(props) {
             dispatch(
               updateNavigationItem('dashboards', {
                 title: 'All Dashboards',
-                badge: {
-                  title: 2,
-                  bg: 'rgb(3, 155, 228)',
-                  fg: '#FFFFFF',
-                },
               })
             );
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           Update Navigation Item
         </Button>
 
         <FuseHighlight component="pre" className="language-jsx mt-24">
           {`
-                                <Button
-                                    onClick={()=> {
-                                        dispatch(updateNavigationItem('dashboards',
-                                            {
-                                                'title': 'All Dashboards',
-                                                'badge': {
-                                                    'title': 2,
-                                                    'bg'   : 'rgb(3, 155, 228)',
-                                                    'fg'   : '#FFFFFF'
-                                                }
-                                            }
-                                        ))
-                                    }}
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                Update Navigation Item
-                                </Button>
-                            `}
+          <Button
+            onClick={() => {
+              dispatch(
+                updateNavigationItem('dashboards', {
+                  title: 'All Dashboards',
+                })
+              );
+            }}
+            variant="contained"
+            color="secondary"
+          >
+            Update Navigation Item
+          </Button>
+        `}
         </FuseHighlight>
       </div>
 
@@ -398,26 +419,26 @@ function FuseNavigationDoc(props) {
 
         <Button
           onClick={() => {
-            dispatch(removeNavigationItem('calendar'));
+            dispatch(removeNavigationItem('apps.calendar'));
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           Remove Navigation Item
         </Button>
 
         <FuseHighlight component="pre" className="language-jsx mt-24">
           {`
-                                  <Button
-                                        onClick={()=> {
-                                            dispatch(removeNavigationItem('calendar'))
-                                        }}
-                                        variant="contained"
-                                        color="primary"
-                                  >
-                                  Remove Navigation Item
-                                  </Button>
-                            `}
+            <Button
+                  onClick={()=> {
+                      dispatch(removeNavigationItem('apps.calendar'))
+                  }}
+                  variant="contained"
+                  color="secondary"
+            >
+            Remove Navigation Item
+            </Button>
+      `}
         </FuseHighlight>
       </div>
 
@@ -452,32 +473,32 @@ function FuseNavigationDoc(props) {
             );
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           Prepend Navigation Item
         </Button>
 
         <FuseHighlight component="pre" className="language-jsx mt-24">
           {`
-                                <Button
-                                    onClick={()=> {
-                                        dispatch(prependNavigationItem(
-                                            {
-                                                'id'    : 'test-link',
-                                                'title' : 'fusetheme.com',
-                                                'type'  : 'link',
-                                                'icon'  : 'link',
-                                                'url'   : 'http://fusetheme.com',
-                                                'target': '_blank'
-                                            }
-                                        ))
-                                    }}
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Prepend Navigation Item
-                                </Button>
-                                `}
+            <Button
+                onClick={()=> {
+                    dispatch(prependNavigationItem(
+                        {
+                            'id'    : 'test-link',
+                            'title' : 'fusetheme.com',
+                            'type'  : 'link',
+                            'icon'  : 'link',
+                            'url'   : 'http://fusetheme.com',
+                            'target': '_blank'
+                        }
+                    ))
+                }}
+                variant="contained"
+                color="secondary"
+            >
+                Prepend Navigation Item
+            </Button>
+            `}
         </FuseHighlight>
       </div>
 
@@ -504,7 +525,7 @@ function FuseNavigationDoc(props) {
             );
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           Prepend Navigation Item
         </Button>
@@ -525,7 +546,7 @@ function FuseNavigationDoc(props) {
                                         ))
                                     }}
                                     variant="contained"
-                                    color="primary"
+                                    color="secondary"
                                 >
                                     Prepend Navigation Item
                                 </Button>
@@ -564,31 +585,31 @@ function FuseNavigationDoc(props) {
             );
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           Append Navigation Item
         </Button>
         <FuseHighlight component="pre" className="language-jsx mt-24">
           {`
-                                <Button
-                                    onClick={()=> {
-                                        dispatch(appendNavigationItem(
-                                            {
-                                                'id'    : 'test-link',
-                                                'title' : 'fusetheme.com',
-                                                'type'  : 'link',
-                                                'icon'  : 'link',
-                                                'url'   : 'http://fusetheme.com',
-                                                'target': '_blank'
-                                            }
-                                        ))
-                                    }}
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Append Navigation Item
-                                </Button>
-                                `}
+            <Button
+                onClick={()=> {
+                    dispatch(appendNavigationItem(
+                        {
+                            'id'    : 'test-link',
+                            'title' : 'fusetheme.com',
+                            'type'  : 'link',
+                            'icon'  : 'link',
+                            'url'   : 'http://fusetheme.com',
+                            'target': '_blank'
+                        }
+                    ))
+                }}
+                variant="contained"
+                color="secondary"
+            >
+                Append Navigation Item
+            </Button>
+            `}
         </FuseHighlight>
       </div>
 
@@ -615,7 +636,7 @@ function FuseNavigationDoc(props) {
             );
           }}
           variant="contained"
-          color="primary"
+          color="secondary"
         >
           Append Navigation Item
         </Button>
@@ -636,7 +657,7 @@ function FuseNavigationDoc(props) {
                                         ))
                                     }}
                                     variant="contained"
-                                    color="primary"
+                                    color="secondary"
                                 >
                                     Append Navigation Item
                                 </Button>

@@ -34,7 +34,6 @@ const navigationConfig = [
       },
     ],
   },
-
   {
     id: 'apps',
     title: 'Applications',

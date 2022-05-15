@@ -73,10 +73,10 @@ const DocumentationNavigation = {
           url: '/documentation/development/deployment',
         },
         {
-          id: 'project-structure-doc',
-          title: 'Project Structure',
+          id: 'directory-structure-doc',
+          title: 'Directory Structure',
           type: 'item',
-          url: '/documentation/development/project-structure',
+          url: '/documentation/development/directory-structure',
         },
         {
           id: 'api-calls-doc',

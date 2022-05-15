@@ -49,7 +49,7 @@ function GoogleMapReactDoc() {
 
       <ul>
         <li className="mb-8">
-          <Link to="/apps/dashboards/analytics">Analytics Dashboard</Link>
+          <Link to="/dashboards/analytics">Analytics Dashboard</Link>
         </li>
       </ul>
     </>

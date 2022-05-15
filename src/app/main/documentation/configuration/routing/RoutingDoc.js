@@ -30,53 +30,16 @@ function RoutingDoc() {
       </Typography>
 
       <Typography className="mb-16" component="p">
-        For example, have a look at the code below
-        <code>MailAppConfig.js</code>. You can override all settings for a particular route as{' '}
-        <code>/apps/mail</code> for this example.
+        For example, have a look at the code below <code>MailboxAppConfig.js</code>. You can
+        override all settings for a particular route.
       </Typography>
 
-      <FuseHighlight component="pre" className="language-jsx mb-32">
-        {`
-                        import i18next from 'i18next';
-                        import { lazy } from 'react';
-                        import { Navigate } from 'react-router-dom';
-                        
-                        const MailApp = lazy(() => import('./MailApp'));
-                        
-                        const MailAppConfig = {
-                          settings: {
-                            layout: {},
-                          },
-                          routes: [
-                            {
-                              path: 'apps/mail/label/:labelHandle',
-                              element: <MailApp />,
-                              children: [{ path: ':mailId', element: <MailApp /> }],
-                            },
-                            {
-                              path: 'apps/mail/filter/:filterHandle',
-                              element: <MailApp />,
-                              children: [{ path: ':mailId', element: <MailApp /> }],
-                            },
-                            {
-                              path: '/apps/mail/:folderHandle',
-                              element: <MailApp />,
-                              children: [{ path: ':mailId', element: <MailApp /> }],
-                            },
-                            {
-                              path: 'apps/mail',
-                              element: <Navigate to="/apps/mail/inbox" />,
-                            },
-                          ],
-                        };
-                        
-                        export default MailAppConfig;
-
-                            `}
+      <FuseHighlight component="pre" className="language-jsx mb-24">
+        {require('!raw-loader!src/app/main/apps/mailbox/MailboxAppConfig.js')}
       </FuseHighlight>
 
       <Typography className="mb-16" component="p">
-        Then we import and generate routes from that file in <code>configs/routesConfig</code>
+        Then we import and generate routes from that file in <code>app/configs/routesConfig</code>
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx mb-32">
@@ -88,14 +51,25 @@ function RoutingDoc() {
           const routeConfigs = [
               MailAppConfig
           ];
-
-          export const routes = [
-              ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
-               {
-                path: '*',
-                element: <Navigate to="pages/errors/error-404" />,
-              },
+          
+          const routes = [
+            ...FuseUtils.generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
+            {
+              path: '/',
+              element: <Navigate to="dashboards/analytics" />,
+              auth: settingsConfig.defaultAuth,
+            },
+            {
+              path: 'loading',
+              element: <FuseLoading />,
+            },
+            {
+              path: '*',
+              element: <Navigate to="pages/error/404" />,
+            },
           ];
+          
+          export default routes;
       `}
       </FuseHighlight>
     </>

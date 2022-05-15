@@ -3,7 +3,7 @@ import { lazy } from 'react';
 const DevelopmentServerDoc = lazy(() => import('./development-server/DevelopmentServerDoc'));
 const ProductionDoc = lazy(() => import('./production/ProductionDoc'));
 const DeploymentDoc = lazy(() => import('./deployment/DeploymentDoc'));
-const ProjectStructureDoc = lazy(() => import('./project-structure/ProjectStructureDoc'));
+const DirectoryStructureDoc = lazy(() => import('./directory-structure/DirectoryStructureDoc'));
 const ApiCallsDoc = lazy(() => import('./api-calls/ApiCallsDoc'));
 const UpdatingFuseReactDoc = lazy(() => import('./updating-fuse-react/UpdatingFuseReactDoc'));
 const IDEsDoc = lazy(() => import('./ides-vscode-webstorm/IDEsDoc'));
@@ -23,8 +23,8 @@ const DevelopmentDocRoutes = [
     element: <DeploymentDoc />,
   },
   {
-    path: 'development/project-structure',
-    element: <ProjectStructureDoc />,
+    path: 'development/directory-structure',
+    element: <DirectoryStructureDoc />,
   },
   {
     path: 'development/api-calls',

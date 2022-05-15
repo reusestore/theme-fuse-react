@@ -77,11 +77,28 @@ function MultiLanguageDoc() {
       </FuseHighlight>
 
       <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
+        Default Language
+      </Typography>
+
+      <Typography className="mb-16" component="p">
+        To change the default language of the Fuse React, you need to change <code>lng</code>{' '}
+        setting in the file <code>src/i18n.js</code>
+      </Typography>
+
+      <Typography className="mb-16" component="p">
+        You can change "eng" value to "ar" to test it out.
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-jsx mb-24">
+        {require('!raw-loader!src/i18n.js')}
+      </FuseHighlight>
+
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Changing Language
       </Typography>
 
       <Typography className="mb-16" component="p">
-        You should use <code>changeLanguage</code> redux action to change language:
+        You should use <code>changeLanguage</code> redux action to change language dynamically:
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx mb-24">

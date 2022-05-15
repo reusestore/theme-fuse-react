@@ -51,6 +51,16 @@ function IntroductionDoc() {
         is a react UI library that implements Google's Material Design specification.
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
+        TailwindCSS
+      </Typography>
+      <Typography className="mb-16" component="p">
+        <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer noopener">
+          TailwindCSS
+        </a>{' '}
+        It is the core of the style configuration and it provides utility classes for almost every
+        CSS rule available.
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Create React App (CLI)
       </Typography>
       <Typography className="mb-16" component="p">

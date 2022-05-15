@@ -2,14 +2,21 @@ import Typography from '@mui/material/Typography';
 import mockApiJson from '@mock-api/mock-api.json';
 import { RedocStandalone } from 'redoc';
 import FusePageCarded from '@fuse/core/FusePageCarded';
+import { Link } from 'react-router-dom';
 
 function MockApiDoc() {
   return (
     <FusePageCarded
       header={
-        <div className="flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between p-24 sm:py-32 sm:px-40">
+        <div className="flex flex-col flex-0  p-24 sm:py-32 sm:px-40">
           <Typography className="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
             Mock API Definitions (OpenAPI 3.0)
+          </Typography>
+          <Typography className="mt-12" component="p">
+            These definitions are used while creating
+            <Link className="link mx-8" to="/documentation/development/api-calls">
+              @mock-api
+            </Link>
           </Typography>
         </div>
       }

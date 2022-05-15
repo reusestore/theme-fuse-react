@@ -46,10 +46,10 @@ function ThemeLayoutsDoc() {
             <b>/shared components</b> : Each layouts shares the components of this directory
           </li>
           <li className="mb-8">
-            <b>/FuseLayoutConfigs.js</b> : Imports all layout configs.
+            <b>/themeLayoutConfigs.js</b> : Imports all layout configs.
           </li>
           <li className="mb-8">
-            <b>/FuseLayouts.js</b> : Imports all layout components.
+            <b>/themeLayouts.js</b> : Imports all layout components.
           </li>
           <li className="mb-8">
             <b>/layout-2</b>

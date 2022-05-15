@@ -37,7 +37,7 @@ function FuseCountdownDoc() {
 
       <ul>
         <li className="mb-8">
-          <Link to="/pages/coming-soon">Coming Soon</Link>
+          <Link to="/pages/coming-soon/classic">Coming Soon</Link>
         </li>
       </ul>
     </>

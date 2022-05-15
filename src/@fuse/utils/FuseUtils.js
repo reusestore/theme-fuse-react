@@ -287,7 +287,7 @@ class FuseUtils {
     return nav.map((_item) => {
       if (_item.id === parentId && _item.children) {
         return {
-          _item,
+          ..._item,
           children: [item, ..._item.children],
         };
       }

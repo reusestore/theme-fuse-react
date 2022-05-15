@@ -26,10 +26,6 @@ function FuseAuthorizationDoc() {
         Setup
       </Typography>
 
-      <Typography className="mb-16" component="p">
-        The component should wraps the FuseTheme component.
-      </Typography>
-
       <Typography className="inline-block mb-8 italic" component="code">
         src/app/App.js
       </Typography>

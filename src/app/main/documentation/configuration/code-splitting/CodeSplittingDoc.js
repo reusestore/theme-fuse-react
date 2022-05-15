@@ -28,8 +28,8 @@ function CodeSplittingDoc() {
         Check out the examples below to see dynamically or regular way of importing the components.
       </Typography>
 
-      <div className="flex flex-wrap lg:-mx-4">
-        <div className="w-full lg:w-1/2 lg:px-4">
+      <div className="space-y-24">
+        <div className="">
           <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
             Lazy Loaded Component:
           </Typography>
@@ -43,14 +43,14 @@ function CodeSplittingDoc() {
               const AnalyticsDashboardAppConfig = {
                 settings: {
                   layout: {
-                    config: {},
-                  },
+                    config: {}
+                  }
                 },
                 routes: [
                   {
                     path: 'apps/dashboards/analytics',
-                    element: <AnalyticsDashboardApp />,
-                  },
+                    element: <AnalyticsDashboardApp />
+                  }
                 ],
               };
               
@@ -60,7 +60,7 @@ function CodeSplittingDoc() {
           </FuseHighlight>
         </div>
 
-        <div className="w-full lg:w-1/2 lg:px-4">
+        <div className="w-ful">
           <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
             Regular Loaded Component:
           </Typography>
@@ -100,12 +100,12 @@ function CodeSplittingDoc() {
 
       <FuseHighlight component="pre" className="language-jsx my-16">
         {`
-                              import withReducer from 'app/store/withReducer';
-                              import reducer from './store';
-                              .
-                              .
-                              export default withReducer('analyticsDashboardApp', reducer)(AnalyticsDashboardApp);
-                            `}
+          import withReducer from 'app/store/withReducer';
+          import reducer from './store';
+          .
+          .
+          export default withReducer('analyticsDashboardApp', reducer)(AnalyticsDashboardApp);
+        `}
       </FuseHighlight>
     </>
   );

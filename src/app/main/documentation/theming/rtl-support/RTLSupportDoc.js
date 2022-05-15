@@ -1,5 +1,6 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -20,19 +21,19 @@ function RTLSupportDoc() {
       </Typography>
 
       <Typography className="mb-16" component="p">
-        There are two plugins{' '}
+        We used{' '}
         <a
-          href="https://github.com/RonMelkhior/tailwindcss-dir"
+          href="https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <code>tailwindcss-dir</code>
+          TailwindCss's rtl and ltr modifiers
         </a>{' '}
-        and{' '}
+        and the{' '}
         <a href="https://github.com/alitaheri/jss-rtl" target="_blank" rel="noopener noreferrer">
           <code>jss-rtl</code>
         </a>{' '}
-        that we use to develop RTL support of the Fuse React.
+        plugin to support RTL feature of the Fuse React.
       </Typography>
 
       <Typography className="mb-16" component="p">
@@ -46,22 +47,22 @@ function RTLSupportDoc() {
 
       <Typography className="mb-16" component="p">
         <a
-          href="https://github.com/RonMelkhior/tailwindcss-dir"
+          href="https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <code>tailwindcss-dir</code>
+          <code>TailwindCss's rtl and ltr modifiers</code>
         </a>{' '}
-        adds a custom direction variant to your tailwind project, letting you have custom CSS rules
+        are a custom direction variant to your tailwind project, letting you have custom CSS rules
         for LTR and RTL layouts. For example:
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx mb-24">
         {`
-                            <div class="text-green text-2xl ltr:pl-4 rtl:pr-4">
-                                Hello, world.
-                            </div>
-                        `}
+            <div class="text-green text-2xl ltr:pl-4 rtl:pr-4">
+                Hello, world.
+            </div>
+        `}
       </FuseHighlight>
 
       <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
@@ -69,32 +70,11 @@ function RTLSupportDoc() {
       </Typography>
 
       <Typography className="mb-16" component="p">
-        To change the default direction of the Fuse React, you need to change <code>direction</code>
-        setting in the file <code>app/configs/settingsConfig.js</code>
-      </Typography>
-
-      <FuseHighlight component="pre" className="language-jsx mb-24">
-        {require('!raw-loader!app/configs/settingsConfig.js')}
-      </FuseHighlight>
-
-      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
-        Dynamically Direction Changing
-      </Typography>
-
-      <Typography className="mb-16" component="p">
-        If you need to change theme direction dynamically, for example when you need to change LTR
-        to RTL language, you need dispatch an action as below:
-      </Typography>
-
-      <FuseHighlight component="pre" className="language-jsx mb-24">
-        {`
-                            dispatch(setDefaultSettings({direction: 'rtl'}));
-                        `}
-      </FuseHighlight>
-
-      <Typography className="mb-16" component="p">
-        Checkout example usage at
-        <code>app/theme-layouts/shared-components/LanguageSwitcher.js</code>
+        The theme's language direction depends on the theme language. So There is no need to define
+        direction value. Checkout{' '}
+        <Link className="link mx-8" to="/documentation/mock-api">
+          Multi Language configuration
+        </Link>
       </Typography>
     </>
   );

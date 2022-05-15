@@ -79,10 +79,10 @@ function ReactApexchartsDoc() {
 
       <ul>
         <li className="mb-8">
-          <Link to="/apps/dashboards/analytics">Analytics Dashboard</Link>
+          <Link to="/dashboards/analytics">Analytics Dashboard</Link>
         </li>
         <li className="mb-8">
-          <Link to="/apps/dashboards/project">Project Dashboard</Link>
+          <Link to="/dashboards/project">Project Dashboard</Link>
         </li>
       </ul>
     </>

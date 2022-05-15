@@ -191,7 +191,6 @@ const FusePageCarded = forwardRef((props, ref) => {
             {props.leftSidebarContent && (
               <FusePageCardedSidebar
                 position="left"
-                header={props.leftSidebarHeader}
                 content={props.leftSidebarContent}
                 variant={props.leftSidebarVariant || 'permanent'}
                 ref={leftSidebarRef}
@@ -211,7 +210,6 @@ const FusePageCarded = forwardRef((props, ref) => {
             {props.rightSidebarContent && (
               <FusePageCardedSidebar
                 position="right"
-                header={props.rightSidebarHeader}
                 content={props.rightSidebarContent}
                 variant={props.rightSidebarVariant || 'permanent'}
                 ref={rightSidebarRef}
@@ -231,7 +229,6 @@ FusePageCarded.propTypes = {
   leftSidebarHeader: PropTypes.node,
   leftSidebarContent: PropTypes.node,
   leftSidebarVariant: PropTypes.node,
-  rightSidebarHeader: PropTypes.node,
   rightSidebarContent: PropTypes.node,
   rightSidebarVariant: PropTypes.node,
   header: PropTypes.node,

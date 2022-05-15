@@ -1,7 +1,6 @@
 import FuseExample from '@fuse/core/FuseExample';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 /* eslint import/no-webpack-loader-syntax: off */
@@ -44,14 +43,15 @@ function ReactHookFormDoc() {
       />
 
       <Typography className="text-32 mt-32 mb-8" component="h2">
-        Demos
+        Examples
       </Typography>
 
       <ul>
-        <li className="mb-8">
-          <Link to="/login">Login page</Link>
-          <Link to="/register">Register page</Link>
-        </li>
+        <li className="mb-8">src/app/main/sign-in/SignInPage.js</li>
+        <li className="mb-8">src/app/main/sign-up/SignUpPage.js</li>
+        <li className="mb-8">.</li>
+        <li className="mb-8">.</li>
+        <li className="mb-8">.</li>
       </ul>
     </>
   );

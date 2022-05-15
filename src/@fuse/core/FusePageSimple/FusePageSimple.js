@@ -208,7 +208,6 @@ const FusePageSimple = forwardRef((props, ref) => {
             {props.leftSidebarContent && (
               <FusePageSimpleSidebar
                 position="left"
-                header={props.leftSidebarHeader}
                 content={props.leftSidebarContent}
                 variant={props.leftSidebarVariant || 'permanent'}
                 ref={leftSidebarRef}
@@ -236,7 +235,6 @@ const FusePageSimple = forwardRef((props, ref) => {
             {props.rightSidebarContent && (
               <FusePageSimpleSidebar
                 position="right"
-                header={props.rightSidebarHeader}
                 content={props.rightSidebarContent}
                 variant={props.rightSidebarVariant || 'permanent'}
                 ref={rightSidebarRef}
@@ -253,15 +251,12 @@ const FusePageSimple = forwardRef((props, ref) => {
 });
 
 FusePageSimple.propTypes = {
-  leftSidebarHeader: PropTypes.node,
   leftSidebarContent: PropTypes.node,
   leftSidebarVariant: PropTypes.node,
-  rightSidebarHeader: PropTypes.node,
   rightSidebarContent: PropTypes.node,
   rightSidebarVariant: PropTypes.node,
   header: PropTypes.node,
   content: PropTypes.node,
-  contentToolbar: PropTypes.node,
   scroll: PropTypes.oneOf(['normal', 'page', 'content']),
   leftSidebarOpen: PropTypes.bool,
   rightSidebarOpen: PropTypes.bool,

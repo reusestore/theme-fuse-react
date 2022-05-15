@@ -14,10 +14,10 @@ function JwtAuthDoc() {
 
       <ul>
         <li className="mb-12">
-          You can <Link to="/register">register</Link>.
+          You can <Link to="/sign-up">sign up</Link>.
         </li>
         <li className="mb-12">
-          You can <Link to="/login">log in</Link>.
+          You can <Link to="/sign-in">sign in</Link>.
         </li>
         <li className="mb-12">
           Also saves user data (user shortcuts, layout, and theme settings) to db.
@@ -25,12 +25,12 @@ function JwtAuthDoc() {
       </ul>
 
       <Typography className="mt-32 mb-16" component="p">
-        Related Service folder is located at <code>/src/app/services/jwtService</code>
+        Related Service folder is located at <code>/src/app/auth/services/jwtService</code>
       </Typography>
 
       <Typography className="my-24 italic" component="p" color="text.secondary">
-        Note: Make sure {`<Router>`} component wrapped with {`<Auth>`} component in
-        <code>src/app/App.js</code>. The service initializes in the Auth component.
+        Note: Make sure {`<Router>`} component wrapped with {`<AuthProvider>`} in
+        <code>src/app/App.js</code>. The service initializes in the AuthProvider component.
       </Typography>
 
       <Typography className="my-24 italic" component="p" color="text.secondary">

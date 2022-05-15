@@ -4,52 +4,16 @@ import { Link } from 'react-router-dom';
 
 const demos = [
   {
-    title: 'Full Width',
-    url: '/ui/page-layouts/carded/full-width',
+    id: 'full-width',
+    title: 'Full Width Overview',
+    type: 'item',
+    url: '/ui/page-layouts/carded/full-width/overview',
   },
   {
-    title: 'Full Width Tabbed',
-    url: '/ui/page-layouts/carded/full-width-tabbed',
-  },
-  {
-    title: 'Full Width 2',
-    url: '/ui/page-layouts/carded/full-width-2',
-  },
-  {
-    title: 'Full Width 2 Tabbed',
-    url: '/ui/page-layouts/carded/full-width-2-tabbed',
-  },
-  {
-    title: 'Left Sidebar',
-    url: '/ui/page-layouts/carded/left-sidebar',
-  },
-  {
-    title: 'Left Sidebar Tabbed',
-    url: '/ui/page-layouts/carded/left-sidebar-tabbed',
-  },
-  {
-    title: 'Left Sidebar 2',
-    url: '/ui/page-layouts/carded/left-sidebar-2',
-  },
-  {
-    title: 'Left Sidebar 2 Tabbed',
-    url: '/ui/page-layouts/carded/left-sidebar-2-tabbed',
-  },
-  {
-    title: 'Right Sidebar',
-    url: '/ui/page-layouts/carded/right-sidebar',
-  },
-  {
-    title: 'Right Sidebar Tabbed',
-    url: '/ui/page-layouts/carded/right-sidebar-tabbed',
-  },
-  {
-    title: 'Right Sidebar 2',
-    url: '/ui/page-layouts/carded/right-sidebar-2',
-  },
-  {
-    title: 'Right Sidebar 2 Tabbed',
-    url: '/ui/page-layouts/carded/right-sidebar-2-tabbed',
+    id: 'with-sidebars',
+    title: 'With Sidebars Overview',
+    type: 'item',
+    url: '/ui/page-layouts/carded/with-sidebars/overview',
   },
 ];
 
@@ -73,26 +37,16 @@ function FusePageCardedDoc() {
                 header={
                     Header
                 }
-                contentToolbar={
-                    Content Toolbar
-                }
                 content={
                     Content
-                }
-                leftSidebarHeader={
-                    Left Sidebar Header
                 }
                 leftSidebarContent={
                     Left Sidebar Content
                 }
-                rightSidebarHeader={
-                    Right Sidebar Header
-                }
                 rightSidebarContent={
                     Right Sidebar Content
                 }
-                ref={pageLayout}
-                innerScroll
+                scroll="page"
             />
         `}
       </FuseHighlight>
