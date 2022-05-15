@@ -14,6 +14,10 @@ const changelogData = [
       'tailwindcss updated to v3.0.24',
       'All dependency packages updated.',
     ],
+    breakingChanges: [
+      'craco replaced with react-app-rewired.',
+      'firebase, auth0 service examples deprecated.',
+    ],
     fixedChanges: [],
     notes: (
       <div className="text-14 p-24 border-2 border-red rounded-16 w-full max-w-lg mt-40 mb-24">
