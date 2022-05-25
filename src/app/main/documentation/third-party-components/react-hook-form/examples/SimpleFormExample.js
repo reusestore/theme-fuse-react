@@ -17,6 +17,7 @@ import clsx from 'clsx';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import FormHelperText from '@mui/material/FormHelperText';
+import { DateTimePicker } from '@mui/lab';
 
 let renderCount = 0;
 
@@ -43,6 +44,7 @@ const defaultValues = {
   Checkbox: false,
   Switch: false,
   RadioGroup: '',
+  DateTimePicker: '',
 };
 
 /**
@@ -56,6 +58,7 @@ const schema = yup.object().shape({
   Switch: yup.boolean().oneOf([true], 'You must turn it on.'),
   RadioGroup: yup.string().oneOf(['female'], 'You must select female.'),
   Autocomplete: yup.array().min(2, 'Select at least two.'),
+  DateTimePicker: yup.string().nullable().required('You must select a date'),
 });
 
 function SimpleFormExample() {
@@ -147,6 +150,7 @@ function SimpleFormExample() {
                 error={!!errors.TextField}
                 helperText={errors?.TextField?.message}
                 required
+                fullWidth
               />
             )}
             name="TextField"
@@ -157,11 +161,11 @@ function SimpleFormExample() {
         <div className="mt-48 mb-16">
           <Controller
             render={({ field }) => (
-              <FormControl error={!!errors.Select} required>
+              <FormControl error={!!errors.Select} required fullWidth>
                 <FormLabel className="font-medium text-14" component="legend">
                   MUI Select
                 </FormLabel>
-                <Select {...field} variant="outlined">
+                <Select {...field} variant="outlined" fullWidth>
                   <MenuItem value="10">Ten (10)</MenuItem>
                   <MenuItem value="20">Twenty (20)</MenuItem>
                   <MenuItem value="30">Thirty (30)</MenuItem>
@@ -228,6 +232,32 @@ function SimpleFormExample() {
                     inputRef={ref}
                   />
                 )}
+              />
+            )}
+          />
+        </div>
+
+        <div className="mt-48 mb-16">
+          <Typography className="mb-24 font-medium text-14">DateTimePicker</Typography>
+
+          <Controller
+            name="DateTimePicker"
+            control={control}
+            render={({ field: { onChange, value, onBlur } }) => (
+              <DateTimePicker
+                value={value}
+                onChange={onChange}
+                required
+                renderInput={(_props) => (
+                  <TextField
+                    className="w-full"
+                    {..._props}
+                    onBlur={onBlur}
+                    error={!!errors.DateTimePicker}
+                    helperText={errors?.DateTimePicker?.message}
+                  />
+                )}
+                className="w-full"
               />
             )}
           />
