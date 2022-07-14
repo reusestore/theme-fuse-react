@@ -32,8 +32,8 @@ function ReactHookFormDoc() {
 
       <hr />
 
-      <Typography className="text-32 mt-32 mb-8" component="h2">
-        Example Usages
+      <Typography className="text-24 mt-32 mb-16" component="h4">
+        Example usage with Material-UI elements and form validation
       </Typography>
 
       <FuseExample
