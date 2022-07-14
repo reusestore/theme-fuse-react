@@ -91,6 +91,18 @@ function AppBarDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Responsive App bar with Drawer
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="DrawerAppBar.js"
+          className="my-24"
+          iframe
+          component={require('../components/app-bar/DrawerAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/DrawerAppBar.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         App bar with a primary search field
       </Typography>
       <Typography className="mb-40" component="div">

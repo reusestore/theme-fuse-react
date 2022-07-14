@@ -18,6 +18,9 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
     borderBottomWidth: 1,
     borderStyle: 'solid',
     borderColor: theme.palette.divider,
+    '& > .container': {
+      maxWidth: '100%',
+    },
   },
 }));
 
@@ -32,7 +35,7 @@ function ProfileApp() {
   return (
     <Root
       header={
-        <div className="flex flex-col shadow">
+        <div className="flex flex-col">
           <img
             className="h-160 lg:h-320 object-cover w-full"
             src="assets/images/pages/profile/cover.jpg"

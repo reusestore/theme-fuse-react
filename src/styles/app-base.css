@@ -91,6 +91,10 @@ a[role=button] {
     z-index: 9999;
 }
 
+.MuiModal-root {
+    z-index: 9999;
+}
+
 /* Medium Devices, Desktops Only */
 @media only screen and (min-width: 992px) {
     ::-webkit-scrollbar {

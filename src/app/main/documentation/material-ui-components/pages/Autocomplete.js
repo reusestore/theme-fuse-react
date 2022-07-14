@@ -287,7 +287,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </FuseHighlight>
       <ul>
         <li>
-          📦 <a href="/size-snapshot">4.5 kB gzipped</a>.
+          📦 <a href="/size-snapshot/">4.5 kB gzipped</a>.
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -737,8 +737,8 @@ const filterOptions = (options, { inputValue }) => matchSorter(options, inputVal
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#combobox">
-          https://www.w3.org/TR/wai-aria-practices/#combobox
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/combobox/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/combobox/
         </a>
         )
       </Typography>

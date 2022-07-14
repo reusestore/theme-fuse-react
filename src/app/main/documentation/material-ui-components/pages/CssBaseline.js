@@ -140,12 +140,13 @@ export default function MyApp() {
       <FuseHighlight component="pre" className="language-jsx">
         {` 
 import darkScrollbar from '@mui/material/darkScrollbar';
+
 const theme = createTheme({
   components: {
     MuiCssBaseline: {
-      styleOverrides: {
-        body: theme.palette.mode === 'dark' ? darkScrollbar() : null,
-      },
+      styleOverrides: (themeParam) => ({
+        body: themeParam.palette.mode === 'dark' ? darkScrollbar() : null,
+      }),
     },
   },
 });
@@ -153,7 +154,7 @@ const theme = createTheme({
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         Be aware, however, that using this utility (and customizing <code>-webkit-scrollbar</code>)
-        forces MacOS to always show the scrollbar.
+        forces macOS to always show the scrollbar.
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Color scheme

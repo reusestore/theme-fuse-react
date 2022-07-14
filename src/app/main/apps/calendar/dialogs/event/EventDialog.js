@@ -6,7 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import IconButton from '@mui/material/IconButton';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
-import { DateTimePicker } from '@mui/lab';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
@@ -170,7 +170,6 @@ function EventDialog(props) {
               <Controller
                 name="start"
                 control={control}
-                defaultValue=""
                 render={({ field: { onChange, value } }) => (
                   <DateTimePicker
                     value={value}

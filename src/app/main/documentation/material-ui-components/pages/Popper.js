@@ -42,7 +42,7 @@ function PopperDoc(props) {
         </li>
         <li>💄 It&#39;s an alternative API to react-popper. It aims for simplicity.</li>
         <li>
-          📦 <a href="/size-snapshot">8 kB gzipped</a>.
+          📦 <a href="/size-snapshot/">24.9 kB gzipped</a>.
         </li>
         <li>
           The children is{' '}

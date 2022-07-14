@@ -223,8 +223,8 @@ const data = {
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#TreeView">
-          https://www.w3.org/TR/wai-aria-practices/#TreeView
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/treeview/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/treeview/
         </a>
         )
       </Typography>

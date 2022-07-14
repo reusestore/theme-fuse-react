@@ -57,7 +57,7 @@ function TabsDoc(props) {
       <Typography className="mb-40" component="div">
         <code>@mui/lab</code> offers utility components that inject props to implement accessible
         tabs following{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#tabpanel">
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/">
           WAI-ARIA authoring practices
         </a>
         .
@@ -338,8 +338,8 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#tabpanel">
-          https://www.w3.org/TR/wai-aria-practices/#tabpanel
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/
         </a>
         )
       </Typography>
@@ -370,7 +370,7 @@ function TabsDoc(props) {
         behavior. If you want to switch to the &quot;selection automatically follows focus&quot;
         behavior you have pass <code>selectionFollowsFocus</code> to the <code>Tabs</code>{' '}
         component. The WAI-ARIA authoring practices have a detailed guide on{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus">
+        <a href="https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#x6-4-deciding-when-to-make-selection-automatically-follow-focus">
           how to decide when to make selection automatically follow focus
         </a>
         .

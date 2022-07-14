@@ -35,7 +35,7 @@ function ClickAwayListenerDoc(props) {
 
       <ul>
         <li>
-          📦 <a href="/size-snapshot">992 B gzipped</a>.
+          📦 <a href="/size-snapshot/">992 B gzipped</a>.
         </li>
         <li>⚛️ Supports portals</li>
       </ul>

@@ -33,9 +33,8 @@ function BoxDoc(props) {
       </Typography>
 
       <Typography className="mb-40" component="div">
-        The Box component packages{' '}
-        <a href="/system/basics/#all-inclusive">all the style functions</a> that are exposed in{' '}
-        <code>@mui/system</code>.
+        The Box component packages <a href="/system/properties/">all the style functions</a> that
+        are exposed in <code>@mui/system</code>.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Example

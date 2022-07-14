@@ -38,10 +38,11 @@ function AccordionDoc(props) {
         to a larger surface, such as a card.
       </Typography>
       <Typography className="mb-40" component="div">
+        :::info
         <strong>Note:</strong>
         Accordions are no longer documented in the{' '}
         <a href="https://material.io/">Material Design guidelines</a>, but MUI will continue to
-        support them. It was formerly known as the &quot;expansion panel&quot;.
+        support them. It was formerly known as the &quot;expansion panel&quot;. :::
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Basic accordion
@@ -112,8 +113,8 @@ function AccordionDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#accordion">
-          https://www.w3.org/TR/wai-aria-practices/#accordion
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/accordion/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/accordion/
         </a>
         )
       </Typography>

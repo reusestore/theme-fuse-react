@@ -230,8 +230,8 @@ function ModalDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#dialog_modal">
-          https://www.w3.org/TR/wai-aria-practices/#dialog_modal
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/
         </a>
         )
       </Typography>
@@ -255,7 +255,7 @@ function ModalDoc(props) {
         <li>
           <Typography className="mb-40" component="div">
             The{' '}
-            <a href="https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html">
+            <a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog.html">
               WAI-ARIA authoring practices
             </a>{' '}
             can help you set the initial focus on the most relevant element, based on your modal

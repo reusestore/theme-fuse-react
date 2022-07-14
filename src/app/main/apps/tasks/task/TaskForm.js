@@ -14,7 +14,7 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Autocomplete from '@mui/material/Autocomplete/Autocomplete';
 import Checkbox from '@mui/material/Checkbox/Checkbox';
-import DateTimePicker from '@mui/lab/DateTimePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import IconButton from '@mui/material/IconButton';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import TaskPrioritySelector from './TaskPrioritySelector';

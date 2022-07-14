@@ -217,8 +217,8 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#checkbox">
-          https://www.w3.org/TR/wai-aria-practices/#checkbox
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/
         </a>
         )
       </Typography>

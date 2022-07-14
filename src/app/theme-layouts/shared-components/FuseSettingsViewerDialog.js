@@ -53,7 +53,7 @@ function FuseSettingsViewerDialog(props) {
           })}
         </DialogContent>
         <DialogActions>
-          <Button color="secondary" variant="contained">
+          <Button color="secondary" variant="contained" onClick={handleCloseDialog}>
             Close
           </Button>
         </DialogActions>

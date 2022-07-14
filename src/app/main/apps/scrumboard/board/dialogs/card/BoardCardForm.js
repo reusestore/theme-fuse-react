@@ -1,6 +1,6 @@
 import { useDebounce } from '@fuse/hooks';
 import _ from '@lodash';
-import { DateTimePicker } from '@mui/lab';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import clsx from 'clsx';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';

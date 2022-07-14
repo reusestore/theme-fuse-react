@@ -125,6 +125,34 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
         <a href="/material-ui/guides/composition/#wrapping-components">wrapping components</a>{' '}
         guide.
       </Typography>
+      <Typography className="mb-40" component="div">
+        If using a class component as a child, you&#39;ll also need to ensure that the ref is
+        forwarded to the underlying DOM element. (A ref to the class component itself will not
+        work.)
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-jsx">
+        {` 
+class MyComponent extends React.Component {
+  render() {
+    const { innerRef, ...props } = this.props;
+    //  Spread the props to the underlying DOM element.
+    return <div {...props} ref={innerRef}>Bin</div>
+  }
+};
+
+// Wrap MyComponent to forward the ref as expected by Tooltip
+const WrappedMyComponent = React.forwardRef(function WrappedMyComponent(props, ref) {
+  return <MyComponent {...props} innerRef={ref} />;
+});
+
+// ...
+
+<Tooltip title="Delete">
+  <WrappedMyComponent>
+</Tooltip>
+`}
+      </FuseHighlight>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Triggers
       </Typography>
@@ -315,8 +343,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#tooltip">
-          https://www.w3.org/TR/wai-aria-practices/#tooltip
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/
         </a>
         )
       </Typography>

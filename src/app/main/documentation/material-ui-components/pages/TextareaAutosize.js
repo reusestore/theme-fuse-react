@@ -34,7 +34,7 @@ function TextareaAutosizeDoc(props) {
 
       <ul>
         <li>
-          📦 <a href="/size-snapshot">1.5 kB gzipped</a>
+          📦 <a href="/size-snapshot/">1.5 kB gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">

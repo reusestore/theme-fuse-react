@@ -147,6 +147,18 @@ function AlertDoc(props) {
           raw={require('!raw-loader!../components/alert/OutlinedAlerts.js')}
         />
       </Typography>
+      <Typography className="mb-40" component="div">
+        When using an outlined alert with the{' '}
+        <a href="/material-ui/react-snackbar/#customization">
+          <code>Snackbar</code> component
+        </a>
+        , background content will be visible and bleed through the alert by default. You can prevent
+        this by adding <code>{`bgcolor: 'background.paper'`}</code> to the
+        <a href="/material-ui/customization/how-to-customize/#the-sx-prop">
+          <code>sx</code> prop
+        </a>{' '}
+        on the <code>Alert</code> component.
+      </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Filled
       </Typography>
@@ -187,8 +199,8 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#alert">
-          https://www.w3.org/TR/wai-aria-practices/#alert
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/alert/
         </a>
         )
       </Typography>

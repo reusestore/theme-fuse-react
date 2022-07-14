@@ -112,8 +112,8 @@ function LinksDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#link">
-          https://www.w3.org/TR/wai-aria-practices/#link
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/link/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/link/
         </a>
         )
       </Typography>

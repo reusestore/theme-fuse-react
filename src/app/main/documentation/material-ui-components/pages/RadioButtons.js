@@ -240,8 +240,8 @@ import { useRadioGroup } from '@mui/material/RadioGroup';
       </Typography>
       <Typography className="mb-40" component="div">
         (WAI-ARIA:{' '}
-        <a href="https://www.w3.org/TR/wai-aria-practices/#radiobutton">
-          https://www.w3.org/TR/wai-aria-practices/#radiobutton
+        <a href="https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/">
+          https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/
         </a>
         )
       </Typography>
