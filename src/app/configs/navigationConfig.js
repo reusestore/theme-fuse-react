@@ -33,6 +33,13 @@ const navigationConfig = [
         icon: 'heroicons-outline:chart-pie',
         url: '/dashboards/analytics',
       },
+      {
+        id: 'dashboards.finance',
+        title: 'Finance',
+        type: 'item',
+        icon: 'heroicons-outline:cash',
+        url: '/dashboards/finance',
+      },
     ],
   },
   {
