@@ -143,6 +143,12 @@ const MaterialUIComponentsNavigation = {
       url: '/documentation/material-ui-components/grid',
     },
     {
+      id: 'grid2',
+      title: 'Grid 2',
+      type: 'item',
+      url: '/documentation/material-ui-components/grid2',
+    },
+    {
       id: 'imageList',
       title: 'Image List',
       type: 'item',

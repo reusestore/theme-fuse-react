@@ -12,8 +12,8 @@ import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
 const Root = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.primary.contrastText,
+  backgroundColor: theme.palette.background.default,
+  color: theme.palette.text.primary,
 }));
 
 const StyledPanel = styled(FuseScrollbars)(({ theme, opened }) => ({

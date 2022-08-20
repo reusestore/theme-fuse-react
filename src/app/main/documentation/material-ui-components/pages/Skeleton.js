@@ -69,8 +69,18 @@ function SkeletonDoc(props) {
         Variants
       </Typography>
       <Typography className="mb-40" component="div">
-        The component supports 3 shape variants.
+        The component supports 4 shape variants:
       </Typography>
+      <ul>
+        <li>
+          <code>text</code> (default): represents a single line of text (you can adjust the height
+          via font size).
+        </li>
+        <li>
+          <code>circular</code>, <code>rectangular</code>, and <code>rounded</code>: come with
+          different border radius to let you take control of the size.
+        </li>
+      </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
           name="Variants.js"

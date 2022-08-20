@@ -135,7 +135,7 @@ function LinksDoc(props) {
           <a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md">
             it should be rendered using a <code>{`<button>`}</code> element
           </a>
-          .
+          . The demo below illustrates how to properly link with a <code>{`<button>`}</code>:
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -147,6 +147,32 @@ function LinksDoc(props) {
           raw={require('!raw-loader!../components/links/ButtonLink.js')}
         />
       </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Keyboard accessibility
+      </Typography>
+      <ul>
+        <li>
+          Interactive elements should receive focus in a coherent order when the user presses the{' '}
+          <kbd className="key">Tab</kbd> key.
+        </li>
+        <li>
+          Users should be able to open a link by pressing <kbd className="key">Enter</kbd>.
+        </li>
+      </ul>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Screen reader accessibility
+      </Typography>
+      <ul>
+        <li>
+          When a link receives focus, screen readers should announce a descriptive link name. If the
+          link opens in a new window or browser tab, add an{' '}
+          <a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8">
+            <code>aria-label</code>
+          </a>{' '}
+          to inform screen reader users—for example,{' '}
+          <em>&quot;To learn more, visit the About page which opens in a new window.&quot;</em>
+        </li>
+      </ul>
     </>
   );
 }

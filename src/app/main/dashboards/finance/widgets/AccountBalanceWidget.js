@@ -66,7 +66,7 @@ function AccountBalanceWidget(props) {
             </Typography>
           </div>
 
-          <div className="ml-8">
+          <div className="">
             <Chip size="small" className="font-medium text-sm" label="12 months" />
           </div>
         </div>

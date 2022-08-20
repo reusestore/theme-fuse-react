@@ -52,7 +52,7 @@ function TooltipsDoc(props) {
         Positioned tooltips
       </Typography>
       <Typography className="mb-40" component="div">
-        The <code>Tooltip</code> has 12 <strong>placements</strong> choice. They don&#39;t have
+        The <code>Tooltip</code> has 12 <strong>placement</strong> choices. They don&#39;t have
         directional arrows; instead, they rely on motion emanating from the source to convey
         direction.
       </Typography>

@@ -20,7 +20,7 @@ const Root = styled('div')(({ theme }) => ({
     }),
     paddingBottom: 64,
     height: '100%',
-    maxHeight: '100%',
+    maxHeight: '100vh',
     position: 'sticky',
     top: 0,
     zIndex: 999,

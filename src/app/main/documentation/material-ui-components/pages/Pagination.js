@@ -163,7 +163,7 @@ function PaginationDoc(props) {
 
       <FuseHighlight component="pre" className="language-jsx">
         {` 
-import { usePagination } from '@mui/material/Pagination';
+import usePagination from '@mui/material/usePagination';
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">

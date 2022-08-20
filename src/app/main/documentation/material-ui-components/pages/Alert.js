@@ -176,8 +176,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         You can use the Snackbar to{' '}
-        <a href="/material-ui/react-snackbar/#customized-snackbars">display a toast</a> with the
-        Alert.
+        <a href="/material-ui/react-snackbar/#customization">display a toast</a> with the Alert.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Color

@@ -114,7 +114,7 @@ function BreadcrumbsDoc(props) {
           raw={require('!raw-loader!../components/breadcrumbs/CustomizedBreadcrumbs.js')}
         />
       </Typography>
-      {/*  <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+      {/* <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Integration with react-router
       </Typography>
       <Typography className="mb-40" component="div">

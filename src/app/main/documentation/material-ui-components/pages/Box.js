@@ -47,7 +47,7 @@ function BoxDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         All system properties are available via the{' '}
-        <a href="/system/basics/#the-sx-prop">
+        <a href="/system/getting-started/the-sx-prop/">
           <code>sx</code> prop
         </a>
         . In addition, the <code>sx</code> prop allows you to specify any other CSS rules you may
@@ -87,7 +87,7 @@ function BoxDoc(props) {
         However, sometimes you have to target the underlying DOM element. As an example, you may
         want to change the border of the Button. The Button component defines its own styles. CSS
         inheritance doesn&#39;t help. To workaround the problem, you can use the{' '}
-        <a href="/system/basics/#the-sx-prop">
+        <a href="/system/getting-started/the-sx-prop/">
           <code>sx</code>
         </a>{' '}
         prop directly on the child if it is a MUI component.

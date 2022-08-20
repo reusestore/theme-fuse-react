@@ -23,6 +23,7 @@ const Dividers = lazy(() => import('./pages/Dividers'));
 const Drawers = lazy(() => import('./pages/Drawers'));
 const FloatingActionButton = lazy(() => import('./pages/FloatingActionButton'));
 const Grid = lazy(() => import('./pages/Grid'));
+const Grid2 = lazy(() => import('./pages/Grid2'));
 const ImageList = lazy(() => import('./pages/ImageList'));
 const Links = lazy(() => import('./pages/Links'));
 const Lists = lazy(() => import('./pages/Lists'));
@@ -150,6 +151,10 @@ const MaterialUIComponentsRoutes = [
   {
     path: 'material-ui-components/grid',
     element: <Grid />,
+  },
+  {
+    path: 'material-ui-components/grid2',
+    element: <Grid2 />,
   },
   {
     path: 'material-ui-components/image-list',

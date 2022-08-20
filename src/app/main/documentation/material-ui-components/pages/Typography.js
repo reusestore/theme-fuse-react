@@ -65,11 +65,20 @@ function TypographyDoc(props) {
         Install with npm
       </Typography>
       <Typography className="mb-40" component="div">
-        You can <a href="https://www.npmjs.com/package/@fontsource/roboto">install it</a> by typing
-        the below command in your terminal:
+        You can <a href="https://www.npmjs.com/package/@fontsource/roboto">install it</a> by running
+        one of the following commands in your terminal:
+      </Typography>
+      <Typography className="mb-40" component="div">
+        With <strong>npm</strong>:
       </Typography>
       <Typography className="mb-40" component="div">
         <code>npm install @fontsource/roboto</code>
+      </Typography>
+      <Typography className="mb-40" component="div">
+        Or <strong>yarn</strong>:
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <code>yarn add @fontsource/roboto</code>
       </Typography>
       <Typography className="mb-40" component="div">
         Then, you can import it in your entry-point.

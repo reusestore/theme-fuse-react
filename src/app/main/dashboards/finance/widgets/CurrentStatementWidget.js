@@ -12,7 +12,7 @@ function CurrentStatementWidget() {
 
   return (
     <Paper className="relative flex flex-col flex-auto p-24 pr-12 pb-12 rounded-2xl shadow overflow-hidden">
-      <div className="flex items-center">
+      <div className="flex items-center justify-between">
         <div className="flex flex-col">
           <Typography className="text-lg font-medium tracking-tight leading-6 truncate">
             Current Statement
@@ -26,7 +26,7 @@ function CurrentStatementWidget() {
             </Typography>
           )}
         </div>
-        <div className="ml-auto -mt-8">
+        <div className="-mt-8">
           <IconButton aria-label="more" size="large">
             <FuseSvgIcon>heroicons-outline:dots-vertical</FuseSvgIcon>
           </IconButton>
@@ -68,7 +68,7 @@ function CurrentStatementWidget() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-0 w-96 h-96 -m-24">
+      <div className="absolute bottom-0 ltr:right-0 rtl:left-0 w-96 h-96 -m-24">
         {status === 'paid' && (
           <FuseSvgIcon size={96} className="opacity-25 text-green-500 dark:text-green-400">
             heroicons-outline:check-circle

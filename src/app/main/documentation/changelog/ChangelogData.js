@@ -2,6 +2,19 @@ import Typography from '@mui/material/Typography';
 
 const changelogData = [
   {
+    version: '8.2.0',
+    date: '2022-08-20',
+    newChanges: [
+      'Finance Dashboard added.',
+      'material-ui updated to v5.10.1',
+      'tailwindcss updated to v3.1.8',
+      'react-hook-form updated to v7.34.2',
+      '@reduxjs/toolkit updated to v1.8.5',
+      'All dependency packages updated.',
+    ],
+    fixedChanges: ['Theme Layout Navbar styles theming', 'FuseSidePanel max-height'],
+  },
+  {
     version: '8.1.0',
     date: '2022-07-14',
     newChanges: [

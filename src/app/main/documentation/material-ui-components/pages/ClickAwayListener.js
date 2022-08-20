@@ -119,7 +119,7 @@ function ClickAwayListenerDoc(props) {
   <div role="presentation">
     <h1>non-interactive heading</h1>
   </div>
-</ClickAwayListern>
+</ClickAwayListener>
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">

@@ -20,7 +20,7 @@ function BudgetWidget(props) {
 
   return (
     <Paper className="flex flex-col flex-auto p-24 shadow rounded-2xl overflow-hidden">
-      <div className="flex items-center">
+      <div className="flex items-center justify-between">
         <div className="flex flex-col">
           <Typography className="mr-16 text-lg font-medium tracking-tight leading-6 truncate">
             Budget
@@ -29,7 +29,7 @@ function BudgetWidget(props) {
             Monthly budget summary
           </Typography>
         </div>
-        <div className="ml-auto -mt-8">
+        <div className="-mt-8">
           <IconButton aria-label="more" size="large">
             <FuseSvgIcon>heroicons-outline:dots-vertical</FuseSvgIcon>
           </IconButton>
@@ -43,11 +43,11 @@ function BudgetWidget(props) {
 
       <div className="my-32 space-y-32">
         <div className="flex flex-col">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-16">
             <div className="flex items-center justify-center w-56 h-56 rounded bg-red-100 text-red-800 dark:bg-red-600 dark:text-red-50">
               <FuseSvgIcon className="text-current">heroicons-outline:credit-card</FuseSvgIcon>
             </div>
-            <div className="flex-auto ml-16 leading-none">
+            <div className="flex-auto leading-none">
               <Typography className="text-12 font-medium" color="text.secondary">
                 Expenses
               </Typography>
@@ -66,18 +66,18 @@ function BudgetWidget(props) {
             </div>
             <div className="flex items-end justify-end min-w-72 mt-auto ml-24">
               <div className="text-lg leading-none">2.6%</div>
-              <FuseSvgIcon size={16} className="text-green-600 ml-4">
+              <FuseSvgIcon size={16} className="text-green-600">
                 heroicons-solid:arrow-narrow-down
               </FuseSvgIcon>
             </div>
           </div>
         </div>
         <div className="flex flex-col">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-16">
             <div className="flex items-center justify-center w-56 h-56 rounded bg-indigo-100 text-indigo-800 dark:bg-indigo-600 dark:text-indigo-50">
               <FuseSvgIcon className="text-current">heroicons-outline:cash</FuseSvgIcon>
             </div>
-            <div className="flex-auto ml-16 leading-none">
+            <div className="flex-auto leading-none">
               <Typography className="text-12 font-medium" color="text.secondary">
                 Savings
               </Typography>
@@ -94,7 +94,7 @@ function BudgetWidget(props) {
                 value={calcProgressVal(savings, savingsGoal)}
               />
             </div>
-            <div className="flex items-end justify-end min-w-72 mt-auto ml-24">
+            <div className="flex items-end justify-end min-w-72 mt-auto">
               <div className="text-lg leading-none">12.7%</div>
               <FuseSvgIcon size={16} className="text-red-600 ml-4">
                 heroicons-solid:arrow-narrow-up
@@ -103,11 +103,11 @@ function BudgetWidget(props) {
           </div>
         </div>
         <div className="flex flex-col">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-16">
             <div className="flex items-center justify-center w-56 h-56 rounded bg-teal-100 text-teal-800 dark:bg-teal-600 dark:text-teal-50">
               <FuseSvgIcon className="text-current">heroicons-outline:light-bulb</FuseSvgIcon>
             </div>
-            <div className="flex-auto ml-16 leading-none">
+            <div className="flex-auto leading-none">
               <Typography className="text-12 font-medium" color="text.secondary">
                 Bills
               </Typography>
@@ -124,7 +124,7 @@ function BudgetWidget(props) {
                 value={calcProgressVal(bills, billsLimit)}
               />
             </div>
-            <div className="flex items-end justify-end min-w-72 mt-auto ml-24">
+            <div className="flex items-end justify-end min-w-72 mt-auto">
               <div className="text-lg leading-none">105.7%</div>
               <FuseSvgIcon size={16} className="text-red-600 ml-4">
                 heroicons-solid:arrow-narrow-up

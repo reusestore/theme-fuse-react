@@ -1,4 +1,5 @@
 import FuseExample from '@fuse/core/FuseExample';
+import FuseHighlight from '@fuse/core/FuseHighlight';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -108,6 +109,25 @@ function DividersDoc(props) {
           component={require('../components/dividers/DividerText.js').default}
           raw={require('!raw-loader!../components/dividers/DividerText.js')}
         />
+      </Typography>
+      <Typography className="mb-40" component="div">
+        :::info
+        <strong>Accessibility tips</strong>: When using the <code>Divider</code> component for
+        visual decoration, such as in a heading, explicitly specify{' '}
+        <code>{`role="presentation"`}</code> to the divider to make sure screen readers can announce
+        its content:
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-js">
+        {` 
+<Divider component="div" role="presentation">
+  {/* any elements nested inside the role="presentation" preserve their semantics. */}
+  <Typography variant="h2">My Heading</Typography>
+</Divider>
+`}
+      </FuseHighlight>
+      <Typography className="mb-40" component="div">
+        :::
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Vertical divider
