@@ -1,6 +1,6 @@
 {
     "name": "fuse-react-app",
-    "version": "8.2.0",
+    "version": "8.2.1",
     "private": true,
     "dependencies": {
         "@date-io/date-fns-jalali": "2.15.0",

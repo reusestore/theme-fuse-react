@@ -2,6 +2,11 @@ import Typography from '@mui/material/Typography';
 
 const changelogData = [
   {
+    version: '8.2.1',
+    date: '2022-09-03',
+    fixedChanges: ['DateTimePicker z-index issue, new import path.'],
+  },
+  {
     version: '8.2.0',
     date: '2022-08-20',
     newChanges: [
