@@ -78,6 +78,11 @@ export const defaultThemeOptions = {
     fontWeightMedium: 500,
   },
   components: {
+    MuiDateTimePicker: {
+      defaultProps: {
+        PopperProps: { className: 'z-9999' },
+      },
+    },
     MuiAppBar: {
       defaultProps: {
         enableColorOnDark: true,
