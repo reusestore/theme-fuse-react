@@ -249,7 +249,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
           raw={require('!raw-loader!../components/autocomplete/Grouped.js')}
         />
       </Typography>
-      <Typography className="mb-40" component="div">
+      {/* <Typography className="mb-40" component="div">
         To control how the groups are rendered, provide a custom <code>renderGroup</code> prop. This
         is a function that accepts an object with two fields:
       </Typography>
@@ -273,7 +273,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
           component={require('../components/autocomplete/RenderGroup.js').default}
           raw={require('!raw-loader!../components/autocomplete/RenderGroup.js')}
         />
-      </Typography>
+      </Typography> */}
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Disabled options
       </Typography>
