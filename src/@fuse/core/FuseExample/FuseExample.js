@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { darken } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import DemoFrame from './DemoFrame';
@@ -81,17 +81,19 @@ function FuseExample(props) {
             ))}
         </div>
         <div className={currentTab === 1 ? 'flex flex-1' : 'hidden'}>
-          {raw && (
-            <div className="flex flex-1">
-              <FuseHighlight
-                component="pre"
-                className="language-javascript w-full"
-                sx={{ borderRadius: '0!important' }}
-              >
-                {raw.default}
-              </FuseHighlight>
-            </div>
-          )}
+          {useMemo(() => {
+            return raw && currentTab === 1 ? (
+              <div className="flex flex-1">
+                <FuseHighlight
+                  component="pre"
+                  className="language-javascript w-full"
+                  sx={{ borderRadius: '0!important' }}
+                >
+                  {raw.default}
+                </FuseHighlight>
+              </div>
+            ) : null;
+          }, [raw, currentTab])}
         </div>
       </div>
     </Card>
