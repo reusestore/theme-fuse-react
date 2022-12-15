@@ -47,7 +47,7 @@ const navigationConfig = [
     title: 'Applications',
     subtitle: 'Custom made application designs',
     type: 'group',
-    icon: 'heroicons-outline:home',
+    icon: 'heroicons-outline:cube',
     translate: 'APPLICATIONS',
     children: [
       {

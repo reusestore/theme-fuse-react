@@ -1,5 +1,5 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { styled, ThemeProvider, useTheme } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import clsx from 'clsx';
 import { memo, useEffect, useState } from 'react';
@@ -105,26 +105,24 @@ function NavbarStyle3Content(props) {
   return (
     <ClickAwayListener onClickAway={() => setPanelOpen(false)}>
       <Root className={clsx('flex flex-auto flex h-full', props.className)}>
-        <ThemeProvider theme={contrastTheme}>
-          <div id="fuse-navbar-side-panel" className="flex shrink-0 flex-col items-center">
-            <img className="w-44 my-32" src="assets/images/logo/logo.svg" alt="logo" />
+        <div id="fuse-navbar-side-panel" className="flex shrink-0 flex-col items-center">
+          <img className="w-44 my-32" src="assets/images/logo/logo.svg" alt="logo" />
 
-            <FuseScrollbars
-              className="flex flex-1 min-h-0 justify-center w-full overflow-y-auto overflow-x-hidden"
-              option={{ suppressScrollX: true, wheelPropagation: false }}
-            >
-              <FuseNavigation
-                className={clsx('navigation')}
-                navigation={navigation}
-                layout="vertical-2"
-                onItemClick={handleParentItemClick}
-                firstLevel
-                selectedId={selectedNavigation[0]?.id}
-                dense={props.dense}
-              />
-            </FuseScrollbars>
-          </div>
-        </ThemeProvider>
+          <FuseScrollbars
+            className="flex flex-1 min-h-0 justify-center w-full overflow-y-auto overflow-x-hidden"
+            option={{ suppressScrollX: true, wheelPropagation: false }}
+          >
+            <FuseNavigation
+              className={clsx('navigation')}
+              navigation={navigation}
+              layout="vertical-2"
+              onItemClick={handleParentItemClick}
+              firstLevel
+              selectedId={selectedNavigation[0]?.id}
+              dense={props.dense}
+            />
+          </FuseScrollbars>
+        </div>
 
         {selectedNavigation.length > 0 && (
           <StyledPanel
