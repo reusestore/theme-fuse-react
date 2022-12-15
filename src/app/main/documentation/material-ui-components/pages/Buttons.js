@@ -61,7 +61,7 @@ function ButtonsDoc(props) {
         Text button
       </Typography>
       <Typography className="mb-40" component="div">
-        <a href="https://material.io/components/buttons#text-button">Text buttons</a>
+        <a href="https://m2.material.io/components/buttons#text-button">Text buttons</a>
         are typically used for less-pronounced actions, including those located: in dialogs, in
         cards. In cards, text buttons help maintain an emphasis on card content.
       </Typography>
@@ -78,7 +78,7 @@ function ButtonsDoc(props) {
         Contained button
       </Typography>
       <Typography className="mb-40" component="div">
-        <a href="https://material.io/components/buttons#contained-button">Contained buttons</a>
+        <a href="https://m2.material.io/components/buttons#contained-button">Contained buttons</a>
         are high-emphasis, distinguished by their use of elevation and fill. They contain actions
         that are primary to your app.
       </Typography>
@@ -107,7 +107,7 @@ function ButtonsDoc(props) {
         Outlined button
       </Typography>
       <Typography className="mb-40" component="div">
-        <a href="https://material.io/components/buttons#outlined-button">Outlined buttons</a> are
+        <a href="https://m2.material.io/components/buttons#outlined-button">Outlined buttons</a> are
         medium-emphasis buttons. They contain actions that are important but aren&#39;t the primary
         action in an app.
       </Typography>

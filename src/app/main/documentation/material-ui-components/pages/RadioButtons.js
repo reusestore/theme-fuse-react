@@ -26,10 +26,10 @@ function RadioButtonsDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Radio
+        Radio Group
       </Typography>
       <Typography className="description">
-        Radio buttons allow the user to select one option from a set.
+        The Radio Group allows the user to select one option from a set.
       </Typography>
 
       <Typography className="mb-40" component="div">

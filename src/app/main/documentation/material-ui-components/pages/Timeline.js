@@ -33,7 +33,7 @@ function TimelineDoc(props) {
 
       <Typography className="mb-40" component="div">
         <strong>Note:</strong> This component is not documented in the{' '}
-        <a href="https://material.io/">Material Design guidelines</a>, but MUI supports it.
+        <a href="https://m2.material.io/">Material Design guidelines</a>, but MUI supports it.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Basic timeline
@@ -137,6 +137,58 @@ function TimelineDoc(props) {
           iframe={false}
           component={require('../components/timeline/CustomizedTimeline.js').default}
           raw={require('!raw-loader!../components/timeline/CustomizedTimeline.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Alignment
+      </Typography>
+      <Typography className="mb-40" component="div">
+        There are different ways in which a Timeline can be placed within the container.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        You can do it by overriding the styles.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        A Timeline centers itself in the container by default.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The demos below show how to adjust the relative width of the left and right sides of a
+        Timeline:
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Left-aligned
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="LeftAlignedTimeline.js"
+          className="my-24"
+          iframe={false}
+          component={require('../components/timeline/LeftAlignedTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/LeftAlignedTimeline.js')}
+        />
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Right-aligned
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="RightAlignedTimeline.js"
+          className="my-24"
+          iframe={false}
+          component={require('../components/timeline/RightAlignedTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/RightAlignedTimeline.js')}
+        />
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Left-aligned with no opposite content
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="NoOppositeContent.js"
+          className="my-24"
+          iframe={false}
+          component={require('../components/timeline/NoOppositeContent.js').default}
+          raw={require('!raw-loader!../components/timeline/NoOppositeContent.js')}
         />
       </Typography>
     </>

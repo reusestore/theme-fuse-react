@@ -141,7 +141,7 @@ function CheckboxesDoc(props) {
         />
       </Typography>
       <Typography className="mb-40" component="div">
-        :::warning ⚠️ When indeterminate is set, the value of the <code>checked</code> prop only
+        :::warning When indeterminate is set, the value of the <code>checked</code> prop only
         impacts the form submitted values. It has no accessibility or UX implications. :::
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

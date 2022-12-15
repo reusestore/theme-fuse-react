@@ -26,10 +26,10 @@ function ToggleButtonDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Toggle button
+        Toggle Button
       </Typography>
       <Typography className="description">
-        Toggle buttons can be used to group related options.
+        A Toggle Button can be used to group related options.
       </Typography>
 
       <Typography className="mb-40" component="div">

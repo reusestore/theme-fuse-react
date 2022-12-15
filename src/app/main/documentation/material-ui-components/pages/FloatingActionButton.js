@@ -25,10 +25,10 @@ function FloatingActionButtonDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Floating action button
+        Floating Action Button
       </Typography>
       <Typography className="description">
-        A floating action button (FAB) performs the primary, or most common, action on a screen.
+        A Floating Action Button (FAB) performs the primary, or most common, action on a screen.
       </Typography>
 
       <Typography className="mb-40" component="div">

@@ -2,6 +2,19 @@ import Typography from '@mui/material/Typography';
 
 const changelogData = [
   {
+    version: '8.2.2',
+    date: '2022-12-15',
+    newChanges: [
+      'material-ui updated to v5.11.0',
+      'react-router updated to v6.4.5',
+      'tailwindcss updated to v3.2.4',
+      '@reduxjs/toolkit updated to v1.8.6',
+      'axios updated to v1.2.1',
+      'fullcalendar updated to v6.0.0',
+      'All dependency packages updated.',
+    ],
+  },
+  {
     version: '8.2.1',
     date: '2022-09-03',
     fixedChanges: ['DateTimePicker z-index issue, new import path.'],

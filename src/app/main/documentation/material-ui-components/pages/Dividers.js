@@ -111,11 +111,9 @@ function DividersDoc(props) {
         />
       </Typography>
       <Typography className="mb-40" component="div">
-        :::info
-        <strong>Accessibility tips</strong>: When using the <code>Divider</code> component for
-        visual decoration, such as in a heading, explicitly specify{' '}
-        <code>{`role="presentation"`}</code> to the divider to make sure screen readers can announce
-        its content:
+        :::warning When using the <code>Divider</code> component for visual decoration, such as in a
+        heading, explicitly specify <code>{`role="presentation"`}</code> to the divider to make sure
+        screen readers can announce its content:
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">

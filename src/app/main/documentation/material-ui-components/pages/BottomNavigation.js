@@ -25,10 +25,10 @@ function BottomNavigationDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Bottom navigation
+        Bottom Navigation
       </Typography>
       <Typography className="description">
-        Bottom navigation bars allow movement between primary destinations in an app.
+        The Bottom Navigation bar allows movement between primary destinations in an app.
       </Typography>
 
       <Typography className="mb-40" component="div">

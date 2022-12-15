@@ -34,13 +34,13 @@ function GridDoc(props) {
       </Typography>
 
       <Typography className="mb-40" component="div">
-        The <a href="https://material.io/design/layout/responsive-layout-grid.html">grid</a> creates
-        visual consistency between layouts while allowing flexibility across a wide variety of
-        designs. Material Design&#39;s responsive UI is based on a 12-column grid layout.
+        The <a href="https://m2.material.io/design/layout/responsive-layout-grid.html">grid</a>{' '}
+        creates visual consistency between layouts while allowing flexibility across a wide variety
+        of designs. Material Design&#39;s responsive UI is based on a 12-column grid layout.
       </Typography>
       <Typography className="mb-40" component="div">
-        :::warning ⚠️ The <code>Grid</code> component shouldn&#39;t be confused with a data grid; it
-        is closer to a layout grid. For a data grid head to{' '}
+        :::warning The <code>Grid</code> component shouldn&#39;t be confused with a data grid; it is
+        closer to a layout grid. For a data grid head to{' '}
         <a href="/x/react-data-grid/">
           the <code>DataGrid</code> component
         </a>
@@ -176,7 +176,7 @@ function GridDoc(props) {
       <Typography className="mb-40" component="div">
         You can switch the props&#39; value based on the active breakpoint. For instance, we can
         implement the{' '}
-        <a href="https://material.io/design/layout/responsive-layout-grid.html">
+        <a href="https://m2.material.io/design/layout/responsive-layout-grid.html">
           &quot;recommended&quot;
         </a>{' '}
         responsive layout grid of Material Design.
@@ -214,7 +214,7 @@ function GridDoc(props) {
         </li>
       </ul>
       <Typography className="mb-40" component="div">
-        :::warning ⚠️ When using a responsive <code>columns</code> prop, each grid item needs its
+        :::warning When using a responsive <code>columns</code> prop, each grid item needs its
         corresponding breakpoint. For instance, this is not working. The grid item misses the value
         for <code>md</code>:
       </Typography>
@@ -323,7 +323,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         ⚠️ Defining an explicit width to a Grid element that is flex container, flex item, and has
-        spacing at the same time lead to unexpected behavior, avoid doing it:
+        spacing at the same time leads to unexpected behavior, avoid doing it:
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
@@ -364,9 +364,9 @@ function GridDoc(props) {
         white-space: nowrap
       </Typography>
       <Typography className="mb-40" component="div">
-        The initial setting on flex items is <code>min-width: auto</code>. It&#39;s causing a
-        positioning conflict when the children is using <code>white-space: nowrap;</code>. You can
-        experience the issue with:
+        The initial setting on flex items is <code>min-width: auto</code>. This causes a positioning
+        conflict when children use <code>white-space: nowrap;</code>. You can reproduce the issue
+        with:
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">

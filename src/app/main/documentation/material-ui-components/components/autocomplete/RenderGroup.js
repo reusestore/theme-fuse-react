@@ -1,40 +1,46 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import parse from 'autosuggest-highlight/parse';
-import match from 'autosuggest-highlight/match';
+import { styled, lighten, darken } from '@mui/system';
 
-export default function Highlights() {
+const GroupHeader = styled('div')(({ theme }) => ({
+  position: 'sticky',
+  top: '-8px',
+  padding: '4px 10px',
+  color: theme.palette.primary.main,
+  backgroundColor:
+    theme.palette.mode === 'light'
+      ? lighten(theme.palette.primary.light, 0.85)
+      : darken(theme.palette.primary.main, 0.8),
+}));
+
+const GroupItems = styled('ul')({
+  padding: 0,
+});
+
+export default function RenderGroup() {
+  const options = top100Films.map((option) => {
+    const firstLetter = option.title[0].toUpperCase();
+    return {
+      firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+      ...option,
+    };
+  });
+
   return (
     <Autocomplete
-      id="highlights-demo"
-      sx={{ width: 300 }}
-      options={top100Films}
+      id="grouped-demo"
+      options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
+      groupBy={(option) => option.firstLetter}
       getOptionLabel={(option) => option.title}
-      renderInput={(params) => (
-        <TextField {...params} label="Highlights" margin="normal" />
+      sx={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label="With categories" />}
+      renderGroup={(params) => (
+        <li>
+          <GroupHeader>{params.group}</GroupHeader>
+          <GroupItems>{params.children}</GroupItems>
+        </li>
       )}
-      renderOption={(props, option, { inputValue }) => {
-        const matches = match(option.title, inputValue, { insideWords: true });
-        const parts = parse(option.title, matches);
-
-        return (
-          <li {...props}>
-            <div>
-              {parts.map((part, index) => (
-                <span
-                  key={index}
-                  style={{
-                    fontWeight: part.highlight ? 700 : 400,
-                  }}
-                >
-                  {part.text}
-                </span>
-              ))}
-            </div>
-          </li>
-        );
-      }}
     />
   );
 }

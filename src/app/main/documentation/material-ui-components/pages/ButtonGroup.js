@@ -25,7 +25,7 @@ function ButtonGroupDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Button group
+        Button Group
       </Typography>
       <Typography className="description">
         The ButtonGroup component can be used to group related buttons.

@@ -48,12 +48,8 @@ function ModalDoc(props) {
         <li>♿️ Adds the appropriate ARIA roles automatically.</li>
       </ul>
       <Typography className="mb-40" component="div">
-        :::info
-        <strong>Terminology note</strong>.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        The term &quot;modal&quot; is sometimes used to mean &quot;dialog&quot;, but this is a
-        misnomer. A modal window describes parts of a UI. An element is considered modal if{' '}
+        :::info The term &quot;modal&quot; is sometimes used to mean &quot;dialog&quot;, but this is
+        a misnomer. A modal window describes parts of a UI. An element is considered modal if{' '}
         <a href="https://en.wikipedia.org/wiki/Modal_window">
           it blocks interaction with the rest of the application
         </a>

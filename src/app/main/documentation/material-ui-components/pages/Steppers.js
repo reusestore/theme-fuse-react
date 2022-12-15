@@ -46,10 +46,9 @@ function SteppersDoc(props) {
         </li>
       </ul>
       <Typography className="mb-40" component="div">
-        :::warning
-        <strong>Note:</strong> Steppers are no longer documented in the{' '}
-        <a href="https://material.io/">Material Design guidelines</a>, but Material UI will continue
-        to support them. :::
+        :::warning Steppers are no longer documented in the{' '}
+        <a href="https://m2.material.io/">Material Design guidelines</a>, but Material UI will
+        continue to support them. :::
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Horizontal stepper
@@ -196,7 +195,7 @@ function SteppersDoc(props) {
       <Typography className="mb-40" component="div">
         This component implements a compact stepper suitable for a mobile device. It has more
         limited functionality than the vertical stepper. See{' '}
-        <a href="https://material.io/archive/guidelines/components/steppers.html#steppers-types-of-steps">
+        <a href="https://m1.material.io/components/steppers.html#steppers-types-of-steps">
           mobile steps
         </a>{' '}
         for its inspiration.

@@ -25,11 +25,11 @@ function SpeedDialDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Speed dial
+        Speed Dial
       </Typography>
       <Typography className="description">
         When pressed, a floating action button can display three to six related actions in the form
-        of a speed dial.
+        of a Speed Dial.
       </Typography>
 
       <Typography className="mb-40" component="div">

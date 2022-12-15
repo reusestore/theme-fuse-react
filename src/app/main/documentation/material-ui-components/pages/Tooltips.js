@@ -110,14 +110,18 @@ function TooltipsDoc(props) {
         {` 
 const MyComponent = React.forwardRef(function MyComponent(props, ref) {
   //  Spread the props to the underlying DOM element.
-  return <div {...props} ref={ref}>Bin</div>
+  return (
+    <div {...props} ref={ref}>
+      Bin
+    </div>
+  );
 });
 
 // ...
 
 <Tooltip title="Delete">
-  <MyComponent>
-</Tooltip>
+  <MyComponent />
+</Tooltip>;
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">
@@ -137,9 +141,13 @@ class MyComponent extends React.Component {
   render() {
     const { innerRef, ...props } = this.props;
     //  Spread the props to the underlying DOM element.
-    return <div {...props} ref={innerRef}>Bin</div>
+    return (
+      <div {...props} ref={innerRef}>
+        Bin
+      </div>
+    );
   }
-};
+}
 
 // Wrap MyComponent to forward the ref as expected by Tooltip
 const WrappedMyComponent = React.forwardRef(function WrappedMyComponent(props, ref) {
@@ -149,8 +157,8 @@ const WrappedMyComponent = React.forwardRef(function WrappedMyComponent(props, r
 // ...
 
 <Tooltip title="Delete">
-  <WrappedMyComponent>
-</Tooltip>
+  <WrappedMyComponent />
+</Tooltip>;
 `}
       </FuseHighlight>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -233,7 +241,7 @@ const WrappedMyComponent = React.forwardRef(function WrappedMyComponent(props, r
         disabled elements, add a simple wrapper element, such as a <code>span</code>.
       </Typography>
       <Typography className="mb-40" component="div">
-        :::warning ⚠️ In order to work with Safari, you need at least one display block or flex item
+        :::warning In order to work with Safari, you need at least one display block or flex item
         below the tooltip wrapper. :::
       </Typography>
       <Typography className="mb-40" component="div">

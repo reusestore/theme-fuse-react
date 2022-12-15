@@ -3,15 +3,21 @@ import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineContent, { timelineContentClasses } from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 
 export default function OppositeContentTimeline() {
   return (
-    <Timeline position="alternate">
+    <Timeline
+      sx={{
+        [`& .${timelineContentClasses.root}`]: {
+          flex: 0.2,
+        },
+      }}
+    >
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color="textSecondary">
           09:30 am
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -21,34 +27,13 @@ export default function OppositeContentTimeline() {
         <TimelineContent>Eat</TimelineContent>
       </TimelineItem>
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color="textSecondary">
           10:00 am
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot />
-          <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>Code</TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
-          12:00 am
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>Sleep</TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
-          9:00 am
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>Repeat</TimelineContent>
       </TimelineItem>
     </Timeline>
   );

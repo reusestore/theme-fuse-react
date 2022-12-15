@@ -25,10 +25,10 @@ function TransferListDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Transfer list
+        Transfer List
       </Typography>
       <Typography className="description">
-        A transfer list (or "shuttle") enables the user to move one or more list items between
+        A Transfer List (or "shuttle") enables the user to move one or more list items between
         lists.
       </Typography>
 

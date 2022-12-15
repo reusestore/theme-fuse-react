@@ -148,7 +148,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
         </li>
       </ol>
       <Typography className="mb-40" component="div">
-        :::warning ⚠️ These two states are isolated, they should be controlled independently. :::
+        :::warning These two states are isolated, and should be controlled independently. :::
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -182,8 +182,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
         />
       </Typography>
       <Typography className="mb-40" component="div">
-        :::warning ⚠️ Be careful when using the free solo mode with non-string options, as it may
-        cause type mismatch.
+        :::warning Be careful when using the free solo mode with non-string options, as it may cause
+        type mismatch.
       </Typography>
       <Typography className="mb-40" component="div">
         The value created by typing into the textbox is always a string, regardless of the type of
@@ -247,6 +247,31 @@ const options = ['The Godfather', 'Pulp Fiction'];
           iframe={false}
           component={require('../components/autocomplete/Grouped.js').default}
           raw={require('!raw-loader!../components/autocomplete/Grouped.js')}
+        />
+      </Typography>
+      <Typography className="mb-40" component="div">
+        To control how the groups are rendered, provide a custom <code>renderGroup</code> prop. This
+        is a function that accepts an object with two fields:
+      </Typography>
+      <ul>
+        <li>
+          <code>group</code>—a string representing a group name
+        </li>
+        <li>
+          <code>children</code>—a collection of list items that belong to the group
+        </li>
+      </ul>
+      <Typography className="mb-40" component="div">
+        The following demo shows how to use this prop to define custom markup and override the
+        styles of the default groups:
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="RenderGroup.js"
+          className="my-24"
+          iframe={false}
+          component={require('../components/autocomplete/RenderGroup.js').default}
+          raw={require('!raw-loader!../components/autocomplete/RenderGroup.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -387,8 +412,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
         />
       </Typography>
       <Typography className="mb-40" component="div">
-        :::warning ⚠️ Before you can start using the Google Maps JavaScript API and Places API, you
-        must sign up and create a billing account. :::
+        :::error Before you can start using the Google Maps JavaScript API and Places API, you must
+        sign up and create a billing account. :::
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Multiple values

@@ -28,8 +28,8 @@ function CssBaselineDoc(props) {
         CSS Baseline
       </Typography>
       <Typography className="description">
-        MUI provides a CssBaseline component to kickstart an elegant, consistent, and simple
-        baseline to build upon.
+        The CssBaseline component helps to kickstart an elegant, consistent, and simple baseline to
+        build upon.
       </Typography>
 
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -129,7 +129,7 @@ export default function MyApp() {
         Scrollbars
       </Typography>
       <Typography className="mb-40" component="div">
-        :::error This API is deprecated, consider using <a href="#color-scheme">color-scheme</a>{' '}
+        :::error This API is deprecated. Consider using <a href="#color-scheme">color-scheme</a>{' '}
         instead. :::
       </Typography>
       <Typography className="mb-40" component="div">
@@ -185,7 +185,7 @@ const theme = createTheme({
           No base font-size is declared on the <code>{`<html>`}</code>, but 16px is assumed (the
           browser default). You can learn more about the implications of changing the{' '}
           <code>{`<html>`}</code> default font size in{' '}
-          <a href="/material-ui/customization/typography/#typography-html-font-size">
+          <a href="/material-ui/customization/typography/#html-font-size">
             the theme documentation
           </a>{' '}
           page.
@@ -204,7 +204,7 @@ const theme = createTheme({
       </Typography>
       <Typography className="mb-40" component="div">
         Head to the{' '}
-        <a href="/material-ui/customization/how-to-customize/#5-global-css-override">
+        <a href="/material-ui/customization/how-to-customize/#4-global-css-override">
           global customization
         </a>{' '}
         section of the documentation to change the output of these components.

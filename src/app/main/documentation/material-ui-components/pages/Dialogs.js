@@ -194,7 +194,7 @@ function DialogsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         You may make a dialog responsively full screen using{' '}
-        <a href="/material-ui/react-use-media-query/#usemediaquery">
+        <a href="/material-ui/react-use-media-query/">
           <code>useMediaQuery</code>
         </a>
         .

@@ -469,6 +469,16 @@ module.exports = {
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
     },
+    aria: {
+      checked: 'checked="true"',
+      disabled: 'disabled="true"',
+      expanded: 'expanded="true"',
+      hidden: 'hidden="true"',
+      pressed: 'pressed="true"',
+      readonly: 'readonly="true"',
+      required: 'required="true"',
+      selected: 'selected="true"',
+    },
     aspectRatio: {
       auto: 'auto',
       square: '1 / 1',
@@ -679,7 +689,10 @@ module.exports = {
       '2xl': '0 25px 25px rgba(0, 0, 0, 0.15)',
       none: '0 0 #0000',
     },
-    fill: ({ theme }) => theme('colors'),
+    fill: ({ theme }) => ({
+      none: 'none',
+      ...theme('colors'),
+    }),
     grayscale: {
       0: '0',
       DEFAULT: '100%',
@@ -1097,6 +1110,9 @@ module.exports = {
       ...theme('spacing'),
       full: '100%',
       screen: '100vh',
+      min: 'min-content',
+      max: 'max-content',
+      fit: 'fit-content',
     }),
     minWidth: ({ theme }) => ({
       ...theme('spacing'),

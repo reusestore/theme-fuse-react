@@ -25,10 +25,10 @@ function ImageListDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Image list
+        Image List
       </Typography>
       <Typography className="description">
-        Image lists display a collection of images in an organized grid.
+        The Image List displays a collection of images in an organized grid.
       </Typography>
 
       <Typography className="mb-40" component="div">

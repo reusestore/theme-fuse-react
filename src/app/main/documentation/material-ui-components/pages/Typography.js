@@ -34,7 +34,7 @@ function TypographyDoc(props) {
 
       <Typography className="mb-40" component="div">
         Too many type sizes and styles at once can spoil any layout. A{' '}
-        <a href="https://material.io/design/typography/#type-scale">typographic scale</a> has a
+        <a href="https://m2.material.io/design/typography/#type-scale">typographic scale</a> has a
         limited set of type sizes that work well together along with the layout grid.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

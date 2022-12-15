@@ -156,9 +156,9 @@ function MasonryDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         :::info
-        <strong>Note</strong>: <code>defaultHeight</code> should be large enough to render all rows.
-        Also, it is worth mentioning that items are not added to the shortest column in case of
-        server-side rendering. :::
+        <code>defaultHeight</code> should be large enough to render all rows. Also, it is worth
+        mentioning that items are not added to the shortest column in case of server-side rendering.
+        :::
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

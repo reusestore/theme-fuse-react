@@ -253,7 +253,7 @@ import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
       <Typography className="mb-40" component="div">
         You can set prop values to change when a given breakpoint is active. For instance, we can
         implement Material Design&#39;s{' '}
-        <a href="https://material.io/design/layout/responsive-layout-grid.html">recommended</a>{' '}
+        <a href="https://m2.material.io/design/layout/responsive-layout-grid.html">recommended</a>{' '}
         responsive layout grid, as seen in the following demo:
       </Typography>
       <Typography className="mb-40" component="div">

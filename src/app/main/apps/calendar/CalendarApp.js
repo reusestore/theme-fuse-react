@@ -1,5 +1,4 @@
 import { styled, useTheme } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,9 +7,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import _ from '@lodash';
-import clsx from 'clsx';
-import { Box } from '@mui/system';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import CalendarHeader from './CalendarHeader';
 import EventDialog from './dialogs/event/EventDialog';
@@ -25,6 +21,7 @@ import {
 import { getLabels, selectLabels } from './store/labelsSlice';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
 import CalendarAppSidebar from './CalendarAppSidebar';
+import CalendarAppEventContent from './CalendarAppEventContent';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& a': {
@@ -146,24 +143,6 @@ function CalendarApp(props) {
     dispatch(openEditEventDialog(clickInfo));
   };
 
-  function renderEventContent(eventInfo) {
-    const labelId = eventInfo.event.extendedProps.label;
-    const label = _.find(labels, { id: labelId });
-
-    return (
-      <Box
-        sx={{
-          backgroundColor: label?.color,
-          color: label && theme.palette.getContrastText(label?.color),
-        }}
-        className={clsx('flex items-center w-full rounded-4 px-8 py-2 h-22 text-white')}
-      >
-        <Typography className="text-12 font-semibold">{eventInfo.timeText}</Typography>
-        <Typography className="text-12 px-4 truncate">{eventInfo.event.title}</Typography>
-      </Box>
-    );
-  }
-
   const handleDates = (rangeInfo) => {
     setCurrentDate(rangeInfo);
   };
@@ -201,7 +180,7 @@ function CalendarApp(props) {
             datesSet={handleDates}
             select={handleDateSelect}
             events={events}
-            eventContent={renderEventContent}
+            eventContent={(eventInfo) => <CalendarAppEventContent eventInfo={eventInfo} />}
             eventClick={handleEventClick}
             eventAdd={handleEventAdd}
             eventChange={handleEventChange}

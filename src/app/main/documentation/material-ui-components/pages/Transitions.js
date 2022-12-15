@@ -34,7 +34,7 @@ function TransitionsDoc(props) {
 
       <Typography className="mb-40" component="div">
         MUI provides transitions that can be used to introduce some basic{' '}
-        <a href="https://material.io/design/motion/">motion</a> to your applications.
+        <a href="https://m2.material.io/design/motion/">motion</a> to your applications.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Collapse
@@ -181,7 +181,7 @@ const MyComponent = React.forwardRef((props, ref) {
 export default Main() {
   return (
     <Fade>
-      {/* MyComponent must the only child */}
+      {/* MyComponent must be the only child */}
       <MyComponent />
     </Fade>
   );

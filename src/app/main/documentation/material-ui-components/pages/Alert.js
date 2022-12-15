@@ -34,7 +34,7 @@ function AlertDoc(props) {
 
       <Typography className="mb-40" component="div">
         <strong>Note:</strong> This component is not documented in the{' '}
-        <a href="https://material.io/">Material Design guidelines</a>, but MUI supports it.
+        <a href="https://m2.material.io/">Material Design guidelines</a>, but MUI supports it.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Basic alerts

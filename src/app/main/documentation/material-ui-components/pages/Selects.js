@@ -102,7 +102,7 @@ function SelectsDoc(props) {
         />
       </Typography>
       <Typography className="mb-40" component="div">
-        :::warning ⚠ Note that when using FormControl with the outlined variant of the Select, you
+        :::warning Note that when using FormControl with the outlined variant of the Select, you
         need to provide a label in two places: in the InputLabel component and in the{' '}
         <code>label</code> prop of the Select component (see the above demo). :::
       </Typography>

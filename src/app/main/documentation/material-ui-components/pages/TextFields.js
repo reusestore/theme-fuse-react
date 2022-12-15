@@ -26,9 +26,9 @@ function TextFieldsDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        Text field
+        Text Field
       </Typography>
-      <Typography className="description">Text fields let users enter and edit text.</Typography>
+      <Typography className="description">Text Fields let users enter and edit text.</Typography>
 
       <Typography className="mb-40" component="div">
         Text fields allow users to enter text into a UI. They typically appear in forms and dialogs.
@@ -52,7 +52,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <strong>Note:</strong> The standard variant of the <code>TextField</code> is no longer
-        documented in the <a href="https://material.io/">Material Design guidelines</a>(
+        documented in the <a href="https://m2.material.io/">Material Design guidelines</a>(
         <a href="https://medium.com/google-design/the-evolution-of-material-designs-text-fields-603688b3fe03">
           here&#39;s why
         </a>

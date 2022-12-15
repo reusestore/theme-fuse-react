@@ -26,10 +26,10 @@ function AppBarDoc(props) {
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
-        App bar
+        App Bar
       </Typography>
       <Typography className="description">
-        The App bar displays information and actions relating to the current screen.
+        The App Bar displays information and actions relating to the current screen.
       </Typography>
 
       <Typography className="mb-40" component="div">
@@ -250,7 +250,7 @@ function App() {
         Back to top
       </Typography>
       <Typography className="mb-40" component="div">
-        A floating action buttons appears on scroll to make it easy to get back to the top of the
+        A floating action button appears on scroll to make it easy to get back to the top of the
         page.
       </Typography>
       <Typography className="mb-40" component="div">
@@ -320,9 +320,9 @@ function HideOnScroll(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         Following the{' '}
-        <a href="https://material.io/design/color/dark-theme.html">Material Design guidelines</a>,
-        the <code>color</code> prop has no effect on the appearance of the app bar in dark mode. You
-        can override this behavior by setting the <code>enableColorOnDark</code> prop to{' '}
+        <a href="https://m2.material.io/design/color/dark-theme.html">Material Design guidelines</a>
+        , the <code>color</code> prop has no effect on the appearance of the app bar in dark mode.
+        You can override this behavior by setting the <code>enableColorOnDark</code> prop to{' '}
         <code>true</code>.
       </Typography>
       <Typography className="mb-40" component="div">
