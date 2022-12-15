@@ -13,6 +13,10 @@ const changelogData = [
       'fullcalendar updated to v6.0.0',
       'All dependency packages updated.',
     ],
+    fixedChanges: [
+      'Navbar style 3 light theme.',
+      'Performance refinements on FuseExample, FuseHighlight components, FuseSvgIcon',
+    ],
   },
   {
     version: '8.2.1',
