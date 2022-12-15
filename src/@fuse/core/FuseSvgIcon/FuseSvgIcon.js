@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { forwardRef } from 'react';
+import { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
@@ -26,27 +26,33 @@ const Root = styled(Box)(({ theme, ...props }) => ({
 }));
 
 const FuseSvgIcon = forwardRef((props, ref) => {
-  if (!props.children.includes(':')) {
-    return <Icon ref={ref} {...props} />;
-  }
-
+  const { children, size, sx, className, color } = props;
   const iconPath = props.children.replace(':', '.svg#');
 
-  return (
-    <Root
-      {...props}
-      component="svg"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 100"
-      className={clsx('shrink-0 fill-current ', props.className)}
-      ref={ref}
-      size={props.size}
-      sx={props.sx}
-      color={props.color}
-    >
-      <use xlinkHref={`assets/icons/${iconPath}`} />
-    </Root>
+  return useMemo(
+    () => (
+      <>
+        {!props.children.includes(':') ? (
+          <Icon ref={ref} {...props} />
+        ) : (
+          <Root
+            {...props}
+            component="svg"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            className={clsx('shrink-0 fill-current ', className)}
+            ref={ref}
+            size={size}
+            sx={sx}
+            color={color}
+          >
+            <use xlinkHref={`assets/icons/${iconPath}`} />
+          </Root>
+        )}
+      </>
+    ),
+    [children, ref, className, size, sx, color, iconPath]
   );
 });
 
