@@ -6,7 +6,7 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useState } fro
 import FusePageSimpleSidebarContent from './FusePageSimpleSidebarContent';
 
 const FusePageSimpleSidebar = forwardRef((props, ref) => {
-  const { open, position, variant, rootRef } = props;
+  const { open, position, variant, rootRef, sidebarWidth } = props;
 
   const [isOpen, setIsOpen] = useState(open);
 
@@ -39,6 +39,12 @@ const FusePageSimpleSidebar = forwardRef((props, ref) => {
               variant,
               position === 'left' ? 'FusePageSimple-leftSidebar' : 'FusePageSimple-rightSidebar'
             ),
+          }}
+          sx={{
+            '& .MuiPaper-root': {
+              width: sidebarWidth,
+              maxWidth: '100%',
+            },
           }}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.

@@ -233,6 +233,7 @@ const FusePageSimple = forwardRef((props, ref) => {
                 rootRef={rootRef}
                 open={props.leftSidebarOpen}
                 onClose={props.leftSidebarOnClose}
+                sidebarWidth={props.leftSidebarWidth}
               />
             )}
 
@@ -260,6 +261,7 @@ const FusePageSimple = forwardRef((props, ref) => {
                 rootRef={rootRef}
                 open={props.rightSidebarOpen}
                 onClose={props.rightSidebarOnClose}
+                sidebarWidth={props.rightSidebarWidth}
               />
             )}
           </div>
