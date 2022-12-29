@@ -2,6 +2,15 @@ import Typography from '@mui/material/Typography';
 
 const changelogData = [
   {
+    version: '8.3.0',
+    date: '2022-12-30',
+    newChanges: ['Crypto Dashboard created.'],
+    fixedChanges: [
+      'FusePageCarded Sidebar width value not applied on mobile.',
+      'FusePageSimple Sidebar width value not applied on mobile.',
+    ],
+  },
+  {
     version: '8.2.2',
     date: '2022-12-15',
     newChanges: [
